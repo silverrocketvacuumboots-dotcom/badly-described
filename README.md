@@ -23,7 +23,7 @@ public/og.png        share preview image; favicon.svg
 Nothing is deployed yet. These steps connect the GitHub repo to Cloudflare, so every push to `main` goes live the same way Boreen does.
 
 1. **Make the database.** In the Cloudflare dashboard, go to **Storage & Databases → D1 SQL Database → Create**. Name it `badly-described` and pick the location closest to most of your players. Copy its **Database ID**.
-2. **Put the ID in the config.** Replace `PASTE-YOUR-DATABASE-ID-HERE` in `wrangler.jsonc` with it and push, or send the ID to Claude to do it. The Worker creates its own tables on first use, so there's nothing else to set up in the database.
+2. **Put the ID in the config.** It goes in `wrangler.jsonc` as `database_id` (done for this game). The Worker creates its own tables on first use, so there's nothing else to set up in the database.
 3. **Connect the repo.** Go to **Workers & Pages → Create → Import a repository**, pick `badly-described`, and set:
    - Project name: `badly-described` (it must match `"name"` in `wrangler.jsonc`)
    - Build command: `node qbank/build.mjs` (so a broken question bank never goes live)

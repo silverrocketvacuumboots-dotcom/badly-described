@@ -9,9 +9,8 @@
     {
       "binding": "DB",
       "database_name": "badly-described",
-      // Paste the Database ID from Cloudflare (Storage & Databases > D1 > badly-described), or the id printed by
-      // `npx wrangler d1 create badly-described`. The Worker creates its own tables.
-      "database_id": "PASTE-YOUR-DATABASE-ID-HERE"
+      // The Database ID from Cloudflare (Storage & Databases > D1 > badly-described). The Worker creates its own tables.
+      "database_id": "fe9a5dca-5ac5-4dbc-9f12-2d5b478222a1"
     }
   ],
   // Caps how fast one connection can guess (a whole day is 7 songs plus wrong guesses).
