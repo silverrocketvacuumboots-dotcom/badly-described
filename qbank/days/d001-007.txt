@@ -1,0 +1,113 @@
+// Days 1-7. Format: see qbank/WRITING.md.
+
+# 1 Check the Forecast
+D: Woman offers to share her weather equipment
+S: Umbrella | Rihanna feat. Jay-Z | 2007 | 1441154437
+D: Meteorological event, entirely blokes
+S: It's Raining Men/Raining Men/It Is Raining Men | The Weather Girls | 1982 | 1442897218
+D: Small genius, coloured precipitation, very long guitar solo
+S: Purple Rain | Prince & The Revolution | 1984 | 1746833484
+D: Long cold winter finally ends, says George
+S: Here Comes the Sun/Here Comes Sun | The Beatles | 1969 | 1441164589
+D: Wedding goes wrong, guitarist solos outside the chapel
+S: November Rain | Guns N' Roses | 1991 | 1440896193
+D: Alarmingly cheerful woman, ground is warm
+S: Walking on Sunshine/Walking in Sunshine | Katrina and the Waves | 1983 | 1438455621
+D: Attempted arson in extremely damp conditions
+S: Set Fire to the Rain/Set Fire to Rain | Adele | 2011 | 1544491988
+
+# 2 Hello, My Name Is
+D: Sting begs a woman not to bother with the red light
+S: Roxanne | The Police | 1978 | 1440797616
+D: Woman begs a redhead not to take her man
+S: Jolene | Dolly Parton | 1973 | 1062400330
+D: Moonwalker insists the kid is not his son
+S: Billie Jean | Michael Jackson | 1982 | 269573364
+D: Clapton falls for his mate's wife, then a long piano bit
+S: Layla | Derek and the Dominos | 1970 | 1440663520
+D: Paul tells a kid not to make it bad. Na na na
+S: Hey Jude | The Beatles | 1968 | 1441133277
+D: Hands touching hands, then a whole stadium yells SO GOOD
+S: Sweet Caroline | Neil Diamond | 1969 | 1423345807
+D: Dungarees, fiddles and a too-ra-loo-ra plea
+S: Come On Eileen | Dexys Midnight Runners | 1982 | 1490914106
+
+# 3 Feeling Peckish
+D: The music dies, the levee is dry, a Chevy is involved
+S: American Pie/Bye Bye Miss American Pie | Don McLean | 1971 | 724850320
+D: Ex-boy-bander craves a sweet summer fruit
+S: Watermelon Sugar | Harry Styles | 2019 | 1485802967
+D: Her dairy drink brings every boy to the yard
+S: Milkshake/Milk Shake | Kelis | 2003 | 275133804
+D: Cartoon band calls its sweetheart honey and candy
+S: Sugar, Sugar/Sugar Sugar/Sugar | The Archies | 1969 | 1412839444
+D: Lennon recalls a Liverpool garden he played in. Eternally
+S: Strawberry Fields Forever/Strawberry Fields | The Beatles | 1967 | 6818182087
+D: Surfer suggests staying in for a fruity breakfast
+S: Banana Pancakes | Jack Johnson | 2005 | 1440857795
+D: Joe Jonas fancies a seaside dessert
+S: Cake by the Ocean | DNCE | 2015 | 1442966499
+
+# 4 Lost in Space
+D: Ground control loses touch with Major Tom
+S: Space Oddity | David Bowie | 1969 | 1016484326
+D: Lonely astronaut misses his wife. It'll be a long, long time
+S: Rocket Man/Rocketman | Elton John | 1972 | 1440910931
+D: Sting takes giant steps in low gravity
+S: Walking on the Moon | The Police | 1979 | 1440744171
+D: Falsetto about a cosmic void. Vampires play baseball to it
+S: Supermassive Black Hole/Super Massive Black Hole | Muse | 2006 | 992221997
+D: Andy Kaufman tribute that asks if the landings were faked
+S: Man on the Moon | R.E.M. | 1992 | 1440950057
+D: Grey spell ends, man extremely excited about the weather
+S: Mr. Blue Sky/Mister Blue Sky/Blue Sky | Electric Light Orchestra | 1977 | 1054525017
+D: Slowly walking down the hall, faster than a cannonball
+S: Champagne Supernova | Oasis | 1995 | 1517447869
+
+# 5 Wildlife Documentary
+D: Rocky III training montage about a big cat's stare
+S: Eye of the Tiger | Survivor | 1982 | 254685026
+D: Synth-pop chaps in a Sri Lankan jungle, starving like a canine
+S: Hungry Like the Wolf | Duran Duran | 1982 | 693610779
+D: The King says you never caught a rabbit
+S: Hound Dog | Elvis Presley | 1956 | 1106775095
+D: Boy George sings about a colour-changing lizard
+S: Karma Chameleon | Culture Club | 1983 | 724204821
+D: Pianist nostalgic for a dance named after a reptile
+S: Crocodile Rock | Elton John | 1972 | 1440926343
+D: Urgent investigation into who freed the pooches. Woof
+S: Who Let the Dogs Out | Baha Men | 2000 | 723351644
+D: Big cat naps in the jungle. A-wimoweh
+S: The Lion Sleeps Tonight/Lion Sleeps Tonight/Wimoweh | The Tokens | 1961 | 534533704
+
+# 6 Last Dance at the Wedding
+D: Spell it out with your arms. Cheap rooms at a gym
+S: Y.M.C.A./YMCA | Village People | 1978 | 1443926626
+D: Swedish ode to a seventeen-year-old on the dance floor
+S: Dancing Queen | ABBA | 1976 | 1440820267
+D: Do you remember the 21st night of the ninth month?
+S: September | Earth, Wind & Fire | 1978 | 1456446747
+D: So hot that someone calls the police and the fireman
+S: Uptown Funk | Mark Ronson feat. Bruno Mars | 2014 | 943946671
+D: Optimistic forecast: tonight's gonna be good. Mazel tov!
+S: I Gotta Feeling/I've Got a Feeling/I Got a Feeling/Gotta Feeling | Black Eyed Peas | 2009 | 1440769310
+D: Posh Brit warns she'll kill the disco competition
+S: Murder on the Dancefloor/Murder on the Dance Floor | Sophie Ellis-Bextor | 2001 | 1890361170
+D: Yahoo! A basic party invitation, set to funk
+S: Celebration | Kool & the Gang | 1980 | 1444107530
+
+# 7 Colour Me In
+D: Man stares at the stars, decides they're custard-coloured
+S: Yellow | Coldplay | 2000 | 1122782283
+D: He returns to his ex. She returns to gloom
+S: Back to Black | Amy Winehouse | 2006 | 1440856228
+D: Bloke can't stop staring at a crimson frock
+S: The Lady in Red/Lady in Red | Chris de Burgh | 1986 | 1435413620
+D: Grieving man wants everything redecorated in the darkest shade
+S: Paint It Black/Paint It, Black | The Rolling Stones | 1966 | 1440745782
+D: Italian man's whole life is colour-coordinated, plus gibberish
+S: Blue (Da Ba Dee)/Blue/Da Ba Dee/Blue Da Ba Dee/I'm Blue | Eiffel 65 | 1998 | 358200264
+D: Sha la la-ing about a sweetheart's chocolate-coloured eyes
+S: Brown Eyed Girl/Brown-Eyed Girl | Van Morrison | 1967 | 1828716610
+D: Reggae lads drown their sorrows in claret
+S: Red Red Wine | UB40 | 1983 | 712446323

@@ -1,0 +1,17 @@
+{
+  "name": "badly-described",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Badly Described: a daily game of famous songs, described badly",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "questions": "node qbank/build.mjs",
+    "check-songs": "node qbank/apple.mjs check",
+    "stats": "wrangler d1 execute badly-described --remote --command \"SELECT day, SUM(n) AS players FROM counts WHERE q = 0 GROUP BY day ORDER BY day DESC LIMIT 30\""
+  },
+  "devDependencies": {
+    "wrangler": "^4.167.0"
+  }
+}

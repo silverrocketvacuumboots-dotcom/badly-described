@@ -1,0 +1,113 @@
+// Days 8-14. Format: see qbank/WRITING.md.
+
+# 8 Are We There Yet?
+D: Checkout worker plans her escape in a speedy motor
+S: Fast Car | Tracy Chapman | 1988 | 79565507
+D: Teen passes her road test, cries through the suburbs
+S: drivers license/driver's license/drivers licence/driver's licence/driving licence | Olivia Rodrigo | 2021 | 1560735480
+D: Man begs a woman to slow down her pony-named sports car
+S: Mustang Sally | Wilson Pickett | 1966 | 1067005569
+D: Freddie just wants to pedal. Bell solo
+S: Bicycle Race/Bicycle | Queen | 1978 | 6781076107
+D: People of the world, please board the affection express
+S: Love Train | The O'Jays | 1972 | 169938961
+D: Canadian says existence is basically a big road
+S: Life Is a Highway/Life's a Highway | Tom Cochrane | 1991 | 724389622
+D: Synth man feels safest locked inside his automobile
+S: Cars | Gary Numan | 1979 | 251652727
+
+# 9 It's Not You, It's Me
+D: Bodyguard ballad: dramatic pause, then THAT note
+S: I Will Always Love You | Whitney Houston | 1992 | 388151901
+D: Turns up uninvited at her ex's door, wishes him well, sort of
+S: Someone Like You | Adele | 2011 | 1544491998
+D: Seven hours and fifteen days since you left. One tear
+S: Nothing Compares 2 U/Nothing Compares to You/Nothing Compares 2 You/Nothing Compares | Sinéad O'Connor | 1990 | 1629185307
+D: First Idol winner can finally breathe now he's left
+S: Since U Been Gone/Since You Been Gone/Since You've Been Gone | Kelly Clarkson | 2004 | 275765380
+D: To the left, to the left: your stuff's in a box
+S: Irreplaceable | Beyoncé | 2006 | 296790943
+D: Turn around, bright eyes: a cardiac astronomy event
+S: Total Eclipse of the Heart/Total Eclipse | Bonnie Tyler | 1983 | 1504111288
+D: Reconciliation? Absolutely not. Like, at all. Like, seriously
+S: We Are Never Ever Getting Back Together/Never Ever Getting Back Together/We Are Never Getting Back Together | Taylor Swift | 2012 | 1440935564
+
+# 10 Roll the Credits
+D: Tin whistle on a sinking ship. Near, far, wherever
+S: My Heart Will Go On | Céline Dion | 1997 | 1481507900
+D: Nobody puts Baby in a corner. The big lift
+S: (I've Had) The Time of My Life/The Time of My Life/Time of My Life/I've Had the Time of My Life/I Had the Time of My Life | Bill Medley & Jennifer Warnes | 1987 | 560357353
+D: Small town bans dancing. Kevin Bacon objects
+S: Footloose | Kenny Loggins | 1984 | 1164757333
+D: Ice queen quits her job and builds a castle
+S: Let It Go | Idina Menzel | 2013 | 1440618281
+D: Off the deep end with a star being born
+S: Shallow | Lady Gaga & Bradley Cooper | 2018 | 1434371887
+D: Falsetto strut at exactly the right tempo for CPR
+S: Stayin' Alive/Staying Alive | Bee Gees | 1977 | 1445668462
+D: Breakfast Club fist pump as the credits roll
+S: Don't You (Forget About Me)/Don't You Forget About Me/Forget About Me | Simple Minds | 1985 | 1440773100
+
+# 11 Postcards from Abroad
+D: Blessing the rains down there. Kilimanjaro cameo
+S: Africa | Toto | 1982 | 185717604
+D: Lodging with a strict no-leaving policy
+S: Hotel California | Eagles | 1976 | 635770202
+D: Concrete jungle where dreams are made of
+S: Empire State of Mind/Empire State | Jay-Z feat. Alicia Keys | 2009 | 1440932018
+D: Her name was Lola, she was a showgirl
+S: Copacabana/Copacabana (At the Copa) | Barry Manilow | 1978 | 177408447
+D: Napoleon's defeat wins Eurovision for Sweden
+S: Waterloo | ABBA | 1974 | 1738450184
+D: Vegemite sandwich causes international incident
+S: Down Under/Land Down Under | Men at Work | 1981 | 282960968
+D: Punk warning: the river's rising and the city's drowning
+S: London Calling | The Clash | 1979 | 684811768
+
+# 12 Do the Maths
+D: Office-hours anthem. Nails tapped like a typewriter
+S: 9 to 5/Nine to Five/Working 9 to 5/9 til 5 | Dolly Parton | 1980 | 273166378
+D: Party like it's the end of the millennium
+S: 1999/Nineteen Ninety-Nine | Prince | 1982 | 1544173942
+D: Bought matching jewellery for six friends and herself
+S: 7 rings/Seven Rings | Ariana Grande | 2019 | 1450334168
+D: Got his first real six-string, played till his fingers bled
+S: Summer of '69/Summer of 69/Summer of Sixty-Nine | Bryan Adams | 1984 | 1676125928
+D: Woman must choose between a pair of royal sons
+S: Two Princes/2 Princes | Spin Doctors | 1991 | 169628364
+D: Football crowds chant the riff: oh, oh-oh-oh-oh
+S: Seven Nation Army/7 Nation Army | The White Stripes | 2003 | 1533513537
+D: Slip out the back, Jack. Make a new plan, Stan
+S: 50 Ways to Leave Your Lover/Fifty Ways to Leave Your Lover/50 Ways | Paul Simon | 1975 | 380590584
+
+# 13 Things That Go Bump
+D: Zombie choreography. Vincent Price laughs at the end
+S: Thriller | Michael Jackson | 1982 | 269573303
+D: Who you gonna call? Spook exterminators
+S: Ghostbusters/Ghost Busters | Ray Parker Jr. | 1984 | 298553998
+D: Graveyard smash: it caught on in a flash
+S: Monster Mash | Bobby "Boris" Pickett | 1962 | 1440723145
+D: Paranoid man, with Michael Jackson singing backup
+S: Somebody's Watching Me/Somebody Watching Me | Rockwell | 1984 | 1584390038
+D: Aussie rockers' road trip with an unpleasant destination
+S: Highway to Hell | AC/DC | 1979 | 574044008
+D: Ah-hoo! Shape-shifter in Soho with perfect hair
+S: Werewolves of London/Werewolf of London | Warren Zevon | 1978 | 1067013313
+D: Bum bum be-dum bum bum be-dum bum. Mind's gone wrong
+S: Disturbia | Rihanna | 2008 | 1441154571
+
+# 14 Seven Days
+D: Wishes it were the weekend already. Written by Prince
+S: Manic Monday | The Bangles | 1986 | 185868472
+D: Can't trust that day, in 60s four-part harmony
+S: Monday, Monday/Monday Monday | The Mamas & the Papas | 1966 | 1425259899
+D: Who could hang a name on you? Goodbye, gemstone girl
+S: Ruby Tuesday | The Rolling Stones | 1967 | 1440717883
+D: Robert Smith, suspiciously cheerful about the end of the week
+S: Friday I'm in Love | The Cure | 1992 | 301011936
+D: Fun, fun, fun, but which seat should she take?
+S: Friday | Rebecca Black | 2011 | 1650021644
+D: Riptide singer enjoys the weekend weather
+S: Saturday Sun | Vance Joy | 2018 | 1325861282
+D: Rain is falling, Adam Levine is cosy
+S: Sunday Morning | Maroon 5 | 2002 | 1440851735

@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "badly-described",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  // The game itself: index.html, days.js, icons. Served free; only /api/* runs the Worker.
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "badly-described",
+      // Paste the Database ID from Cloudflare (Storage & Databases > D1 > badly-described), or the id printed by
+      // `npx wrangler d1 create badly-described`. The Worker creates its own tables.
+      "database_id": "PASTE-YOUR-DATABASE-ID-HERE"
+    }
+  ],
+  // Caps how fast one connection can guess (a whole day is 7 songs plus wrong guesses).
+  // namespace_id must be different from any other Worker on the account (Boreen uses 1001).
+  "ratelimits": [
+    { "name": "PLAY_LIMIT", "namespace_id": "1002", "simple": { "limit": 60, "period": 60 } }
+  ],
+  // Nightly clean-up of old individual results.
+  "triggers": { "crons": ["41 3 * * *"] },
+  "observability": { "enabled": true }
+}
