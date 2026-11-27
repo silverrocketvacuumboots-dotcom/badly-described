@@ -1,0 +1,101 @@
+// Knebworthless '96. Format: see qbank/WRITING.md. Only ever add songs at the END of this file.
+TOUR: knebworthless96 | Knebworthless '96 | Knebworthless | Britpop, raves and trip-hop. Pick a side: north or south.
+
+D: Every busker's first number; the one that saves him, maybe
+S: Wonderwall | Oasis | 1995 | 1517447333 | 1
+D: Sally can wait; Noel sings, then a stadium finishes it for him
+S: Don't Look Back in Anger/Dont Look Back in Anger | Oasis | 1995 | 1517447336 | 1
+D: Mancunian optimist plans never to die; the video buries the drummer
+S: Live Forever | Oasis | 1994 | 1517506707 | 1
+D: Needs to be himself; knows a girl called Elsa who's into Alka-Seltzer
+S: Supersonic | Oasis | 1994 | 1517507089 | 2
+D: Is it worth the aggravation to find a job? A T. Rex riff says no
+S: Cigarettes & Alcohol/Cigarettes and Alcohol | Oasis | 1994 | 1525936204 | 2
+D: A Quadrophenia actor shouts about joggers, pigeons and morning fat
+S: Parklife | Blur | 1994 | 699606039 | 1
+D: Two minutes, one woo-hoo, played at every sporting event since
+S: Song 2/Song Two | Blur | 1997 | 726416473 | 1
+D: Package holiday where everyone's dating everyone; love in the nineties
+S: Girls & Boys/Girls and Boys | Blur | 1994 | 699665410 | 2
+D: A Clockwork Orange video; it really, really could happen
+S: The Universal | Blur | 1995 | 699617113 | 2
+D: Rich Greek art student wants to live like the poor; Jarvis declines
+S: Common People | Pulp | 1995 | 1440924223 | 1
+D: Promises to meet by the fountain down the road at the millennium
+S: Disco 2000 | Pulp | 1995 | 1440924238 | 2
+D: Jarvis asks about losing it; you said you'd never forget
+S: Do You Remember the First Time?/Do You Remember the First Time | Pulp | 1994 | 1444213149 | 3
+D: Hides in a wardrobe to watch his girlfriend's sister. Gets caught
+S: Babies | Pulp | 1992 | 1444213141 | 3
+D: Brett's hips and a title that sounds like a party drug
+S: Animal Nitrate | Suede | 1993 | 1509791808 | 2
+D: We're the litter on the breeze, says a man with a very good fringe
+S: Trash | Suede | 1996 | 1548830845 | 2
+D: Spiky riff a little too like a Wire song; the lawyers agreed
+S: Connection | Elastica | 1994 | 1443993482 | 2
+D: Three sets of sideburns sing about clean teeth and being young
+S: Alright | Supergrass | 1995 | 1437461702 | 1
+D: Lager, lager, lager, shouting, and a film about Edinburgh heroin
+S: Born Slippy .NUXX/Born Slippy/Born Slippy NUXX | Underworld | 1996 | 1443229244 | 1
+D: Man barges down a London street; the Stones got the royalties
+S: Bitter Sweet Symphony/Bittersweet Symphony | The Verve | 1997 | 1440885120 | 1
+D: Arrest this man, he talks in maths, he buzzes like a fridge
+S: Karma Police | Radiohead | 1997 | 1097861836 | 1
+D: Three songs in one: rain down, kicking, squealing Gucci little piggy
+S: Paranoid Android | Radiohead | 1997 | 1097861770 | 2
+D: A green watering can and a cracked polystyrene man who just crumbles
+S: Fake Plastic Trees | Radiohead | 1995 | 1097862845 | 2
+D: Liz Fraser sings over a heartbeat; later, a medical drama's theme
+S: Teardrop | Massive Attack | 1998 | 724466700 | 1
+D: Bristol torch song: tired of playing the role, wants a reason
+S: Glory Box | Portishead | 1994 | 1440653206 | 2
+D: Noel Gallagher sings over the loudest drums in Christendom
+S: Setting Sun | The Chemical Brothers | 1996 | 714366703 | 2
+D: Everybody needs a bosom for a pillow, in a song about a playback singer
+S: Brimful of Asha | Cornershop | 1997 | 358135470 | 1
+D: Glaswegians go gospel: getting out, getting out of here
+S: Movin' On Up/Moving On Up/Movin On Up | Primal Scream | 1991 | 302077858 | 2
+D: Festival crowds everywhere obey and sit on the muddy grass
+S: Sit Down | James | 1991 | 1443095201 | 1
+D: Baggy hit that samples a comedian shouting 'oh!'
+S: Unbelievable | EMF | 1990 | 1517591613 | 1
+D: Spiky-haired man in a tunnel scares a generation of parents
+S: Firestarter | The Prodigy | 1996 | 500162235 | 1
+D: Libraries gave us power, then work came and made us free
+S: A Design for Life | Manic Street Preachers | 1996 | 193875592 | 1
+D: A troupe dances terribly outside a cinema; nobody asked them to
+S: Praise You | Fatboy Slim | 1998 | 714928246 | 1
+D: Liverpool lounge-pop: the woman is deadlier than the man
+S: Female of the Species | Space | 1996 | 279327094 | 2
+D: Things are getting strange, she's starting to worry, like two FBI agents
+S: Mulder and Scully/Mulder & Scully | Catatonia | 1998 | 358272025 | 2
+D: Androgynous glam-punk sung through the nose; eyeliner mandatory
+S: Nancy Boy | Placebo | 1996 | 961067974 | 2
+D: Teenagers from Northern Ireland fancy someone from another planet
+S: Girl from Mars | Ash | 1995 | 1437459338 | 2
+D: Baggy Hammond organ and a bowl haircut; she's his only acquaintance
+S: The Only One I Know | The Charlatans | 1990 | 251665749 | 2
+D: Hounslow jangle, a slide guitar and a promise to come back, a bit
+S: Slight Return | The Bluetones | 1996 | 1452795248 | 3
+D: Chester band, gigantic drums, a lot of room
+S: Wide Open Space | Mansun | 1996 | 1770502871 | 3
+D: All he wants is a little love; the CD came in a pill packet
+S: Ladies and Gentlemen We Are Floating in Space/Ladies and Gentlemen/Floating in Space | Spiritualized | 1997 | 1502476617 | 3
+D: Marxist slogans, a Farfisa organ and a very fast drummer
+S: French Disko/French Disco | Stereolab | 1993 | 1419804182 | 3
+D: Reading shoegazers whisper about a girl; guitars like warm fog
+S: Alison | Slowdive | 1993 | 292885253 | 3
+D: Oxford shoegaze with a cello outro and a fading line in the sky
+S: Vapour Trail/Vapor Trail | Ride | 1990 | 1475241058 | 3
+D: A punk legend yells 'burn Hollywood burn' over a rave
+S: Open Up | Leftfield | 1993 | 1225212644 | 3
+D: Welsh psych-pop from a band that once bought a tank
+S: Something 4 the Weekend/Something for the Weekend | Super Furry Animals | 1996 | 1626519605 | 3
+D: Dad-rock with a harmonica; the record shop guy has gone for a smoke
+S: The Day We Caught the Train | Ocean Colour Scene | 1996 | 1444193799 | -1
+D: Posh psychedelic boys cover a Deep Purple cover; sitar sold separately
+S: Hush | Kula Shaker | 1997 | 1625288038 | -1
+D: Scottish man takes the weather personally; Glastonbury proved him right
+S: Why Does It Always Rain on Me?/Why Does It Always Rain on Me | Travis | 1999 | 1458139090 | -1
+D: Two comedians promise football is returning to its birthplace. It isn't
+S: Three Lions/Three Lions (Football's Coming Home)/Football's Coming Home | Baddiel, Skinner & The Lightning Seeds | 1996 | 269570034 | -1

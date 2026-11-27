@@ -58,6 +58,29 @@ node qbank/build.mjs                                              # check everyt
 node qbank/apple.mjs check                                        # check every track id still has a preview
 ```
 
+## Tour mode (beta)
+
+Tour mode lives at `/tour` (https://badly-described.theshedd.workers.dev/tour). Nothing links to it yet: add a link
+in `public/index.html` when it's ready to go public.
+
+Pick a tour, then climb 12 rungs from busking to headlining that tour's festival, one badly described song at a
+time. Three misses and the band splits, announced on Music News; then you get back in the van and try again.
+Fans and Cred build up across every run. The songs get deeper the higher you climb.
+
+```
+public/tour.html      the page: tours, runs, the spinning telly, the theme song
+public/tours.js       each tour's descriptions, hints and cred tiers, no answers (built from qbank/tours/)
+src/tourbank.js       the tour answers, kept on the server (also built)
+qbank/tours/*.txt     one tour per file, listed in file-name order
+```
+
+Tour mode stores nothing on the server: `/api/tour/guess` checks a title and `/api/tour/reveal` shows a missed song.
+Progress lives in the player's browser. To add songs or a whole tour, see `qbank/WRITING.md`.
+
+The hosts, shows, channel and events are all made-up parodies. Keep it that way: nods that people in the know will
+get, not real logos, footage or likenesses, nothing about real tragedies, and no invented incidents pinned on real,
+named people.
+
 ## Try it on your own computer
 
 ```bash

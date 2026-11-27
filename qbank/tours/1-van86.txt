@@ -1,0 +1,113 @@
+// The Van Tour '86. Format: see qbank/WRITING.md. Only ever add songs at the END of this file.
+TOUR: van86 | The Van Tour '86 | the Reading Glasses Festival | 80s indie, college radio and the van's mixtape. Bring a cardigan.
+
+D: Flat bike tyre on a hill, nothing to wear, a stranger offers a lift
+S: This Charming Man | The Smiths | 1983 | 799980295 | 1
+D: Shy man goes clubbing alone, stands alone, leaves alone, cries
+S: How Soon Is Now?/How Soon Is Now | The Smiths | 1984 | 799969782 | 1
+D: Would quite like to be flattened by a double-decker bus, as a couple
+S: There Is a Light That Never Goes Out | The Smiths | 1986 | 800157892 | 1
+D: Singer relates to Joan of Arc, specifically her melting hearing aid
+S: Bigmouth Strikes Again | The Smiths | 1986 | 800132386 | 2
+D: Bleak Mancunians discover that relationships can be difficult
+S: Love Will Tear Us Apart | Joy Division | 1980 | 996111414 | 1
+D: Dance, dance, dance to the radio. Grimly.
+S: Transmission | Joy Division | 1979 | 996111409 | 2
+D: Best-selling 12-inch ever; the floppy-disk sleeve lost money on every copy
+S: Blue Monday | New Order | 1983 | 1530256511 | 1
+D: Spinning on a dizzy edge, a cliff at night, the trick that makes him scream
+S: Just Like Heaven | The Cure | 1987 | 31739774 | 1
+D: Man laughs to hide his tears. The tears win.
+S: Boys Don't Cry/Boys Dont Cry | The Cure | 1979 | 286659245 | 1
+D: Sounds romantic, is actually about using people. Then he yells FIRE
+S: The One I Love | R.E.M. | 1987 | 1440850621 | 1
+D: Feet in the air, head on the ground; buildings fall at the end of Fight Club
+S: Where Is My Mind?/Where Is My Mind | Pixies | 1988 | 1027465608 | 1
+D: Jolly jangle about hobos riding boxcars into a big earthquake
+S: Here Comes Your Man | Pixies | 1989 | 7060447 | 1
+D: Slicing up eyeballs, in honour of a 1929 surrealist film
+S: Debaser | Pixies | 1989 | 7060439 | 2
+D: Fate up against your will, says a man with incredible hair
+S: The Killing Moon | Echo & the Bunnymen | 1984 | 251006874 | 1
+D: Man wakes up with a beautiful wife and a large automobile. Panics
+S: Once in a Lifetime | Talking Heads | 1980 | 300948073 | 1
+D: So good John Hughes named a whole film after it
+S: Pretty in Pink | The Psychedelic Furs | 1981 | 211438372 | 1
+D: Cartwheels turn to car wrecks at a goth gallop
+S: Spellbound | Siouxsie and the Banshees | 1981 | 1440764575 | 2
+D: Lost in Translation ends on it after Bill Murray whispers something
+S: Just Like Honey | The Jesus and Mary Chain | 1985 | 59414655 | 1
+D: Painful outdoor skin complaint; a bassline every student learns
+S: Blister in the Sun | Violent Femmes | 1983 | 1576789643 | 1
+D: Children by the million sing for a Big Star man
+S: Alex Chilton | The Replacements | 1987 | 290652257 | 3
+D: Minneapolis trio would rather not ask how you're doing, at full volume
+S: Don't Want to Know If You Are Lonely/Dont Want to Know If You Are Lonely/Don't Want to Know If You're Lonely | Hüsker Dü | 1986 | 282973121 | 3
+D: Spirit desire, face me; pictures J Mascis as President
+S: Teen Age Riot/Teenage Riot | Sonic Youth | 1988 | 520504456 | 2
+D: Kim Gordon vs LL Cool J, after an awkward interview
+S: Kool Thing | Sonic Youth | 1990 | 1440839413 | 2
+D: Karen pines for a long-gone guitar man; Sonic Youth later made it creepy
+S: Superstar | Carpenters | 1971 | 1423235860 | 2
+D: Bassline creeps in for a minute and a half, then a man demands worship
+S: I Wanna Be Adored/I Want to Be Adored | The Stone Roses | 1989 | 322969530 | 1
+D: Ten-minute baggy groove about prospectors who can't share the haul
+S: Fools Gold/Fool's Gold | The Stone Roses | 1989 | 322969547 | 2
+D: You're twisting my melon, man. Bez dances regardless
+S: Step On | Happy Mondays | 1990 | 1313883617 | 1
+D: Guitars like a jet engine being sick, then a whisper
+S: Only Shallow | My Bloody Valentine | 1991 | 1556921231 | 3
+D: Nobody knows what she's singing and nobody minds
+S: Heaven or Las Vegas | Cocteau Twins | 1990 | 258200075 | 2
+D: A schoolboy walks home through the sugar fields of Queensland
+S: Cattle and Cane | The Go-Betweens | 1983 | 1722452037 | 3
+D: Christmas Eve in the drunk tank; two lovers trade festive insults
+S: Fairytale of New York | The Pogues feat. Kirsty MacColl | 1987 | 189233734 | 1
+D: Wants a deal with God; dug back up by teenagers fighting monsters in 2022
+S: Running Up That Hill/Running Up That Hill (A Deal with God) | Kate Bush | 1985 | 1675560578 | 1
+D: Nine-plus minutes of echo: four Northampton students invent goth
+S: Bela Lugosi's Dead/Bela Lugosis Dead | Bauhaus | 1979 | 1434914008 | 2
+D: Mancunian shouts that he's had too much coffee; band barely keeps up
+S: Totally Wired | The Fall | 1980 | 1436064394 | 3
+D: Glasgow jangle with a squelchy synth and an urge to start again
+S: Rip It Up | Orange Juice | 1982 | 1183408281 | 2
+D: Teenage Scot jangles about being completely unaware
+S: Oblivious | Aztec Camera | 1983 | 516579467 | 2
+D: Sydney dream-pop: wishing he knew what you were looking for
+S: Under the Milky Way | The Church | 1988 | 303081981 | 2
+D: Very slow Boston trio doesn't want to go to your party
+S: Tugboat | Galaxie 500 | 1988 | 310812579 | 3
+D: A small dark room, a terrible year, a sad little souvenir
+S: Here's Where the Story Ends/Heres Where the Story Ends | The Sundays | 1990 | 1707465608 | 2
+D: Two-minute jangle that may or may not be about heroin
+S: There She Goes | The La's | 1988 | 1444167313 | 1
+D: Hull lads mock after-work drinkers in a jolly claymation video
+S: Happy Hour | The Housemartins | 1986 | 887484194 | 2
+D: Peter Fonda sample: they want to be free and have a good time
+S: Loaded | Primal Scream | 1990 | 302077868 | 2
+D: Synth-pop video where the singer refuses to mime and stares at zoo animals
+S: It's My Life/Its My Life | Talk Talk | 1984 | 695469004 | 2
+D: Warhol's hangers-on hitchhike to New York over a famous double bass
+S: Walk on the Wild Side | Lou Reed | 1972 | 976827230 | 1
+D: Sangria in the park, a zoo, a film; later a BBC charity singalong
+S: Perfect Day | Lou Reed | 1972 | 976827222 | 1
+D: Rides through the city's backside, la la la-la-la-la
+S: The Passenger | Iggy Pop | 1977 | 1440883287 | 1
+D: Street-walking cheetah with a heart full of napalm
+S: Search and Destroy | Iggy and the Stooges | 1973 | 1668188103 | 2
+D: Standing on the corner, suitcase in hand, Jack in his corset
+S: Sweet Jane | The Velvet Underground | 1970 | 1050415253 | 2
+D: Ten minutes of interlocking guitars; lightning struck itself
+S: Marquee Moon | Television | 1977 | 1049069476 | 3
+D: Shy teen asks if you'll be an ally; rock 'n' roll is here to stay
+S: Thirteen | Big Star | 1972 | 1422691933 | 3
+D: You won't be able to stay home, brother; there will be no reruns
+S: The Revolution Will Not Be Televised | Gil Scott-Heron | 1971 | 1621384500 | 2
+D: Flavor Flav and Chuck D open Spike Lee's hottest day in Brooklyn
+S: Fight the Power | Public Enemy | 1989 | 1440838444 | 1
+D: Words are very unnecessary, says a king carrying a deckchair
+S: Enjoy the Silence | Depeche Mode | 1990 | 665404759 | 1
+D: Man in a slogan T-shirt asks to be woken before departure
+S: Wake Me Up Before You Go-Go/Wake Me Up Before You Go Go | Wham! | 1984 | 193084947 | -1
+D: Ginger baritone promises unwavering loyalty; the internet weaponised it
+S: Never Gonna Give You Up | Rick Astley | 1987 | 1624945512 | -1

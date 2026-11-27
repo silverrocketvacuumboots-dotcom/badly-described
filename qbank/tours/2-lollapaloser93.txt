@@ -1,0 +1,99 @@
+// Lollapaloser '93. Format: see qbank/WRITING.md. Only ever add songs at the END of this file.
+TOUR: lollapaloser93 | Lollapaloser '93 | Lollapaloser | Flannel, feedback and second-stage cred. Sell out at your peril.
+
+D: Named after a deodorant; the cheerleaders have anarchy tattoos
+S: Smells Like Teen Spirit | Nirvana | 1991 | 1440783625 | 1
+D: Murky, watery riff; turn up however you like, he really doesn't mind
+S: Come as You Are | Nirvana | 1991 | 1440783636 | 1
+D: Spanish chorus, slide guitar, self-loathing as a career plan
+S: Loser | Beck | 1993 | 1440636710 | 1
+D: Two turntables and a microphone, says a man in a cowboy suit
+S: Where It's At/Where Its At | Beck | 1996 | 1510827398 | 2
+D: A Pixie's side project; a bassline everyone can play, sort of
+S: Cannonball | The Breeders | 1993 | 1251496094 | 1
+D: The greatest day he's ever known, says a man in an ice-cream van
+S: Today | The Smashing Pumpkins | 1993 | 721207666 | 1
+D: Billy Corgan sneers back at the indie scene that sneered at him
+S: Cherub Rock | The Smashing Pumpkins | 1993 | 721207643 | 2
+D: Suburban teens rob a convenience store, nostalgically
+S: 1979/Nineteen Seventy-Nine | The Smashing Pumpkins | 1995 | 721224621 | 1
+D: Suburban barbecue, melting faces; won't you come and wash away the rain
+S: Black Hole Sun | Soundgarden | 1994 | 1440855436 | 1
+D: B-side nobody knows the words to, possibly including the singer
+S: Yellow Ledbetter | Pearl Jam | 1992 | 400864988 | 2
+D: Nerds dropped into an episode of Happy Days
+S: Buddy Holly | Weezer | 1994 | 1890580960 | 1
+D: Finds a beer in the fridge, fears the worst about his stepdad
+S: Say It Ain't So/Say It Aint So | Weezer | 1994 | 1890580963 | 2
+D: Irish teen ballad: you've got her wrapped around your finger
+S: Linger | The Cranberries | 1993 | 6765559429 | 1
+D: Slowest song at the school disco: a slide guitar and a sigh
+S: Fade into You | Mazzy Star | 1993 | 1440848810 | 2
+D: Breakup ballad about the bassist, sung while he plays bass right behind her
+S: Don't Speak/Dont Speak | No Doubt | 1995 | 1440845557 | 1
+D: Fake moustaches, a 70s cop show and a lot of shouting
+S: Sabotage | Beastie Boys | 1994 | 724943324 | 1
+D: Ooh-ooh-ooh song mocking bands obsessed with their image
+S: Cut Your Hair | Pavement | 1994 | 1589188119 | 2
+D: So drunk in the August sun, and a little bit sad about it
+S: Gold Soundz/Gold Sounds | Pavement | 1994 | 1589188131 | 3
+D: What about the voice of Geddy Lee? How did it get so high?
+S: Stereo | Pavement | 1997 | 1589189407 | 3
+D: The tambourine man shakes it with total commitment; the singer stares
+S: Anemone | The Brian Jonestown Massacre | 1996 | 1480764755 | 3
+D: Heroin is so passé, says the other band in a famous documentary
+S: Not If You Were the Last Junkie on Earth | The Dandy Warhols | 1997 | 1668262841 | 2
+D: Two bass players, one suit and a great deal of DC sleaze
+S: Cruise Your New Baby Fly Self | Girls Against Boys | 1994 | 1120060650 | 3
+D: Oh, make me over, I'm all I want to be
+S: Celebrity Skin | Hole | 1998 | 1440905808 | 2
+D: Chicago duo can't keep the rage down, at great volume
+S: Seether | Veruca Salt | 1994 | 1440905717 | 2
+D: Scottish singer, the Nevermind producer on drums, an insult for a chorus
+S: Stupid Girl | Garbage | 1995 | 1443188901 | 1
+D: The Nirvana drummer's band, and a dream video with giant hands
+S: Everlong | Foo Fighters | 1997 | 362133505 | 1
+D: A little girl in a bee costume finds her people
+S: No Rain | Blind Melon | 1992 | 725821929 | 1
+D: J Mascis plays golf through the streets of Manhattan
+S: Feel the Pain | Dinosaur Jr. | 1994 | 1765550586 | 2
+D: A grunge catwalk show and a young Chloë Sevigny in the video
+S: Sugar Kane | Sonic Youth | 1992 | 1440833411 | 2
+D: Oscars night, a man in a white suit, and a loss to Celine Dion
+S: Miss Misery | Elliott Smith | 1997 | 1474992538 | 2
+D: Floppy-haired heartthrob covers a little-known Aussie love song
+S: Into Your Arms | The Lemonheads | 1993 | 1667958241 | 2
+D: Take your hat off when you're talking to her, says Tanya Donelly
+S: Feed the Tree | Belly | 1993 | 358058316 | 2
+D: LA grunge band suggests everyone simply ignores each other
+S: Pretend We're Dead/Pretend Were Dead | L7 | 1992 | 309736079 | 2
+D: Singing saw, fuzzy horns; how strange it is to be anything at all
+S: In the Aeroplane Over the Sea/In the Airplane Over the Sea | Neutral Milk Hotel | 1998 | 1839077573 | 3
+D: Idaho guitar epic with a title from maths homework
+S: Carry the Zero | Built to Spill | 1999 | 311570891 | 3
+D: A huge baritone almost misplaces you, on the Singles soundtrack
+S: Nearly Lost You | Screaming Trees | 1992 | 157316202 | 2
+D: All he ever wanted was to be your spine, apparently
+S: Web in Front | Archers of Loaf | 1993 | 1839155233 | 3
+D: Mandolin, angel wings, and a man in the corner, in the spotlight
+S: Losing My Religion | R.E.M. | 1991 | 1440945283 | 1
+D: Knows she's cheating, stays anyway, la-la-la-la
+S: Self Esteem | The Offspring | 1994 | 1485034811 | 1
+D: Lonely LA ballad; the city is his only friend. Snobs leave the room
+S: Under the Bridge | Red Hot Chili Peppers | 1991 | 945581840 | -1
+D: A British band out-grunges Seattle; Seattle is furious
+S: Glycerine | Bush | 1994 | 1440946422 | -1
+D: The circle of life, sung with maximum earnestness
+S: Lightning Crashes | Live | 1994 | 1440487152 | -1
+D: Chirpy doo-doo-doos about crystal meth; radio played it anyway
+S: Semi-Charmed Life | Third Eye Blind | 1997 | 271978747 | -1
+D: Dreadlocked man wants to be a big star; snobs want him to stop
+S: Mr. Jones/Mister Jones | Counting Crows | 1993 | 1442449547 | -1
+D: Best-selling album of 1995; the record shop keeps it under the counter
+S: Hold My Hand | Hootie & the Blowfish | 1994 | 296202680 | -1
+D: Rob Thomas promises to take you for granted; radio played it hourly
+S: Push | Matchbox Twenty | 1996 | 580695853 | -1
+D: Hey-ey-ey: a top hat, a huge voice, a revolution every morning
+S: What's Up?/Whats Up | 4 Non Blondes | 1992 | 1440902348 | -1
+D: She sits alone in a boggy marsh; a three-string guitar explains
+S: Lump | The Presidents of the United States of America | 1995 | 1861769246 | -1

@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tour Mode · Badly Described</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Badly Described Tour Mode: climb from busking to headlining the festival, one badly described song at a time. Three strikes and the band splits.">
+<meta name="theme-color" content="#130a1c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Bowlby+One+SC&family=Permanent+Marker&family=VT323&display=swap">
+<style>
+/* Tour Mode. One column on a late-night stage. A wood-grain telly sits in the corner and spins to the front of the
+   page for level-ups, splits and the festival; the taped setlist is the play surface. */
+:root{
+  --bg:#130a1c; --bg-2:#1f1030; --line:#3a2452; --fg:#f7eefc; --muted:#b8a3c8;
+  --pink:#ff3fa4; --cyan:#3ff0ff; --yellow:#ffe14d; --amber:#ffb84d; --blue:#1f5bff; --ok:#86dba9; --gel:#ff5c8a;
+  --paper:#eeece4; --ink:#1b161f;
+  --f-display:"Bowlby One SC","Arial Black",Impact,sans-serif;
+  --f-marker:"Permanent Marker","Comic Sans MS","Marker Felt",cursive;
+  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-osd:"VT323","Courier New",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5;overflow-x:clip;
+  background-image:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(255,63,164,.2),transparent 70%),radial-gradient(ellipse 60% 40% at 50% 105%,rgba(63,240,255,.1),transparent 70%);
+  background-attachment:fixed;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:600px;margin:0 auto;padding-block:max(18px,env(safe-area-inset-top,0px)) 44px;display:flex;flex-direction:column;gap:20px}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-size:1.25rem;line-height:1;text-decoration:none}
+.brand span{color:var(--amber)}
+.topr{display:flex;align-items:center;gap:8px}
+.pill{font-family:var(--f-osd);font-size:1.05rem;color:var(--cyan);border:1px solid var(--line);border-radius:99px;padding:0 10px}
+.tog{background:transparent;border:1.5px solid var(--line);color:var(--muted);border-radius:99px;padding:3px 11px;font-size:.78rem;font-weight:600}
+.tog[aria-pressed="true"]{color:var(--fg);border-color:var(--muted)}
+.btn{background:var(--yellow);color:#170a00;border:0;border-radius:6px;padding:13px 18px;font-weight:800}
+.btn:hover{filter:brightness(1.06)}
+.btn.wide{width:100%}
+.ghost{background:transparent;border:1.5px solid var(--line);border-radius:6px;padding:11px 15px;font-weight:600}
+.ghost:hover{border-color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 160px}
+.label{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.small{font-size:.85rem;color:var(--muted);margin:0}
+h1{font-family:var(--f-display);font-size:clamp(2rem,9vw,3rem);line-height:.95;margin:2px 0 8px;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--pink),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-family:var(--f-display);font-size:1.35rem;line-height:1.1;margin:0}
+.lede{margin:0;color:var(--muted);max-width:54ch}
+
+/* title screen */
+.deck{display:flex;align-items:center;gap:12px;background:#0b0b0b;border:1px solid #2a2a2a;border-radius:10px;padding:10px 12px}
+.deck .play{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:0;background:#f3f1ec;color:#050505;display:grid;place-items:center}
+.deck .play svg{width:16px;height:16px}
+.deck b{display:block;font-size:.95rem}
+.deck span{font-size:.8rem;color:#9a968e}
+.career{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.career div{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.career b{display:block;font-family:var(--f-display);font-size:1.3rem;color:var(--yellow);line-height:1.1;font-variant-numeric:tabular-nums}
+.rank{margin:0;font-size:.9rem}
+.rank b{color:var(--cyan)}
+.bandbox{display:flex;flex-direction:column;gap:6px}
+.bandbox div{display:flex;gap:8px}
+.bandbox input{flex:1;min-width:0;padding:11px 12px;border-radius:6px;border:1.5px solid var(--line);background:var(--bg-2);font-weight:700}
+.tours{display:flex;flex-direction:column;gap:12px}
+.tour{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.tour h3{margin:0;font-family:var(--f-display);font-size:1.2rem;line-height:1.1}
+.tour p{margin:0;color:var(--muted);font-size:.9rem}
+.tour .best{font-size:.82rem;color:var(--fg)}
+.tour .btn{margin-top:6px;align-self:flex-start}
+.how{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:5px;color:#e0d3ea;font-size:.92rem}
+
+/* run header */
+.runhead{display:flex;gap:12px;align-items:flex-start}
+.status{flex:1;min-width:0;display:flex;flex-direction:column;gap:7px}
+.status strong{display:block;font-size:1.02rem;line-height:1.2}
+.ladder{display:flex;gap:3px}
+.ladder i{flex:1;height:8px;border-radius:2px;background:var(--line)}
+.ladder i.on{background:var(--yellow)}
+.ladder i.top{background:#4a2c63}
+.ladder i.top.on{background:var(--pink)}
+.meters{display:flex;gap:12px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.meters b{color:var(--fg)}
+.strikes{font-family:var(--f-osd);font-size:1.15rem;letter-spacing:.12em;color:var(--muted)}
+.strikes b{color:var(--gel)}
+
+/* the setlist card */
+.paper{position:relative;background:var(--paper);color:var(--ink);border-radius:2px;padding:28px 20px 22px;box-shadow:0 18px 40px rgba(0,0,0,.45);transform:rotate(-.8deg)}
+.paper::before,.paper::after{content:"";position:absolute;top:-11px;width:84px;height:24px;background:rgba(190,186,176,.78);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.paper::before{left:14px;transform:rotate(-6deg)}
+.paper::after{right:14px;transform:rotate(5deg)}
+.paper .plabel{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#6d6573}
+.desc{font-family:var(--f-marker);font-size:clamp(1.6rem,6.8vw,2.25rem);line-height:1.18;margin:10px 0 4px;text-wrap:balance;overflow-wrap:anywhere}
+.hints{display:flex;gap:8px;flex-wrap:wrap;min-height:30px;margin-top:10px}
+.chip{font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:99px;border:1.5px dashed #b9b3bd;color:#8a8290}
+.chip.on{border-style:solid;border-color:var(--ink);color:var(--ink);background:rgba(255,184,77,.35)}
+.timer{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.timer i{display:block;height:100%;width:100%;background:var(--amber);transform-origin:left}
+.timer.low i{background:var(--gel)}
+.secs{font-variant-numeric:tabular-nums;font-weight:800;color:var(--muted);font-size:.85rem;text-align:right;margin:-10px 0 0}
+form.guess{display:flex;gap:8px}
+form.guess input{flex:1;min-width:0;font-size:1.05rem;padding:14px;border-radius:6px;border:1.5px solid var(--line);background:var(--bg-2)}
+form.guess input::placeholder{color:var(--muted)}
+form.guess input.no{animation:shake .32s;border-color:var(--gel)}
+form.guess.busy input{opacity:.7}
+.wrong{font-size:.85rem;color:var(--muted);min-height:1.4em;display:flex;flex-wrap:wrap;gap:4px 10px}
+.wrong s{color:var(--gel);text-decoration-thickness:2px}
+.wrong .off{color:var(--amber)}
+.pass{align-self:flex-start;background:none;border:0;padding:0;color:var(--muted);font-size:.85rem;text-decoration:underline;text-underline-offset:3px}
+@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+.answer{margin-top:14px;padding-top:14px;border-top:2px dashed #c9c3cc}
+.answer .t{font-family:var(--f-display);font-size:1.5rem;line-height:1.05;overflow-wrap:anywhere}
+.answer .a{font-weight:600;color:#4b4450}
+.verdict{display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:10px}
+.verdict.ok{background:var(--ok);color:var(--ink)}.verdict.no{background:var(--gel);color:var(--ink)}
+.finding{margin:0;color:#5d5562}
+.song{display:flex;gap:14px;align-items:center}
+.song .info{min-width:0}
+.cover{flex:0 0 80px;width:80px;height:80px;background:#d9d5cc;border-radius:3px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.player{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.85rem;color:#5d5562;flex-wrap:wrap}
+.play{border:0;background:var(--ink);color:var(--paper);border-radius:99px;padding:7px 14px;font-weight:800;font-size:.8rem;min-width:68px}
+.eq{display:flex;gap:3px;align-items:flex-end;height:18px}
+.eq i{width:4px;height:4px;background:var(--ink);border-radius:1px;animation:eq .9s ease-in-out infinite alternate;animation-play-state:paused}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.45s}.eq i:nth-child(4){animation-delay:.1s}
+.player.playing .eq i{animation-play-state:running}
+.play[hidden]+.eq{display:none}
+@keyframes eq{from{height:4px}to{height:18px}}
+/* Apple's badge, used exactly as supplied: at least 30px tall, clear space, never tilted (this row undoes the card's tilt) */
+.store{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;transform:rotate(.8deg);transform-origin:left center}
+.am{display:inline-block;line-height:0;padding:4px}
+.am img{display:block;height:40px;width:auto}
+.credit{font-size:.72rem;color:#7a7280}
+.credline{margin:12px 0 0;font-size:.86rem;font-weight:700;color:#3d3542}
+.credline.minus{color:#b3123f}
+.promo{margin:0 0 10px;font-size:.95rem;color:var(--amber);font-weight:700}
+.promo.bad{color:var(--gel)}
+
+/* results */
+.result h1{margin-bottom:4px}
+.reason{margin:0;font-family:var(--f-marker);font-size:1.25rem;line-height:1.3}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stats div{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.stats b{display:block;font-size:1.05rem}
+.recap{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.recap li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.mk{font-weight:800}
+.mk.ok{color:var(--ok)}.mk.hint{color:var(--amber)}.mk.no{color:var(--gel)}
+.recap q{font-family:var(--f-marker);quotes:none;display:block;font-size:1.02rem;line-height:1.25;overflow-wrap:anywhere}
+.recap span{font-size:.85rem;color:var(--muted)}
+.recap a{text-decoration-color:var(--line);text-underline-offset:3px}
+textarea.share{width:100%;font-size:.95rem;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:12px;resize:none}
+footer{font-size:.78rem;color:var(--muted);text-align:center}
+
+/* the telly, a 3D box */
+.dock{perspective:1000px;display:grid;justify-items:center}
+.dock.big .slot{padding-top:clamp(60px,18vw,104px);display:grid;justify-items:center;width:100%}
+.dock.mini{flex:0 0 132px;width:132px;height:128px;perspective:700px;display:block}
+.dock.mini .slot{position:relative;width:132px;height:128px}
+.tv{--w:min(88vw,420px);--h:calc(var(--w) * .72);--d:calc(var(--w) * .6);position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d}
+.dock .tv{transform:rotateY(-14deg) rotateX(4deg)}
+.dock.mini .tv{--w:300px;position:absolute;left:-4px;top:46px;transform:scale(.44) rotateY(-14deg) rotateX(4deg);transform-origin:0 0}
+.tv.ghost{visibility:hidden}
+.stage .tv{transform:none}
+.face{position:absolute;left:0;top:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.front{width:var(--w);height:var(--h);transform:translateZ(calc(var(--d) / 2))}
+.back{width:var(--w);height:var(--h);transform:rotateY(180deg) translateZ(calc(var(--d) / 2));background:repeating-linear-gradient(180deg,#1d191b 0 6px,#2a2427 6px 8px);border-radius:14px;display:grid;place-items:center}
+.back .sticker{background:#d8d2c0;color:#222;font-family:var(--f-osd);font-size:clamp(10px,2.8vw,14px);padding:.6em .8em;line-height:1.15;text-align:center;border:1px solid #888;max-width:72%}
+.left,.right{width:var(--d);height:var(--h);left:calc((var(--w) - var(--d)) / 2)}
+.left{transform:rotateY(-90deg) translateZ(calc(var(--w) / 2))}
+.right{transform:rotateY(90deg) translateZ(calc(var(--w) / 2))}
+.top,.bottom{width:var(--w);height:var(--d);top:calc((var(--h) - var(--d)) / 2)}
+.top{transform:rotateX(90deg) translateZ(calc(var(--h) / 2))}
+.bottom{transform:rotateX(-90deg) translateZ(calc(var(--h) / 2));background:#140e0c}
+.wood,.cab{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(0,0,0,.28)),repeating-linear-gradient(93deg,#5a3018 0 3px,#6d3c1e 3px 7px,#7c4624 7px 9px,#61341a 9px 14px,#8a5229 14px 15px)}
+.wood{border-radius:10px}
+.cab{position:absolute;inset:0;border-radius:18px;padding:5% 4.5% 5% 5%;display:grid;grid-template-columns:1fr 19%;gap:4%;box-shadow:inset 0 0 0 2px rgba(0,0,0,.4),inset 0 3px 0 rgba(255,255,255,.16)}
+.ant{position:absolute;left:50%;top:0;width:0;height:0;transform:translateZ(0)}
+.ant::before{content:"";position:absolute;left:-16px;top:-12px;width:32px;height:13px;border-radius:16px 16px 0 0;background:#1d1d1d}
+.ant i{position:absolute;left:-1.5px;bottom:9px;width:3px;height:calc(var(--w) * .22);background:linear-gradient(#e6e6e6,#8a8a8a);transform-origin:50% 100%;border-radius:2px}
+.ant i:first-child{transform:rotate(-28deg)}.ant i:last-child{transform:rotate(24deg)}
+.panel{display:flex;flex-direction:column;align-items:center;gap:6%;padding-top:5%;background:linear-gradient(180deg,#2c2427,#191315);border-radius:8px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)}
+.maker{font-family:var(--f-display);font-size:calc(var(--w) * .021);color:#d9c9a3;letter-spacing:.05em;text-align:center;line-height:1.05}
+.knob{width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#dcdcdc,#6b6b6b 55%,#2b2b2b);box-shadow:0 2px 3px rgba(0,0,0,.6);position:relative}
+.knob::after{content:"";position:absolute;left:47%;top:8%;width:7%;height:38%;background:#1d1d1d;border-radius:2px;transform-origin:50% 110%;transform:rotate(var(--r,20deg))}
+.grille{width:70%;flex:1;margin-bottom:14%;background:repeating-linear-gradient(180deg,#0e0a0b 0 3px,#3a3033 3px 5px);border-radius:4px}
+.led{width:10%;aspect-ratio:1;border-radius:50%;background:#3a0b0b;box-shadow:0 0 0 1px #000}
+.led.on{background:#ff3b3b;box-shadow:0 0 8px #ff3b3b}
+.screen{position:relative;overflow:hidden;background:#05030a;border-radius:16px / 20px;container-type:inline-size;box-shadow:inset 0 0 24px rgba(0,0,0,.95),0 0 0 5px #17110f,0 0 0 8px #3d2c24}
+.standby{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(90deg,#bdbdbd 0 14.3%,#bdbd00 0 28.6%,#00bdbd 0 42.9%,#00bd00 0 57.2%,#bd00bd 0 71.5%,#bd0000 0 85.8%,#0000bd 0)}
+.standby .box{background:rgba(0,0,0,.82);color:#e8ffe8;font-family:var(--f-osd);font-size:clamp(9px,5.2cqw,24px);line-height:1.05;padding:.45em .7em;text-align:center;border:2px solid #e8ffe8;max-width:88%;overflow-wrap:anywhere}
+.standby .box b{display:block;font-weight:400;color:var(--yellow)}
+.picture{position:absolute;inset:0;transform-origin:50% 50%}
+.picture canvas{display:block;width:100%;height:100%}
+.bug{position:absolute;top:5%;right:5%;font-family:var(--f-display);font-size:clamp(8px,3.1cqw,14px);color:rgba(255,255,255,.8);border:2px solid rgba(255,255,255,.6);padding:.15em .45em;border-radius:6px;letter-spacing:.04em}
+.osd{position:absolute;top:5%;left:5%;font-family:var(--f-osd);font-size:clamp(12px,5cqw,22px);color:#7dff8a;text-shadow:0 0 6px rgba(125,255,138,.8);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.35}}
+.ident{position:absolute;left:4%;right:4%;top:15%;text-align:center;font-family:var(--f-display);font-size:clamp(16px,8.6cqw,40px);line-height:.95;text-transform:uppercase;text-wrap:balance;
+  background:linear-gradient(180deg,#fff 0%,#e9edff 38%,#6a6f9e 50%,#fff 53%,#b7c2ff 76%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 0 #3a0d52) drop-shadow(0 2px 0 #2a083c) drop-shadow(0 4px 6px rgba(0,0,0,.7))}
+.ident small{display:block;font-family:var(--f-osd);font-size:.42em;letter-spacing:.14em;-webkit-text-fill-color:var(--yellow);margin-bottom:.15em}
+.lower{position:absolute;left:4%;right:4%;bottom:12%;display:flex;flex-direction:column;align-items:flex-start;gap:.25em}
+.tag{font-family:var(--f-osd);font-size:clamp(11px,4.2cqw,19px);background:var(--pink);color:#fff;padding:.05em .5em;letter-spacing:.06em}
+.tag.chet{background:var(--blue)}
+.cap{margin:0;background:rgba(5,2,12,.8);color:#fff;font-weight:800;font-size:clamp(11px,4.1cqw,19px);line-height:1.22;padding:.35em .55em;min-height:2.75em;width:100%}
+.ticker{position:absolute;left:0;right:0;bottom:0;height:9%;background:var(--yellow);color:#120a00;font-family:var(--f-osd);font-size:clamp(11px,4.6cqw,20px);white-space:nowrap;overflow:hidden;display:flex;align-items:center}
+.ticker span{display:inline-block;padding-left:100%;animation:tick 18s linear infinite}
+@keyframes tick{to{transform:translateX(-100%)}}
+.win{position:absolute;left:7%;right:7%;top:11%;background:#c3c3c3;color:#000;border:2px solid;border-color:#fff #555 #555 #fff;box-shadow:3px 3px 0 rgba(0,0,0,.55);font-family:var(--f-osd);font-size:clamp(11px,4.3cqw,20px);line-height:1.05}
+.win .tb{display:flex;justify-content:space-between;background:linear-gradient(90deg,#000080,#1084d0);color:#fff;padding:.12em .4em}
+.win .wb{padding:.45em .6em .55em}
+.win p{margin:.25em 0 0}
+.steps{position:relative;display:grid;grid-template-columns:repeat(13,1fr);align-items:end;gap:2px;height:5.4em;border-bottom:2px solid #555;margin-top:1.3em}
+.steps i{display:block;background:#8a8a8a;border:1px solid #555}
+.steps i.on{background:#000080}
+.steps i.now{background:var(--pink)}
+.you{position:absolute;transform:translate(-50%,-2px);white-space:nowrap;font-size:.9em;transition:left 1.1s cubic-bezier(.3,1.5,.5,1),bottom 1.1s cubic-bezier(.3,1.5,.5,1)}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(0,0,0,.3) 0 1px,transparent 1px 3px);animation:flick .12s steps(2) infinite}
+@keyframes flick{50%{opacity:.82}}
+.glass{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse 60% 40% at 30% 18%,rgba(255,255,255,.14),transparent 60%),radial-gradient(ellipse at center,transparent 58%,rgba(0,0,0,.6) 100%)}
+.beam{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;transform:scale(0,.006)}
+.stage{position:fixed;inset:0;z-index:40;display:grid;place-items:center;perspective:1100px;background:rgba(9,4,16,.86);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.fly{transform-style:preserve-3d}
+.skip{position:fixed;z-index:41;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:99px;padding:8px 16px;font-weight:700}
+@media (max-width:420px){.career b{font-size:1.1rem}.dock.mini{flex-basis:112px;width:112px}.dock.mini .slot{width:112px}.dock.mini .tv{transform:scale(.38) rotateY(-14deg) rotateX(4deg);top:44px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.you{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./">Badly <span>Described</span></a>
+    <span class="topr"><span class="pill">TOUR · BETA</span><button class="tog" id="t-sound" type="button" aria-pressed="true">Sound on</button></span>
+  </header>
+
+  <main>
+    <section id="v-title" style="display:flex;flex-direction:column;gap:18px">
+      <div>
+        <h1>The long road to <em>the festival</em></h1>
+        <p class="lede">Name badly described songs to climb from busking to headlining. Every one you get moves you up a rung. Three misses and the band splits, live on Music News. Then you get back in the van and try again.</p>
+      </div>
+      <div class="dock big"><div class="slot" id="slot-title"></div></div>
+      <div class="deck">
+        <button class="play" id="theme-play" type="button" aria-label="Play the theme song"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="theme-icon" d="M7 4l13 8-13 8z" fill="currentColor"/></svg></button>
+        <div><b>Sunglasses Indoors</b><span id="theme-sub">The theme. Drum machine, fuzz, feedback, tambourine.</span></div>
+      </div>
+      <div class="career">
+        <div><span class="label">Fans</span><b id="c-fans">0</b></div>
+        <div><span class="label">Cred</span><b id="c-cred">0</b></div>
+        <div><span class="label">Headlined</span><b id="c-wins">0</b></div>
+      </div>
+      <p class="rank" id="c-rank"></p>
+      <div class="bandbox">
+        <label class="label" for="band">Your band</label>
+        <div><input id="band" maxlength="32" autocomplete="off" spellcheck="false"><button class="ghost" id="reroll" type="button" style="flex:0 0 auto">New name</button></div>
+      </div>
+      <h2>Pick a tour</h2>
+      <div class="tours" id="tours"></div>
+      <h2>How it works</h2>
+      <ul class="how">
+        <li>12 rungs from busking to headlining. Every song you get moves you up one.</li>
+        <li>25 seconds a song. The decade shows at 12 seconds, the first letter at 6.</li>
+        <li>Three misses and the band splits. Passing counts as a miss.</li>
+        <li><b>Fans</b>: 100 a song, plus 50 with no hints and 25 for under 8 seconds. <b>Cred</b>: deep cuts earn it; knowing the really obvious ones costs it.</li>
+        <li>The higher you climb, the deeper the cuts.</li>
+      </ul>
+    </section>
+
+    <section id="v-run" hidden style="display:flex;flex-direction:column;gap:16px">
+      <div class="runhead">
+        <div class="status">
+          <span class="label" id="r-tour"></span>
+          <strong id="r-rung"></strong>
+          <div class="ladder" id="r-ladder" aria-hidden="true"></div>
+          <div class="meters"><span>Fans <b id="r-fans">0</b></span><span>Cred <b id="r-cred">0</b></span><span class="strikes" id="r-strikes"></span></div>
+        </div>
+        <div class="dock mini"><div class="slot" id="slot-run"></div></div>
+      </div>
+      <div class="paper">
+        <div class="plabel" id="p-label"></div>
+        <div class="desc" id="p-desc"></div>
+        <div class="hints"><span class="chip" id="h1"></span><span class="chip" id="h2"></span></div>
+        <div id="reveal"></div>
+      </div>
+      <div class="timer" id="q-timer"><i id="q-bar"></i></div>
+      <p class="secs" id="q-secs" aria-hidden="true">25</p>
+      <form class="guess" id="q-form" autocomplete="off">
+        <input id="q-in" aria-label="Song title" placeholder="Name the song" enterkeyhint="go" autocapitalize="off" autocomplete="off" spellcheck="false" maxlength="100">
+        <button class="btn" type="submit">Guess</button>
+      </form>
+      <div class="wrong" id="q-wrong" aria-live="polite"></div>
+      <button class="pass" id="q-pass" type="button">Pass (counts as a miss)</button>
+      <div id="after"></div>
+      <button class="pass" id="r-quit" type="button">Abandon this tour</button>
+    </section>
+
+    <section id="v-result" hidden class="result" style="display:flex;flex-direction:column;gap:16px">
+      <div><span class="label" id="x-tour"></span><h1 id="x-head"></h1><p class="reason" id="x-reason"></p></div>
+      <div class="stats" id="x-stats"></div>
+      <div class="row"><button class="btn" id="x-again" type="button">Get back in the van</button><button class="ghost" id="x-share" type="button">Share</button></div>
+      <textarea class="share" id="x-text" rows="6" readonly hidden aria-label="Result to copy"></textarea>
+      <h2>The setlist</h2>
+      <ul class="recap" id="x-recap"></ul>
+      <button class="ghost" id="x-tours" type="button">Pick another tour</button>
+    </section>
+  </main>
+  <footer>Beta. Song previews courtesy of iTunes. Every show, channel, event and host is a made-up parody.</footer>
+</div>
+
+<!-- the telly (one of it: it moves between the title screen, the corner of the run screen and the front of the page) -->
+<div hidden>
+  <div class="tv" id="tv" aria-hidden="true">
+    <div class="ant"><i></i><i></i></div>
+    <div class="face front">
+      <div class="cab">
+        <div class="screen">
+          <div class="standby" id="standby"><div class="box">CH 07 · <span id="sb-title">TOUR MODE</span><b id="sb-line">PICK A TOUR</b><span id="sb-sub"></span></div></div>
+          <div class="picture" id="picture" hidden>
+            <canvas id="cv" width="480" height="360"></canvas>
+            <div class="osd">PLAY ▶</div>
+            <div class="bug">MUSIC TELLY</div>
+            <div class="ident" id="ident" hidden></div>
+            <div class="lower" id="lower" hidden><span class="tag" id="tag"></span><p class="cap" id="cap" aria-live="polite"></p></div>
+            <div class="win" id="win" hidden><div class="tb"><span>CAREER.EXE</span><span>_ □ ×</span></div><div class="wb"><div class="steps" id="steps"></div><p id="w-1"></p><p id="w-2"></p></div></div>
+            <div class="ticker" id="ticker" hidden><span>DRUMMER ARRIVES ON TIME, SCIENTISTS BAFFLED ✦ BAND ANNOUNCES SIXTH "FINAL" FAREWELL TOUR ✦ SHOULDER PADS DECLARED BACK, AGAIN ✦ KEYTAR SALES UP 900% ✦ ROADIE FINDS LONG-LOST PLECTRUM ✦ LOCAL MAN STILL REWINDING CASSETTE WITH A PENCIL ✦</span></div>
+          </div>
+          <div class="scan"></div><div class="glass"></div><div class="beam" id="beam"></div>
+        </div>
+        <div class="panel"><span class="maker">DIAL-O-<br>MATIC 85</span><i class="knob" style="--r:-30deg"></i><i class="knob" style="--r:40deg"></i><div class="grille"></div><i class="led" id="led"></i></div>
+      </div>
+    </div>
+    <div class="face back"><div class="sticker">DIAL-O-MATIC 85<br>NO USER-SERVICEABLE PARTS INSIDE.<br>DO NOT STACK CASSETTES ON TOP.</div></div>
+    <div class="face left wood"></div><div class="face right wood"></div><div class="face top wood"></div><div class="face bottom"></div>
+  </div>
+</div>
+<div class="stage" id="stage" hidden><div class="fly" id="fly"></div></div>
+<button class="skip" id="skip" type="button" hidden>Skip ⏭</button>
+
+<script src="tours.js"></script>
+<script>
+{
+const TOURS = Array.isArray(window.BD_TOURS) ? window.BD_TOURS : [];
+const QT = 25000, H1 = 12000, H2 = 6000, STRIKES = 3, API = 'api/';
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => Math.round(n).toLocaleString('en');
+const signed = n => (n > 0 ? '+' : n < 0 ? '−' : '') + fmt(Math.abs(n));
+const LS = { get(k){ try { return JSON.parse(localStorage.getItem('bd:tour:' + k)); } catch (e) { return null; } },
+             set(k, v){ try { localStorage.setItem('bd:tour:' + k, JSON.stringify(v)); } catch (e) {} } };
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pick = a => a[Math.floor(Math.random() * a.length)];
+
+/* ---------- the ladder ---------- */
+const tvLine = (host, show, pal, line, say) => ({host, show, pal, line, say});
+const RUNGS = [
+  {name:'Busking outside the station'},
+  {name:'Open mic night', promo:'Someone clapped. On purpose.'},
+  {name:'Tuesday at a dive bar', promo:"The bartender knows your name. It's 'Oi, you'."},
+  {name:'Community radio session', tv:tvLine('vince', 'Graveyard Shift FM', 'radio', 'Live on air! Right between the t-t-tide times and a lost cat!', 'Live on air! Right between the tide times and a lost cat!')},
+  {name:'Pub residency', promo:'Free chips. FREE CHIPS.'},
+  {name:'Support slot', promo:'The headliner has learned your name. He got it slightly wrong.'},
+  {name:'Total Request Countdown', tv:tvLine('vince', 'Total Request Countdown', 'countdown', 'Number n-n-nine with a bullet! Screaming teenagers at the studio w-w-window!', 'Number nine with a bullet! Screaming teenagers at the studio window!')},
+  {name:'The unplugged special', promo:'Same songs, sitting on stools, with candles. So moving.'},
+  {name:'Festival side stage', promo:'Thousands saw your set, mostly while queueing for the toilets.'},
+  {name:'The Video Music Awkwards', tv:tvLine('chet', 'Video Music Awkwards', 'gold', 'An eleven-minute acceptance speech. The orchestra played you off twice.', 'An eleven minute acceptance speech. The orchestra played you off twice.')},
+  {name:'Main stage', promo:"Lighters. Phone torches. A guy on someone's shoulders."},
+  {name:'Second on the bill', promo:'One more and the festival is yours.'},
+  {name:'Headlining'},
+];
+const TOP = RUNGS.length - 1;
+const rungName = (r, T) => r === TOP ? `Headlining ${T.fest}` : RUNGS[r].name;
+const SPLITS = [
+  'The two brothers in the band fought backstage in Paris. A guitar did not survive.',
+  'The bassist announced the split in the press notes for his solo album.',
+  'The singer told a radio station the band was over. The drummer found out by fax.',
+  "The last gig ended with the singer asking the crowd if they'd ever felt cheated.",
+  'Everyone in the band has dated everyone else in the band. Recording has stopped.',
+  'A fistfight broke out on stage, mid-song, in front of a documentary crew. Over a tambourine.',
+  'The bassist left, then sued the rest of the band for the name.',
+  "Two members found out they'd been replaced when they saw the new video.",
+  'The other three members were cardboard cut-outs all along. Same Impala.',
+  'The guitarist went out for cigarettes in 1987 and has not come back.',
+  'Musical differences: he wanted a nine-minute ballad, everyone else wanted to stop.',
+  'The manager sold the van. With the gear in it. And the bassist asleep in the back.',
+];
+const STRIKE_LINES = ['Strike one. The sound guy sighs.', 'Strike two. The drummer is looking at flights home.'];
+const BANDS = ['The Velvet Overground', 'Joy Division of Labour', "Echo & the Bunnymen's Accountant", 'My Bloody Valentine Card', 'Sonic Youth Club',
+  'The Jesus and Mary Chainmail', 'Spacemen 2', 'Galaxie 499', 'Same Impala', 'Pavement Tax', 'Dinosaur Senior', 'The Stone Rosettes',
+  'Happy Mondays to Fridays', 'Primal Scream Therapy', 'Cocteau Triplets', 'New Orderly', "Hüsker Don't", 'Throwing Mouses',
+  'Talking Heads Will Roll', 'Cabaret Voltage', 'Lush Life Insurance', 'Slowdive Bar', 'Mogwai Not', 'Suede Shoes Required',
+  'Pulp Non-Fiction', 'Teenage Fanclub Sandwich', 'The Smiths & Daughters', 'Elastica Waistband', 'Ride Share', 'Spiritualized Water'];
+const CRED = {3: 30, 2: 15, 1: 5, '-1': -20};
+const CRED_LINE = {3: 'Cred +30. Deep cut. The record shop guy nods.', 2: 'Cred +15. A fan favourite.', 1: 'Cred +5. Everybody knows that one.', '-1': 'Cred −20. You knew that one a little too well.'};
+const RANKS = [[-1e9, 'Has a Spotify Wrapped as their phone wallpaper'], [0, 'Owns one Coldplay album, ironically'], [150, 'Has opinions about mono mixes'],
+  [400, 'Knows what a Peel session is'], [900, 'Owns the original pressing, not the reissue'], [1800, 'Was there, at the 40-person gig'], [3500, 'Writes the 9.4 reviews']];
+
+/* ---------- saved state ---------- */
+const career = Object.assign({fans: 0, cred: 0, runs: 0, wins: 0, best: {}}, LS.get('career') || {});
+let band = typeof LS.get('band') === 'string' && LS.get('band').trim() ? LS.get('band') : pick(BANDS);
+let run = LS.get('run');
+if (run && (!TOURS.some(t => t.id === run.tour) || !Array.isArray(run.picks))) run = null;
+const saveCareer = () => LS.set('career', career);
+const saveRun = () => LS.set('run', run);
+const tourOf = id => TOURS.find(t => t.id === id);
+
+/* ---------- sound effects and the hosts' voices ---------- */
+const snd = {on: LS.get('sound') !== false};
+let actx = null;
+function ac(){ try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') actx.resume(); } catch (e) {} return actx; }
+function blip(freq, dur, type = 'square', vol = .05, when = 0){
+  const a = snd.on && ac(); if (!a) return;
+  try { const o = a.createOscillator(), g = a.createGain(), t = a.currentTime + when; o.type = type; o.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + dur); o.connect(g).connect(a.destination); o.start(t); o.stop(t + dur + .02); } catch (e) {}
+}
+function noise(dur, vol = .05){
+  const a = snd.on && ac(); if (!a) return;
+  try { const b = a.createBuffer(1, Math.floor(a.sampleRate * dur), a.sampleRate), d = b.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
+    const s = a.createBufferSource(), g = a.createGain(); g.gain.value = vol; s.buffer = b; s.connect(g).connect(a.destination); s.start(); } catch (e) {}
+}
+const jingle = () => { [523, 659, 784, 1047, 784, 1319].forEach((f, i) => blip(f, .16, 'square', .035, i * .1)); blip(131, .8, 'sawtooth', .025); };
+const sadTrombone = () => { [392, 370, 349, 311].forEach((f, i) => blip(f, i === 3 ? .9 : .32, 'sawtooth', .04, i * .34)); };
+function speak(text, host){
+  if (!snd.on || !('speechSynthesis' in window)) return;
+  try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = 'en-GB';
+    if (host === 'chet') { u.pitch = .25; u.rate = .85; } else { u.pitch = 1.8; u.rate = 1.12; } speechSynthesis.speak(u); } catch (e) {}
+}
+function renderSound(){ $('t-sound').textContent = snd.on ? 'Sound on' : 'Sound off'; $('t-sound').setAttribute('aria-pressed', String(snd.on)); }
+$('t-sound').addEventListener('click', () => { snd.on = !snd.on; LS.set('sound', snd.on); renderSound(); if (snd.on) unlockAudio(); else { stopPreview(); stopTheme(); try { speechSynthesis.cancel(); } catch (e) {} } });
+renderSound();
+
+/* ---------- the theme song: "Sunglasses Indoors", an original noise-pop tune synthesised live ---------- */
+const BPM = 104, BEAT = 60 / BPM, BAR = BEAT * 4, STEP = BEAT / 4;
+const SECTIONS = [{bars:8, kind:'intro'}, {bars:8, kind:'verse', prog:['E','E','D','A','E','E','D','A']}, {bars:8, kind:'chorus', prog:['C','D','E','E','C','D','G','A']},
+  {bars:4, kind:'break'}, {bars:8, kind:'chorus2', prog:['C','D','E','E','C','D','G','A']}, {bars:4, kind:'coda'}];
+const SONG_BARS = SECTIONS.reduce((s, x) => s + x.bars, 0), SONG_LEN = SONG_BARS * BAR;
+const BASS = {E:40, D:38, A:33, C:36, G:43}, GTR = {E:52, D:50, A:45, C:48, G:43};
+const LEAD = [[0,0,67,2],[0,2,64,2],[1,0,66,2],[1,2,69,2],[2,0,71,4],[3,0,69,1],[3,1,67,1],[3,2,64,2],[4,0,67,2],[4,2,64,2],[5,0,66,2],[5,2,62,2],[6,0,67,2],[6,2,71,2],[7,0,69,4]];
+const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+function makeRig(ctx, out){
+  const sr = ctx.sampleRate;
+  const nbuf = ctx.createBuffer(1, sr, sr); { const d = nbuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+  const curve = k => { const n = 2048, c = new Float32Array(n); for (let i = 0; i < n; i++) { const x = i * 2 / (n - 1) - 1; c[i] = (1 + k) * x / (1 + k * Math.abs(x)); } return c; };
+  const shaper = (k, os = '2x') => { const s = ctx.createWaveShaper(); s.curve = curve(k); s.oversample = os; return s; };
+  const filt = (type, f, q = .7) => { const b = ctx.createBiquadFilter(); b.type = type; b.frequency.value = f; b.Q.value = q; return b; };
+  const amp = v => { const g = ctx.createGain(); g.gain.value = v; return g; };
+  const pan = p => { const s = ctx.createStereoPanner(); s.pan.value = p; return s; };
+  const impulse = (secs, decay) => { const len = Math.floor(sr * secs), b = ctx.createBuffer(2, len, sr);
+    for (let ch = 0; ch < 2; ch++) { const d = b.getChannelData(ch); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay); } return b; };
+  const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -14; comp.knee.value = 8; comp.ratio.value = 3.5; comp.attack.value = .004; comp.release.value = .24;
+  const master = amp(.7); comp.connect(master); master.connect(out);
+  const rev = ctx.createConvolver(); rev.buffer = impulse(2.6, 2.6); rev.connect(amp(.3)).connect(comp);
+  const drumBus = amp(1), drumF = filt('lowpass', 18000); drumBus.connect(shaper(3)).connect(drumF).connect(comp); drumBus.connect(amp(.35)).connect(rev);
+  const fuzz = (p, delay) => { const s = shaper(55, '4x'), d = ctx.createDelay(.05); d.delayTime.value = delay; const o = pan(p);
+    s.connect(filt('highpass', 110)).connect(filt('lowpass', 3200, .9)).connect(amp(.16)).connect(d).connect(o); o.connect(comp); o.connect(amp(.22)).connect(rev); return s; };
+  const fuzzL = fuzz(-.65, 0), fuzzR = fuzz(.65, .013);
+  const bassIn = amp(1); bassIn.connect(shaper(6)).connect(filt('lowpass', 720)).connect(amp(.4)).connect(comp);
+  const leadIn = amp(1), leadOut = amp(.14); leadIn.connect(shaper(30)).connect(filt('lowpass', 2800, 1.2)).connect(leadOut); leadOut.connect(comp);
+  const dly = ctx.createDelay(1); dly.delayTime.value = BEAT * .75; const dfb = amp(.32); leadOut.connect(dly); dly.connect(dfb); dfb.connect(dly); dly.connect(amp(.35)).connect(comp); leadOut.connect(amp(.4)).connect(rev);
+  const tremIn = amp(.5), lfo = ctx.createOscillator(), lfoAmt = amp(.5); lfo.frequency.value = 7; lfo.connect(lfoAmt).connect(tremIn.gain); lfo.start();
+  const tremOut = pan(.45); tremIn.connect(shaper(4)).connect(filt('lowpass', 2200)).connect(amp(.12)).connect(tremOut); tremOut.connect(comp); tremOut.connect(amp(.3)).connect(rev);
+  const fbIn = amp(0); fbIn.connect(shaper(18)).connect(filt('lowpass', 5000)).connect(amp(.07)).connect(comp); fbIn.connect(amp(.12)).connect(rev);
+  const fo = ctx.createOscillator(), fo2 = ctx.createOscillator(), vib = ctx.createOscillator(), vibAmt = amp(9);
+  fo.type = 'sine'; fo2.type = 'triangle'; fo2.detune.value = 6; vib.frequency.value = 5.2; vib.connect(vibAmt); vibAmt.connect(fo.frequency); vibAmt.connect(fo2.frequency);
+  fo.connect(fbIn); fo2.connect(amp(.4)).connect(fbIn); fo.start(); fo2.start(); vib.start();
+  const noiseHit = (t, dur, nodes, gain, dest) => { const s = ctx.createBufferSource(); s.buffer = nbuf; const g = ctx.createGain();
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + .003); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    let n = s; for (const x of nodes) n = n.connect(x); n.connect(g).connect(dest); s.start(t, Math.random() * .5); s.stop(t + dur + .02); };
+  const env = (g, t, peak, sus, dur) => { g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + .008); g.gain.setValueAtTime(sus, t + dur * .8); g.gain.exponentialRampToValueAtTime(.0001, t + dur); };
+  return {
+    kick(t, v = 1){ const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.setValueAtTime(130, t); o.frequency.exponentialRampToValueAtTime(42, t + .13);
+      g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v, t + .004); g.gain.exponentialRampToValueAtTime(.0001, t + .42); o.connect(g).connect(drumBus); o.start(t); o.stop(t + .45); },
+    snare(t, v = .55){ noiseHit(t, .24, [filt('highpass', 1300), filt('peaking', 3000)], v, drumBus); const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'triangle'; o.frequency.value = 185;
+      g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v * .6, t + .003); g.gain.exponentialRampToValueAtTime(.0001, t + .12); o.connect(g).connect(drumBus); o.start(t); o.stop(t + .14); },
+    hat(t, open){ noiseHit(t, open ? .26 : .05, [filt('highpass', 7500)], open ? .1 : .12, drumBus); },
+    tamb(t, v = .09){ for (let i = 0; i < 3; i++) noiseHit(t + i * .011, .06, [filt('bandpass', 9200, 2.5)], v * (1 - i * .25), drumBus); },
+    crash(t){ noiseHit(t, 1.8, [filt('highpass', 5000)], .16, drumBus); },
+    bass(t, m, dur){ const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'sawtooth'; o.frequency.value = mtof(m); env(g, t, .9, .8, dur); o.connect(g).connect(bassIn); o.start(t); o.stop(t + dur + .02); },
+    chord(t, r, dur, v = 1){ const g = ctx.createGain(); env(g, t, v, v * .85, dur); g.connect(fuzzL); g.connect(fuzzR);
+      for (const m of [r, r + 7, r + 12]) for (const det of [-7, 7]) { const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = mtof(m); o.detune.value = det; o.connect(g); o.start(t); o.stop(t + dur + .02); } },
+    lead(t, m, dur, oct){ for (const mm of oct ? [m, m + 12] : [m]) { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'square'; o.frequency.value = mtof(mm); env(g, t, .8, .7, dur); o.connect(g).connect(leadIn); o.start(t); o.stop(t + dur + .02); } },
+    trem(t, m, dur){ const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'sawtooth'; o.frequency.value = mtof(m); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.7, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + dur); o.connect(g).connect(tremIn); o.start(t); o.stop(t + dur + .02); },
+    feedback: {gain: fbIn.gain, freqs: [fo.frequency, fo2.frequency]}, drumFilter: drumF.frequency,
+  };
+}
+function scheduleSong(R, t0){
+  const fb = R.feedback, at = b => t0 + b * BAR, setF = (t, m) => fb.freqs.forEach(p => p.setValueAtTime(mtof(m), t)), glideF = (t, m) => fb.freqs.forEach(p => p.linearRampToValueAtTime(mtof(m), t));
+  fb.gain.setValueAtTime(0, t0); setF(t0, 88); fb.gain.linearRampToValueAtTime(.6, at(3.5)); glideF(at(3.5), 88); glideF(at(4), 83); fb.gain.linearRampToValueAtTime(.18, at(5));
+  fb.gain.setValueAtTime(.18, at(16)); fb.gain.linearRampToValueAtTime(.45, at(17)); setF(at(17), 88); fb.gain.setValueAtTime(.45, at(22)); fb.gain.linearRampToValueAtTime(.85, at(24));
+  glideF(at(25), 83); glideF(at(26), 88); glideF(at(27), 83); glideF(at(28), 88); fb.gain.setValueAtTime(.85, at(28)); fb.gain.linearRampToValueAtTime(.45, at(29));
+  fb.gain.setValueAtTime(.45, at(36)); fb.gain.linearRampToValueAtTime(1, at(39.5)); glideF(at(39.5), 95); fb.gain.linearRampToValueAtTime(0, at(40));
+  R.drumFilter.setValueAtTime(350, t0); R.drumFilter.exponentialRampToValueAtTime(17000, at(4));
+  let bar = 0;
+  for (const sec of SECTIONS) for (let b = 0; b < sec.bars; b++, bar++) {
+    const t = at(bar), k = sec.kind, last = bar === SONG_BARS - 1, chord = sec.prog ? sec.prog[b] : 'E';
+    const sparse = k === 'break' || (k === 'intro' && b < 4);
+    for (const s of sparse ? [0, 6, 8] : k === 'coda' ? [0, 8] : [0, 6, 8, 11]) if (!last || s < 9) R.kick(t + s * STEP, s ? .85 : 1);
+    for (const s of sparse ? [12] : [4, 12]) if (!last || s < 9) R.snare(t + s * STEP, s === 12 ? .6 : .5);
+    if (!sparse && !last) for (let s = 0; s < 16; s += 2) R.hat(t + s * STEP, s === 14);
+    if (k === 'chorus' || k === 'chorus2') for (let s = 0; s < 16; s++) R.tamb(t + s * STEP, s % 4 === 0 ? .11 : .06);
+    if (k === 'break') for (let s = 0; s < 16; s += 2) R.tamb(t + s * STEP, .12);
+    if (b === 0 && (k === 'chorus' || k === 'chorus2' || k === 'coda')) R.crash(t);
+    if (k === 'intro' && b === 4) R.crash(t);
+    if (k !== 'intro' || b >= 2) { const r = BASS[chord]; for (let s = 0; s < 8; s++) R.bass(t + s * BEAT / 2, s === 6 ? r + 12 : r, BEAT / 2 * .92); }
+    if (k === 'intro' && b >= 4) R.chord(t, GTR.E, BAR * .98, .9);
+    if (k === 'verse') { for (let q = 0; q < 4; q++) R.chord(t + q * BEAT, GTR[chord], BEAT * .9, q ? .55 : .7); const r = GTR[chord] + 12; [r, r + 7, r + 12, r + 7, r, r + 7, r + 12, r + 7].forEach((m, i) => R.trem(t + i * BEAT / 2, m, BEAT / 2 * .95)); }
+    if (k === 'chorus' || k === 'chorus2') { R.chord(t, GTR[chord], BEAT * 1.45, 1); R.chord(t + BEAT * 1.5, GTR[chord], BEAT * 2.45, .9); }
+    if (k === 'coda') R.chord(t, GTR.E, BAR * (last ? .55 : .98), .95);
+  }
+  for (const [b, beat, m, dur] of LEAD) { R.lead(at(16 + b) + beat * BEAT, m, dur * BEAT * .96, false); R.lead(at(28 + b) + beat * BEAT, m, dur * BEAT * .96, true); }
+}
+const theme = {ctx: null, timer: 0};
+function playTheme(){
+  try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+  try {
+    const ctx = theme.ctx = new (window.AudioContext || window.webkitAudioContext)(), rig = makeRig(ctx, ctx.destination);
+    const queue = start => { scheduleSong(rig, start); theme.timer = setTimeout(() => { if (theme.ctx === ctx) queue(start + SONG_LEN); }, Math.max(0, (start + SONG_LEN - ctx.currentTime - 2) * 1000)); };
+    queue(ctx.currentTime + .1);
+    $('theme-icon').setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); $('theme-play').setAttribute('aria-label', 'Stop the theme song');
+    $('theme-sub').textContent = 'Playing. Louder than you think.';
+  } catch (e) { $('theme-sub').textContent = "This browser can't play the theme."; }
+}
+function stopTheme(){
+  clearTimeout(theme.timer); if (theme.ctx) { try { theme.ctx.close(); } catch (e) {} } theme.ctx = null;
+  $('theme-icon').setAttribute('d', 'M7 4l13 8-13 8z'); $('theme-play').setAttribute('aria-label', 'Play the theme song');
+  $('theme-sub').textContent = 'The theme. Drum machine, fuzz, feedback, tambourine.';
+}
+$('theme-play').addEventListener('click', () => theme.ctx ? stopTheme() : playTheme());
+
+/* ---------- Apple previews: streamed from Apple, never downloaded or stored ---------- */
+const STORE = (() => { const m = String(navigator.language || '').match(/-([A-Za-z]{2})$/); return m ? m[1].toLowerCase() : 'us'; })();
+const APPLE = {};
+async function appleLookup(ids){
+  const need = ids.filter(id => id && !APPLE[id]); if (!need.length) return;
+  for (const c of [...new Set([STORE, 'us'])]) {
+    const left = need.filter(id => !APPLE[id]); if (!left.length) break;
+    try { const r = await fetch(`https://itunes.apple.com/lookup?id=${left.join(',')}&country=${c}&entity=song`); if (!r.ok) continue;
+      for (const x of (await r.json()).results || []) if (x.trackId && x.previewUrl) APPLE[x.trackId] = {pv: x.previewUrl, url: x.trackViewUrl || '', art: String(x.artworkUrl100 || '').replace('100x100bb', '300x300bb')}; } catch (e) {}
+  }
+  for (const id of need) if (!APPLE[id]) APPLE[id] = {pv: '', url: '', art: ''};
+}
+const appleUrl = id => (APPLE[id] && APPLE[id].url) || `https://music.apple.com/us/song/${id}`;
+const PV = {el: null, fade: 0, id: 0};
+function silentWav(){ const n = 800, b = new Uint8Array(44 + n), v = new DataView(b.buffer), w = (o, s) => { for (let i = 0; i < s.length; i++) b[o + i] = s.charCodeAt(i); };
+  w(0,'RIFF'); v.setUint32(4,36+n,true); w(8,'WAVE'); w(12,'fmt '); v.setUint32(16,16,true); v.setUint16(20,1,true); v.setUint16(22,1,true); v.setUint32(24,8000,true); v.setUint32(28,8000,true); v.setUint16(32,1,true); v.setUint16(34,8,true); w(36,'data'); v.setUint32(40,n,true); b.fill(128,44);
+  let s = ''; b.forEach(x => s += String.fromCharCode(x)); return 'data:audio/wav;base64,' + btoa(s); }
+function audioEl(){
+  if (PV.el) return PV.el;
+  const a = new Audio(); a.preload = 'none';
+  a.addEventListener('playing', () => playerState('playing'));
+  a.addEventListener('waiting', () => playerState('loading'));
+  a.addEventListener('pause', () => { if (!a.currentSrc.startsWith('data:')) playerState(a.ended ? 'ended' : 'paused'); });
+  a.addEventListener('error', () => { if (a.currentSrc.startsWith('data:') || !a.getAttribute('src')) return; playerState('failed'); });
+  return PV.el = a;
+}
+function unlockAudio(){ ac(); if (PV.unlocked) return; PV.unlocked = true; const a = audioEl(); try { a.src = silentWav(); const p = a.play(); if (p) p.then(() => a.pause()).catch(() => {}); } catch (e) {} }
+function fadeTo(target, ms, done){ const a = PV.el; if (!a) return; cancelAnimationFrame(PV.fade); const from = a.volume, t0 = performance.now();
+  const step = t => { const k = reduce ? 1 : Math.min(1, (t - t0) / ms); try { a.volume = from + (target - from) * k; } catch (e) {} if (k < 1) PV.fade = requestAnimationFrame(step); else if (done) done(); };
+  PV.fade = requestAnimationFrame(step); }
+function playPreview(pv, fromTap){
+  const a = audioEl(); cancelAnimationFrame(PV.fade); if (a.getAttribute('src') !== pv) a.src = pv;
+  if (!snd.on && !fromTap) { playerState('off'); return; }
+  playerState('loading'); try { a.volume = fromTap ? 1 : 0; } catch (e) {}
+  const p = a.play(); if (p) p.then(() => { if (!fromTap) fadeTo(1, 900); }).catch(err => playerState(err && err.name === 'NotAllowedError' ? 'tap' : 'failed'));
+}
+function stopPreview(){ const a = PV.el; if (!a || a.paused) return; fadeTo(0, 250, () => a.pause()); }
+function playerState(s){
+  const box = $('player'); if (!box) return;
+  box.classList.toggle('playing', s === 'playing');
+  $('pmsg').textContent = {loading:'Loading the preview…', playing:'Playing a 30-second preview', paused:'Paused', ended:'Preview finished', off:'Sound is off. Press Play to hear it.', tap:'Press Play to hear it.', none:'No preview for this one.', failed:"The preview didn't load. Try Apple Music."}[s] || '';
+  const btn = $('pp'); btn.hidden = s === 'failed' || s === 'none'; btn.textContent = s === 'playing' || s === 'loading' ? 'Pause' : 'Play'; btn.setAttribute('aria-label', btn.textContent + ' the song preview');
+}
+
+/* ---------- the telly: blocky 3D hosts, flat-shaded like mid-80s computer graphics ---------- */
+const HOSTS = {vince: {name: 'VECTOR VINCE', role: 'NEXT LEVEL'}, chet: {name: 'CHET MONOTONE', role: 'MUSIC NEWS'}};
+const PAL = {
+  next:{sky1:'#24063f',sky2:'#ff3fa4',floor:'#0d0020',grid:'#3ff0ff',sun1:'#ffe14d',sun2:'#ff3fa4',a:'#ffe14d',b:'#3ff0ff'},
+  news:{sky1:'#00122b',sky2:'#1f5bff',floor:'#00081a',grid:'#8fd3ff',sun1:'#ffffff',sun2:'#1f5bff',a:'#ff3b3b',b:'#8fd3ff'},
+  radio:{sky1:'#03200f',sky2:'#19b866',floor:'#011208',grid:'#b6ffcf',sun1:'#eaffb0',sun2:'#19b866',a:'#eaffb0',b:'#b6ffcf'},
+  countdown:{sky1:'#14002b',sky2:'#00d8a0',floor:'#07001a',grid:'#ff3fa4',sun1:'#ffe14d',sun2:'#00d8a0',a:'#ff3fa4',b:'#ffe14d'},
+  gold:{sky1:'#0b0b0b',sky2:'#a77b06',floor:'#050505',grid:'#ffd700',sun1:'#fff6c4',sun2:'#a77b06',a:'#ffd700',b:'#fff6c4'},
+  split:{sky1:'#0a0a0a',sky2:'#5a1020',floor:'#050002',grid:'#ff5c8a',sun1:'#ff9aa8',sun2:'#5a1020',a:'#ff5c8a',b:'#ff9aa8'},
+};
+const FACES = [[0,1,2,3],[5,4,7,6],[4,0,3,7],[1,5,6,2],[4,5,1,0],[3,2,6,7]], NORMALS = [[0,0,-1],[0,0,1],[-1,0,0],[1,0,0],[0,-1,0],[0,1,0]];
+const LIGHT = (() => { const v = [-.45, -.65, -.62], m = Math.hypot(...v); return v.map(x => x / m); })();
+function rot([x, y, z], yaw, pitch){ const cy = Math.cos(yaw), sy = Math.sin(yaw); [x, z] = [x * cy + z * sy, -x * sy + z * cy]; const cp = Math.cos(pitch), sp = Math.sin(pitch); [y, z] = [y * cp - z * sp, y * sp + z * cp]; return [x, y, z]; }
+function shade(hex, k){ const n = parseInt(hex.slice(1), 16), f = c => Math.max(0, Math.min(255, Math.round(c * k))); return `rgb(${f(n >> 16 & 255)},${f(n >> 8 & 255)},${f(n & 255)})`; }
+function vince(open){ const s1 = '#f4c7a4', s2 = '#e9b892'; return [
+  {c:[0,-18,0], s:[50,58,46], col:s1}, {c:[0,36,-2], s:[46,20,40], tb:.78, col:s2}, {c:[0,-80,4], s:[54,16,50], col:'#ffe14d'}, {c:[0,-92,-36], s:[42,16,18], tt:1.1, col:'#ffd21f'},
+  {c:[0,-22,-48], s:[50,9,4], col:'#0c0c14', glint:true}, {c:[0,2,-50], s:[7,12,7], col:s2}, {c:[0,34,-44], s:[17,2 + open * 8,3], col:'#3b0c1e'},
+  {c:[-53,-12,2], s:[5,13,9], col:s2}, {c:[53,-12,2], s:[5,13,9], col:s2}, {c:[0,72,6], s:[20,18,18], col:s2, body:true}, {c:[0,94,-10], s:[34,8,22], col:'#ffffff', body:true},
+  {c:[0,132,8], s:[112,34,48], tt:.66, col:'#2b3bff', body:true}, {c:[0,118,-40], s:[7,24,3], col:'#ff3fa4', body:true}]; }
+function chet(open){ const s1 = '#d99f78', s2 = '#c98d66'; return [
+  {c:[0,-16,0], s:[48,56,44], col:s1}, {c:[0,36,-2], s:[44,20,40], tb:.82, col:s2}, {c:[0,-78,2], s:[50,12,46], col:'#7a7470'},
+  {c:[-22,-20,-47], s:[17,10,3], col:'#3a2a12', glint:true}, {c:[22,-20,-47], s:[17,10,3], col:'#3a2a12', glint:true}, {c:[0,-26,-48], s:[6,2,2], col:'#c9a24a'},
+  {c:[0,4,-48], s:[7,13,7], col:s2}, {c:[0,36,-43], s:[15,2 + open * 4,3], col:'#4a1a16'}, {c:[-51,-10,2], s:[5,13,9], col:s2}, {c:[51,-10,2], s:[5,13,9], col:s2},
+  {c:[0,72,6], s:[20,18,18], col:s2, body:true}, {c:[0,96,-12], s:[26,12,20], col:'#9aa3ad', body:true}, {c:[0,132,8], s:[114,34,48], tt:.66, col:'#26232b', body:true},
+  {c:[66,104,-52], s:[6,24,6], col:'#9a9a9a', body:true}, {c:[66,72,-52], s:[11,11,11], col:'#1b1b1b', body:true}, {c:[66,92,-52], s:[15,9,15], col:'#e0115f', body:true}]; }
+function drawModel(ctx, parts, pose, ox, oy, scale){
+  const F = 700 * scale, D = 700, polys = [];
+  for (const b of parts) {
+    const [cx, cy, cz] = b.c, [hx, hy, hz] = b.s, tt = b.tt || 1, tb = b.tb || 1, P = (sx, sy, sz) => [cx + sx * hx * (sy < 0 ? tt : tb), cy + sy * hy, cz + sz * hz];
+    const v = [P(-1,-1,-1), P(1,-1,-1), P(1,1,-1), P(-1,1,-1), P(-1,-1,1), P(1,-1,1), P(1,1,1), P(-1,1,1)];
+    const yaw = b.body ? pose.yaw * .25 : pose.yaw, pitch = b.body ? 0 : pose.pitch, rv = v.map(p => rot(p, yaw, pitch));
+    FACES.forEach((ix, fi) => {
+      const pts = ix.map(i => rv[i]), scr = pts.map(([x, y, z]) => [ox + x * F / (z + D), oy + y * F / (z + D)]);
+      let area = 0; for (let i = 0; i < 4; i++) { const p = scr[i], q = scr[(i + 1) % 4]; area += p[0] * q[1] - q[0] * p[1]; }
+      if (area <= 0) return;
+      const n = rot(NORMALS[fi], yaw, pitch), lit = .42 + .78 * Math.max(0, n[0] * LIGHT[0] + n[1] * LIGHT[1] + n[2] * LIGHT[2]);
+      polys.push({scr, z: pts.reduce((s, p) => s + p[2], 0) / 4, fill: shade(b.col, lit), glint: b.glint && fi === 0});
+    });
+  }
+  polys.sort((a, b) => b.z - a.z);
+  const path = pts => { ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); }, lerp = (p, q, t) => [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t];
+  for (const p of polys) { path(p.scr); ctx.fillStyle = p.fill; ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = 1; ctx.stroke();
+    if (p.glint) { const [a, b, c, d] = p.scr; path([lerp(a, b, .14), lerp(a, b, .26), lerp(d, c, .18), lerp(d, c, .06)]); ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fill(); } }
+}
+function wireCube(ctx, x, y, s, a, col){ const P = []; for (const i of [-1, 1]) for (const j of [-1, 1]) for (const k of [-1, 1]) { const p = rot([i * s, j * s, k * s], a, a * .7); P.push([x + p[0], y + p[1]]); }
+  ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); for (const [m, n] of [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]]) { ctx.moveTo(...P[m]); ctx.lineTo(...P[n]); } ctx.stroke(); }
+function backdrop(ctx, W, H, P, t){
+  const hz = H * .62, g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, P.sky1); g.addColorStop(.62, P.sky2); g.addColorStop(.62, P.floor); g.addColorStop(1, '#000');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const r = H * .26, sy = hz - H * .05; ctx.save(); ctx.beginPath(); ctx.arc(W / 2, sy, r, Math.PI, 0); ctx.closePath(); ctx.clip();
+  const sg = ctx.createLinearGradient(0, sy - r, 0, sy); sg.addColorStop(0, P.sun1); sg.addColorStop(1, P.sun2); ctx.fillStyle = sg; ctx.fillRect(W / 2 - r, sy - r, r * 2, r);
+  ctx.fillStyle = P.sky2; for (let i = 0; i < 6; i++) ctx.fillRect(W / 2 - r, sy - i * r / 8 - ((t / 60) % (r / 8)), r * 2, 1.5 + i * .8); ctx.restore();
+  ctx.strokeStyle = P.grid; ctx.lineWidth = 1.5; ctx.globalAlpha = .85;
+  for (let i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(W / 2 + i * 8, hz); ctx.lineTo(W / 2 + i * W / 6, H); ctx.stroke(); }
+  const off = (t / 650) % 1; for (let i = 0; i < 14; i++) { const z = (i + off) / 14, y = hz + (H - hz) * z * z; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+  ctx.globalAlpha = 1; wireCube(ctx, W * .15, H * .26, H * .095, t / 900, P.a); wireCube(ctx, W * .85, H * .3, H * .07, -t / 700, P.b);
+}
+const cv = $('cv'), cctx = cv.getContext('2d');
+let scene = null, raf = 0;
+function draw(){
+  if (!scene) return;
+  const t = performance.now() - scene.t0, W = cv.width, H = cv.height, isV = scene.host === 'vince';
+  backdrop(cctx, W, H, PAL[scene.pal] || PAL.next, t);
+  const open = scene.talk ? .25 + .75 * Math.abs(Math.sin(t / 55 + Math.sin(t / 130))) : .08;
+  const pose = isV ? {yaw: Math.sin(t / 700) * .35 + scene.snap, pitch: Math.sin(t / 430) * .06} : {yaw: Math.sin(t / 1600) * .12 - .1, pitch: Math.sin(t / 2100) * .03};
+  drawModel(cctx, isV ? vince(open) : chet(open * .6), pose, W / 2, H * .44, .9);
+  if (scene.glitch > 0 && !reduce) { for (let i = 0; i < 4; i++) { const y = Math.random() * H | 0, h = 4 + Math.random() * 16 | 0, dx = (Math.random() * 40 - 20) | 0; cctx.drawImage(cv, 0, y, W, h, dx, y, W, h); } scene.glitch--; }
+  raf = requestAnimationFrame(draw);
+}
+const startScene = (host, pal) => { scene = {host, pal, t0: performance.now(), talk: 0, glitch: 0, snap: 0}; cancelAnimationFrame(raf); draw(); };
+const stopScene = () => { scene = null; cancelAnimationFrame(raf); };
+
+/* the telly lives in a slot (the title screen, or the corner of the run screen) and flies to the front for broadcasts */
+let tvSlot = null;
+function dockTV(slot){ const tv = $('tv'); const ghost = slot.querySelector('.ghost'); if (ghost) ghost.remove(); slot.appendChild(tv); tvSlot = slot; }
+function standby(title, line, sub){ $('sb-title').textContent = title; $('sb-line').textContent = line; $('sb-sub').textContent = sub || ''; }
+let busy = false, skipReq = false, curAnim = null;
+const waiters = new Set(), SKIP = {};
+function w(ms){ return new Promise((res, rej) => { if (skipReq) { rej(SKIP); return; } const on = () => { clearTimeout(t); waiters.delete(on); rej(SKIP); };
+  const t = setTimeout(() => { waiters.delete(on); res(); }, reduce ? Math.min(ms, 700) : ms); waiters.add(on); }); }
+function skip(){ if (!busy || skipReq) return; skipReq = true; [...waiters].forEach(f => f()); try { if (curAnim) curAnim.finish(); } catch (e) {} try { speechSynthesis.cancel(); } catch (e) {} }
+async function typeCaption(text, host){
+  const cap = $('cap'); cap.textContent = ''; if (scene) scene.talk = 1;
+  for (let i = 0; i < text.length; i++) {
+    cap.textContent = text.slice(0, i + 1); const ch = text[i];
+    if (host === 'vince' && ch === '-' && /[A-Za-z]/.test(text[i - 1] || '') && scene) { scene.glitch = 6; scene.snap = (Math.random() - .5) * .7; blip(220 + Math.random() * 600, .04, 'square', .025); }
+    else if (scene && scene.snap && Math.random() < .08) scene.snap = 0;
+    await w(ch === ' ' ? 22 : 34);
+  }
+  if (scene) { scene.talk = 0; scene.snap = 0; }
+}
+function ident(text, label){ const el = $('ident'); el.innerHTML = (label ? `<small>${esc(label)}</small>` : '') + esc(text); el.hidden = false;
+  if (!reduce) el.animate([{transform:'perspective(400px) rotateX(-90deg) scale(.6)', opacity:0}, {transform:'perspective(400px) rotateX(14deg) scale(1.08)', opacity:1, offset:.7}, {transform:'none', opacity:1}], {duration:700, easing:'ease-out'}); }
+async function careerWindow(from, to, l1, l2){
+  const steps = $('steps'), N = RUNGS.length;
+  steps.innerHTML = RUNGS.map((_, i) => `<i style="height:${(i + 1) / N * 100}%"></i>`).join('') + '<span class="you" id="you">▼ YOU</span>';
+  const set = l => { steps.querySelectorAll('i').forEach((el, i) => { el.className = i < l ? 'on' : i === l ? 'now' : ''; }); $('you').style.left = ((l + .5) / N * 100) + '%'; $('you').style.bottom = ((l + 1) / N * 100) + '%'; };
+  set(Math.max(0, from)); $('w-1').textContent = l1; $('w-2').textContent = l2; $('win').hidden = false;
+  if (!reduce) $('win').animate([{transform:'scale(.15)', opacity:0}, {transform:'scale(1)', opacity:1}], {duration:260, easing:'steps(5)'});
+  blip(880, .05, 'square', .03); await w(650);
+  set(to); if (to > from) { blip(1319, .08, 'square', .04); blip(1760, .12, 'square', .04, .09); } else blip(196, .3, 'sawtooth', .04);
+  await w(2000);
+}
+async function openStage(){
+  const tv = $('tv'), slot = tvSlot, fly = $('fly'), stage = $('stage'), r = tv.getBoundingClientRect();
+  const ghost = document.createElement('div'); ghost.className = 'tv ghost'; slot.appendChild(ghost);
+  stage.hidden = false; fly.appendChild(tv);
+  const c = fly.getBoundingClientRect(), s0 = Math.max(.2, Math.min(1, r.height / c.height));
+  const dx = (r.left + r.width / 2) - (c.left + c.width / 2), dy = (r.top + r.height / 2) - (c.top + c.height / 2);
+  stage.animate([{opacity:0}, {opacity:1}], {duration:300});
+  $('skip').hidden = false; $('skip').focus({preventScroll:true}); noise(.55, .03);
+  curAnim = reduce ? fly.animate([{opacity:0}, {opacity:1}], {duration:250, fill:'forwards'}) : fly.animate([
+    {transform:`translate(${dx}px,${dy}px) scale(${s0}) rotateY(-14deg) rotateX(4deg)`},
+    {transform:`translate(${dx * .35}px,${dy * .35 - 50}px) translateZ(-460px) scale(${(s0 + 1) / 2}) rotateY(330deg) rotateX(10deg)`, offset:.55},
+    {transform:'translate(0px,0px) translateZ(0px) scale(1) rotateY(720deg) rotateX(0deg)'}], {duration:1500, easing:'cubic-bezier(.2,.85,.25,1.06)', fill:'forwards'});
+  try { await curAnim.finished; } catch (e) {}
+  $('led').classList.add('on');
+}
+async function powerOn(){
+  $('standby').hidden = true; $('picture').hidden = false; noise(.35, .04); blip(7800, .06, 'sine', .012);
+  const a = $('beam').animate([{opacity:1, transform:'scale(0,.006)'}, {opacity:1, transform:'scale(1,.006)', offset:.4}, {opacity:.95, transform:'scale(1,1)', offset:.7}, {opacity:0, transform:'scale(1,1)'}], {duration:reduce ? 150 : 650, fill:'forwards'});
+  try { await a.finished; } catch (e) {}
+}
+async function closeStage(){
+  const fly = $('fly'), slot = tvSlot, tv = $('tv'), stage = $('stage');
+  blip(520, .3, 'sine', .035);
+  const off = $('picture').animate([{transform:'scale(1,1)', filter:'brightness(1)'}, {transform:'scale(1,.008)', filter:'brightness(4)', offset:.55}, {transform:'scale(0,.008)', filter:'brightness(6)'}], {duration:reduce ? 120 : 420, fill:'forwards'});
+  try { await off.finished; } catch (e) {}
+  stopScene(); $('led').classList.remove('on');
+  for (const id of ['ident', 'lower', 'win', 'ticker']) $(id).hidden = true; $('cap').textContent = ''; $('picture').hidden = true;
+  const ghost = slot.querySelector('.ghost'), g = ghost ? ghost.getBoundingClientRect() : slot.getBoundingClientRect(), c = fly.getBoundingClientRect();
+  const s1 = Math.max(.2, Math.min(1, g.height / c.height)), dx = (g.left + g.width / 2) - (c.left + c.width / 2), dy = (g.top + g.height / 2) - (c.top + c.height / 2);
+  curAnim = reduce ? fly.animate([{opacity:1}, {opacity:0}], {duration:200, fill:'forwards'}) : fly.animate([
+    {transform:'translate(0px,0px) translateZ(0px) scale(1) rotateY(0deg) rotateX(0deg)'},
+    {transform:`translate(${dx * .4}px,${dy * .4 - 40}px) translateZ(-420px) scale(${(s1 + 1) / 2}) rotateY(-300deg) rotateX(6deg)`, offset:.5},
+    {transform:`translate(${dx}px,${dy}px) translateZ(0px) scale(${s1}) rotateY(-374deg) rotateX(4deg)`}], {duration:1100, easing:'cubic-bezier(.55,0,.3,1)', fill:'forwards'});
+  stage.animate([{opacity:1}, {opacity:0}], {duration:reduce ? 200 : 1000, delay:reduce ? 0 : 250, fill:'forwards'}); noise(.45, .025);
+  try { await curAnim.finished; } catch (e) {}
+  dockTV(slot);
+  fly.getAnimations().forEach(a => a.cancel()); stage.getAnimations().forEach(a => a.cancel()); $('picture').getAnimations().forEach(a => a.cancel()); $('beam').getAnimations().forEach(a => a.cancel());
+  stage.hidden = true; $('skip').hidden = true; $('standby').hidden = false;
+}
+// spec: {host, show, pal, ticker, lines: [[shown, spoken], ...], ident2: [label, text], career: [from, to, line1, line2], sting}
+async function broadcast(spec){
+  if (busy) return; busy = true; skipReq = false; ac(); stopPreview();
+  const H = HOSTS[spec.host];
+  try {
+    await openStage(); await powerOn(); startScene(spec.host, spec.pal);
+    $('tag').textContent = `${H.name} · ${H.role}`; $('tag').className = 'tag ' + spec.host; $('ticker').hidden = !spec.ticker;
+    ident(spec.show); if (spec.sting === 'sad') sadTrombone(); else jingle(); await w(1400); $('ident').hidden = true;
+    $('lower').hidden = false;
+    for (const [shown, spoken] of spec.lines) { speak(spoken, spec.host); await typeCaption(shown, spec.host); await w(900); }
+    if (spec.ident2) { ident(spec.ident2[1], spec.ident2[0]); blip(1047, .2, 'square', .04); await w(1500); $('ident').hidden = true; }
+    $('lower').hidden = true;
+    if (spec.career) await careerWindow(...spec.career);
+  } catch (e) { if (e !== SKIP) console.error(e); }
+  skipReq = false; try { speechSynthesis.cancel(); } catch (e) {}
+  try { await closeStage(); } catch (e) { console.error(e); }
+  busy = false;
+}
+$('skip').addEventListener('click', skip);
+$('stage').addEventListener('click', skip);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') skip(); });
+
+/* ---------- title screen ---------- */
+function show(v){ for (const s of ['title', 'run', 'result']) $('v-' + s).hidden = s !== v; scrollTo({top: 0, behavior: 'auto'}); }
+function rankOf(c){ let r = RANKS[0][1]; for (const [min, label] of RANKS) if (c >= min) r = label; return r; }
+function renderTitle(){
+  $('c-fans').textContent = fmt(career.fans); $('c-cred').textContent = (career.cred < 0 ? '−' : '') + fmt(Math.abs(career.cred)); $('c-wins').textContent = fmt(career.wins);
+  $('c-rank').innerHTML = `Cred rank: <b>${esc(rankOf(career.cred))}</b>`;
+  $('band').value = band;
+  $('tours').innerHTML = TOURS.map(T => { const best = career.best[T.id];
+    return `<div class="tour"><h3>${esc(T.name)}</h3><p>${esc(T.blurb)}</p><p class="best">${best === TOP ? `🎸 Headlined ${esc(T.fest)}` : best ? `Best so far: ${esc(rungName(best, T))}` : `The goal: headlining ${esc(T.fest)}`}</p><button class="btn" type="button" data-tour="${esc(T.id)}">Start the tour</button></div>`; }).join('')
+    || '<p class="small">No tours are loaded. Check that tours.js is next to this page.</p>';
+  standby('TOUR MODE', 'PICK A TOUR', `${fmt(career.fans)} FANS`);
+  dockTV($('slot-title'));
+}
+$('tours').addEventListener('click', e => { const b = e.target.closest('[data-tour]'); if (b) startRun(b.dataset.tour); });
+$('band').addEventListener('change', () => { band = $('band').value.trim().slice(0, 32) || pick(BANDS); $('band').value = band; LS.set('band', band); });
+$('reroll').addEventListener('click', () => { let n = band; while (n === band) n = pick(BANDS); band = n; $('band').value = band; LS.set('band', band); blip(660, .06); });
+
+/* ---------- a run ---------- */
+function startRun(tourId){
+  unlockAudio(); stopTheme();
+  band = $('band').value.trim().slice(0, 32) || band; LS.set('band', band);
+  run = {tour: tourId, band, rung: 0, strikes: 0, fans: 0, cred: 0, picks: [], cur: null, over: null, reason: '', reunion: 0};
+  career.runs++; saveCareer(); saveRun();
+  show('run'); dockTV($('slot-run')); nextSong();
+}
+function pickSong(){
+  const T = tourOf(run.tour), used = new Set(run.picks.map(p => p.i)), seen = new Set(LS.get('seen:' + T.id) || []);
+  const r = run.rung, want = r < 4 ? [1, -1] : r < 8 ? (Math.random() < .5 ? [2] : [1, -1, 2]) : (Math.random() < .5 ? [3] : [2, 3]);
+  const pool = tiers => T.s.map((_, i) => i).filter(i => !used.has(i) && tiers.includes(T.s[i].c));
+  let cands = pool(want); if (!cands.length) cands = pool([1, -1, 2, 3]);
+  const fresh = cands.filter(i => !seen.has(i));
+  return pick(fresh.length ? fresh : cands);
+}
+function markSeen(i){
+  const T = tourOf(run.tour); let seen = LS.get('seen:' + T.id) || []; if (!seen.includes(i)) seen.push(i);
+  if (seen.length >= T.s.length) seen = [i];
+  LS.set('seen:' + T.id, seen);
+}
+function renderRunHead(){
+  const T = tourOf(run.tour);
+  $('r-tour').textContent = `${T.name} · ${run.band}`;
+  $('r-rung').textContent = rungName(run.rung, T);
+  $('r-ladder').innerHTML = RUNGS.slice(1).map((_, i) => `<i class="${i + 1 <= run.rung ? 'on' : ''}${i + 1 === TOP ? ' top' : ''}"></i>`).join('');
+  $('r-fans').textContent = fmt(run.fans); $('r-cred').textContent = (run.cred < 0 ? '−' : '') + fmt(Math.abs(run.cred));
+  $('r-strikes').innerHTML = 'Strikes ' + Array.from({length: STRIKES}, (_, i) => i < run.strikes ? '<b>✕</b>' : '○').join('');
+  standby(run.band.toUpperCase().slice(0, 28), rungName(run.rung, T).toUpperCase(), `STRIKES ${'✕'.repeat(run.strikes)}${'○'.repeat(STRIKES - run.strikes)}`);
+}
+let live = false, tick = 0, guessing = false;
+function nextSong(){
+  if (run.over) { showResult(); return; }
+  if (run.cur && !tourOf(run.tour).s[run.cur.i]) run.cur = null;   // the bank changed under a saved run
+  if (!run.cur) { run.cur = {i: pickSong(), startedAt: Date.now(), wrong: []}; saveRun(); }
+  const T = tourOf(run.tour), song = T.s[run.cur.i];
+  $('p-label').textContent = `Song ${run.picks.length + 1} · ${T.name}`;
+  $('p-desc').textContent = song.d;
+  $('h1').className = 'chip'; $('h1').textContent = 'Decade at 12s'; $('h2').className = 'chip'; $('h2').textContent = 'First letter at 6s';
+  $('reveal').innerHTML = ''; $('after').innerHTML = '';
+  for (const id of ['q-form', 'q-timer', 'q-secs', 'q-pass']) $(id).hidden = false;
+  $('q-in').disabled = false; $('q-in').value = ''; renderWrong(); renderRunHead();
+  live = true; startTick(song.h || ['', '']);
+  setTimeout(() => $('q-in').focus({preventScroll: true}), 30);
+}
+function renderWrong(){ $('q-wrong').innerHTML = (run.cur ? run.cur.wrong : []).map(x => `<s>${esc(x)}</s>`).join(''); }
+function stopTick(){ cancelAnimationFrame(tick); tick = 0; }
+function startTick(h){
+  stopTick();
+  const step = () => {
+    if (!live) return;
+    const rem = QT - (Date.now() - run.cur.startedAt);
+    $('q-bar').style.transform = `scaleX(${Math.max(0, rem / QT)})`; $('q-timer').classList.toggle('low', rem < H2); $('q-secs').textContent = Math.max(0, Math.ceil(rem / 1000));
+    if (rem <= H1 && !$('h1').classList.contains('on')) { $('h1').classList.add('on'); $('h1').textContent = h[0]; }
+    if (rem <= H2 && !$('h2').classList.contains('on')) { $('h2').classList.add('on'); $('h2').textContent = 'Starts with ' + h[1]; }
+    if (rem <= 0 && !guessing) { miss("Time's up"); return; }
+    tick = requestAnimationFrame(step);
+  };
+  step();
+}
+const post = (path, body) => fetch(API + path, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(body)});
+const cleanSong = s => s && typeof s === 'object' ? {t: String(s.t || ''), a: String(s.a || ''), y: Number(s.y) || 0, id: Number(s.id) || 0} : null;
+async function submit(e){
+  e.preventDefault(); if (!live || guessing) return;
+  const el = $('q-in'), v = el.value.trim(); if (!v) return;
+  const cur = run.cur; guessing = true; el.value = ''; $('q-form').classList.add('busy');
+  let j = null; try { const r = await post('tour/guess', {tour: run.tour, i: cur.i, g: v.slice(0, 100)}); if (r.ok) j = await r.json(); } catch (err) {}
+  guessing = false; $('q-form').classList.remove('busy');
+  if (!live || run.cur !== cur) return;
+  if (!j) { el.value = v; $('q-wrong').insertAdjacentHTML('beforeend', '<span class="off">No signal. Try again.</span>'); return; }
+  if (!j.match) { const t = v.slice(0, 40); if (!cur.wrong.includes(t)) { cur.wrong.push(t); saveRun(); } renderWrong(); el.classList.remove('no'); void el.offsetWidth; el.classList.add('no'); el.focus({preventScroll: true}); return; }
+  const ms = Date.now() - cur.startedAt, h = ms > QT - H2 ? 2 : ms > QT - H1 ? 1 : 0, tier = tourOf(run.tour).s[cur.i].c;
+  const fans = 100 + (h === 0 ? 50 : 0) + (ms < 8000 ? 25 : 0), cred = CRED[tier] || 0;
+  run.picks.push({i: cur.i, ok: true, ms, h, s: cleanSong(j.song), fans, cred});
+  run.fans += fans; run.cred += cred; career.fans += fans; career.cred += cred; run.rung++;
+  settle();
+}
+async function miss(why){
+  if (!live) return;
+  const cur = run.cur;
+  run.picks.push({i: cur.i, ok: false, why, s: null}); run.strikes++;
+  settle();
+  for (let tries = 0; tries < 3 && !run.picks[run.picks.length - 1].s; tries++) {
+    try { const r = await post('tour/reveal', {tour: run.tour, i: cur.i}); if (r.ok) { const j = await r.json(); run.picks[run.picks.length - 1].s = cleanSong(j.song); saveRun(); } } catch (e) {}
+    if (!run.picks[run.picks.length - 1].s) await new Promise(res => setTimeout(res, 1200));
+  }
+  if ($('v-run').hidden === false && !run.cur) renderReveal(run.picks[run.picks.length - 1]);
+}
+function settle(){
+  live = false; stopTick();
+  const p = run.picks[run.picks.length - 1], T = tourOf(run.tour);
+  markSeen(p.i); run.cur = null;
+  let next = 'song';
+  if (run.rung >= TOP) { run.over = 'win'; next = 'win'; career.wins++; career.fans += 1000; career.cred += 50; run.fans += 1000; run.cred += 50; }
+  else if (run.strikes >= STRIKES) { run.over = 'split'; next = 'split'; run.reason = pick(SPLITS); run.reunion = new Date().getFullYear() + 8 + Math.floor(Math.random() * 14); }
+  if (run.over) career.best[run.tour] = Math.max(career.best[run.tour] || 0, run.rung);
+  saveRun(); saveCareer();
+  $('q-in').disabled = true; for (const id of ['q-form', 'q-timer', 'q-secs', 'q-pass']) $(id).hidden = true;
+  renderRunHead(); renderReveal(p);
+  const milestone = p.ok && RUNGS[run.rung] && RUNGS[run.rung].tv;
+  let promo = '';
+  if (p.ok && next === 'song') promo = `<p class="promo">${esc(milestone ? `Promoted to ${RUNGS[run.rung].name}. You're on the telly.` : `Promoted to ${RUNGS[run.rung].name}. ${RUNGS[run.rung].promo || ''}`)}</p>`;
+  if (!p.ok && next === 'song') promo = `<p class="promo bad">${esc(STRIKE_LINES[run.strikes - 1] || '')}</p>`;
+  if (next === 'win') promo = `<p class="promo">That's twelve. Headlining ${esc(T.fest)}.</p>`;
+  if (next === 'split') promo = `<p class="promo bad">Strike three. There's news.</p>`;
+  const label = next === 'song' ? (milestone ? 'Watch the telly' : 'Next song') : 'Watch the telly';
+  $('after').innerHTML = `${promo}<button class="btn wide" id="next" type="button">${label}</button>`;
+  $('next').onclick = async () => {
+    $('next').disabled = true; stopPreview();
+    if (next === 'win') await broadcastWin(); else if (next === 'split') await broadcastSplit(); else if (milestone) await broadcastMilestone();
+    if (run.over) showResult(); else nextSong();
+  };
+  $('next').focus({preventScroll: true});
+}
+function renderReveal(p){
+  const verdict = p.ok ? `<span class="verdict ok">Got it · ${(p.ms / 1000).toFixed(1)}s</span>` : `<span class="verdict no">${esc(p.why || "Time's up")}</span>`;
+  if (!p.s) { $('reveal').innerHTML = `<div class="answer">${verdict}<p class="finding">Finding the song…</p></div>`; return; }
+  const s = p.s, tier = tourOf(run.tour).s[p.i].c;
+  $('reveal').innerHTML = `<div class="answer">${verdict}
+    <div class="song"><div class="cover" id="cover" hidden><img id="cover-img" alt="" width="80" height="80"></div><div class="info"><div class="t">${esc(s.t)}</div><div class="a">${esc(s.a)} · ${s.y}</div></div></div>
+    <div class="player" id="player"><button class="play" id="pp" type="button">Pause</button><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="pmsg" aria-live="polite">Loading the preview…</span></div>
+    <div class="store"><a class="am" id="am" href="${esc(appleUrl(s.id))}" target="_blank" rel="noopener"><img src="apple-music-badge.svg" alt="Listen on Apple Music" width="137" height="40"></a><span class="credit">Preview provided courtesy of iTunes</span></div>
+    ${p.ok ? `<p class="credline${tier < 0 ? ' minus' : ''}">${esc(CRED_LINE[tier] || '')} Fans +${p.fans}.</p>` : ''}</div>`;
+  $('pp').onclick = () => { const a = audioEl(), info = APPLE[s.id]; if (!info || !info.pv) return; if (a.paused || a.getAttribute('src') !== info.pv) playPreview(info.pv, true); else { cancelAnimationFrame(PV.fade); a.pause(); } };
+  loadSong(s.id);
+}
+async function loadSong(id){
+  PV.id = id; await appleLookup([id]);
+  if (PV.id !== id || !$('player')) return;
+  const info = APPLE[id]; $('am').href = appleUrl(id);
+  if (info.art) { const img = $('cover-img'); img.onload = () => { $('cover').hidden = false; }; img.onerror = () => { $('cover').hidden = true; }; img.src = info.art; }
+  if (!info.pv) { playerState('none'); return; }
+  playPreview(info.pv, false);
+}
+function broadcastMilestone(){
+  const R = RUNGS[run.rung], T = tourOf(run.tour), N = RUNGS[run.rung + 1];
+  const l2 = R.tv.host === 'chet' ? [`${run.band}'s new gig: ${R.name}. More at eleven.`, `${run.band}'s new gig. ${R.name}. More at eleven.`] : [`N-n-n-next level: ${R.name}!`, `Next level! ${R.name}!`];
+  return broadcast({host: R.tv.host, show: R.tv.show, pal: R.tv.pal, ticker: R.tv.host === 'chet', lines: [[R.tv.line, R.tv.say], l2], ident2: ['Now playing', R.name],
+    career: [run.rung - 1, run.rung, `FANS THIS TOUR: ${fmt(run.fans)}`, N ? `NEXT: ${rungName(run.rung + 1, T).toUpperCase()}` : '']});
+}
+function broadcastWin(){
+  const T = tourOf(run.tour);
+  return broadcast({host: 'vince', show: 'Next Level!', pal: 'next', lines: [[`H-h-h-headlining ${T.fest}! The crowd goes all the way back to the c-c-car park!`, `Headlining ${T.fest}! The crowd goes all the way back to the car park!`],
+    [`${run.band}: from busking to the top of the bill. Pyro! Wind machine! A s-s-solo on a clifftop!`, `${run.band}. From busking to the top of the bill. Pyro! Wind machine! A solo on a clifftop!`]],
+    ident2: ['Tour complete', T.fest], career: [TOP - 1, TOP, `FANS THIS TOUR: ${fmt(run.fans)}`, 'TOUR COMPLETE. ICONIC.']});
+}
+function broadcastSplit(){
+  const T = tourOf(run.tour);
+  return broadcast({host: 'chet', show: 'Music News: Breaking', pal: 'split', ticker: true, sting: 'sad',
+    lines: [[`This just in: ${run.band} have split.`, `This just in. ${run.band} have split.`], [run.reason, run.reason], [`A reunion tour is pencilled in for ${run.reunion}.`, `A reunion tour is pencilled in for ${run.reunion}.`]],
+    career: [run.rung, run.rung, `GOT AS FAR AS: ${rungName(run.rung, T).toUpperCase()}`, `FANS THIS TOUR: ${fmt(run.fans)}`]});
+}
+
+/* ---------- results ---------- */
+function squares(){ return run.picks.map(p => p.ok ? (p.h ? '🟨' : '🟩') : '🟥').join(''); }
+function showResult(){
+  const T = tourOf(run.tour), win = run.over === 'win', got = run.picks.filter(p => p.ok).length;
+  $('x-tour').textContent = `${T.name} · ${run.band}`;
+  $('x-head').textContent = win ? 'Headliners.' : 'Band split.';
+  $('x-reason').textContent = win ? `You headlined ${T.fest}.` : `${run.reason} Reunion tour: ${run.reunion}.`;
+  $('x-stats').innerHTML = [['Got as far as', rungName(run.rung, T)], ['Songs', `${got} of ${run.picks.length}`], ['Fans', signed(run.fans)], ['Cred', signed(run.cred)]]
+    .map(([k, v]) => `<div><span class="label">${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
+  $('x-recap').innerHTML = run.picks.map(p => { const s = p.s, d = T.s[p.i].d, mk = p.ok ? (p.h ? '<span class="mk hint">✓</span>' : '<span class="mk ok">✓</span>') : '<span class="mk no">✗</span>';
+    return `<li>${mk}<div><q>${esc(d)}</q><span>${s ? `<a href="${esc(appleUrl(s.id))}" target="_blank" rel="noopener">${esc(s.t)}</a> · ${esc(s.a)} · ${s.y}` : '…'}</span></div></li>`; }).join('');
+  $('x-text').hidden = true; $('x-share').textContent = 'Share';
+  standby(run.band.toUpperCase().slice(0, 28), win ? 'HEADLINERS' : 'SPLIT', win ? T.fest.toUpperCase() : `REUNION ${run.reunion}`);
+  show('result');
+  appleLookup(run.picks.map(p => p.s && p.s.id).filter(Boolean)).then(() => { if (!$('v-result').hidden) $('x-recap').querySelectorAll('a').forEach((a, k) => { const p = run.picks.filter(x => x.s)[k]; if (p) a.href = appleUrl(p.s.id); }); });
+}
+function shareText(){
+  const T = tourOf(run.tour), win = run.over === 'win';
+  return `Badly Described · Tour Mode\n${win ? `🎸 ${run.band} headlined ${T.fest}` : `💔 ${run.band} split at ${rungName(run.rung, T)} (${run.rung}/${TOP})`}\n${squares()}\nFans ${signed(run.fans)} · Cred ${signed(run.cred)}` +
+    (win ? '' : `\n"${run.reason}"`) + (/^https?:$/.test(location.protocol) ? `\n${location.origin}/tour` : '');
+}
+$('x-share').addEventListener('click', async () => {
+  const t = shareText();
+  if (navigator.share && matchMedia('(pointer:coarse)').matches) { try { await navigator.share({text: t}); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+  try { await navigator.clipboard.writeText(t); $('x-share').textContent = 'Copied'; } catch (e) { const ta = $('x-text'); ta.value = t; ta.hidden = false; ta.select(); }
+});
+$('x-again').addEventListener('click', () => startRun(run.tour));
+$('x-tours').addEventListener('click', () => { run = null; LS.set('run', null); renderTitle(); show('title'); });
+$('r-quit').addEventListener('click', () => { if (busy) return; live = false; stopTick(); stopPreview(); run = null; LS.set('run', null); renderTitle(); show('title'); });
+$('q-form').addEventListener('submit', submit);
+$('q-pass').addEventListener('click', () => miss('Passed'));
+
+/* ---------- start ---------- */
+renderTitle();
+if (run && run.over) { dockTV($('slot-run')); showResult(); }
+else if (run) { show('run'); dockTV($('slot-run')); if (run.cur) nextSong(); else nextSong(); }
+else show('title');
+}
+</script>
+</body>
+</html>

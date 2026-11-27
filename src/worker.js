@@ -19,6 +19,7 @@
 
 import { prepareSong, matchSong, parseTitles } from './match.js';
 import { LAUNCH, DAYS } from './bank.js';
+import { TOURS } from './tourbank.js';
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
 const PID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
@@ -216,6 +217,34 @@ async function answers(request, env) {
   return json({ day, songs: songs.map(publicSong), got }, 200, { 'cache-control': 'private, max-age=60' });
 }
 
+// ---------- Tour mode ----------
+// Endless runs, so nothing is stored: the server only checks guesses and reveals songs, keeping the answers private.
+//   POST /api/tour/guess  { tour, i, g } -> { match } or { match, song }
+//   POST /api/tour/reveal { tour, i }    -> { song }   (the player missed or passed; the page counts the strike)
+const tourPrepared = new Map();
+function tourSong(tour, i) {
+  const list = typeof tour === 'string' && Object.hasOwn(TOURS, tour) ? TOURS[tour] : null;
+  if (!list || !Number.isInteger(i) || i < 0 || i >= list.length) return null;
+  const key = tour + ':' + i;
+  if (!tourPrepared.has(key)) tourPrepared.set(key, { ...list[i], m: prepareSong(list[i].t, list[i].a) });
+  return tourPrepared.get(key);
+}
+async function tourGuess(request, env) {
+  if (await limited(request, env)) return json({ error: 'slow down' }, 429);
+  const body = await readBody(request, 512);
+  if (!body || typeof body.g !== 'string' || body.g.length > 100) return json({ error: 'bad request' }, 400);
+  const s = tourSong(body.tour, body.i);
+  if (!s) return json({ error: 'no such song' }, 404);
+  return matchSong(s.m, body.g) ? json({ match: true, song: publicSong(s) }) : json({ match: false });
+}
+async function tourReveal(request, env) {
+  if (await limited(request, env)) return json({ error: 'slow down' }, 429);
+  const body = await readBody(request, 256);
+  const s = body && tourSong(body.tour, body.i);
+  if (!s) return json({ error: 'no such song' }, 404);
+  return json({ song: publicSong(s) });
+}
+
 // ---------- sync codes ----------
 const WORDS = ['riff', 'chorus', 'encore', 'verse', 'bridge', 'tempo', 'vinyl', 'cassette', 'amp', 'drum', 'bass', 'synth',
   'banjo', 'ukulele', 'fiddle', 'kazoo', 'tuba', 'cello', 'piano', 'organ', 'harp', 'sitar', 'groove', 'disco', 'punk', 'grunge',
@@ -270,6 +299,8 @@ export default {
       if (pathname === '/api/stats' && request.method === 'GET') return await stats(request, env, ctx);
       if (pathname === '/api/answers' && request.method === 'GET') return await answers(request, env);
       if (pathname === '/api/sync' && (request.method === 'GET' || request.method === 'POST')) return await sync(request, env);
+      if (pathname === '/api/tour/guess' && request.method === 'POST') return await tourGuess(request, env);
+      if (pathname === '/api/tour/reveal' && request.method === 'POST') return await tourReveal(request, env);
       return json({ error: 'not found' }, 404);
     } catch (err) {
       // e.g. a daily free-tier limit was hit, or the database isn't set up yet

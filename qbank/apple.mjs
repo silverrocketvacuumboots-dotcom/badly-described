@@ -13,7 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { norm } from '../src/match.js';
-import { parseDays } from './parse.mjs';
+import { parseDays, parseTours } from './parse.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const COUNTRY = process.env.APPLE_COUNTRY || 'us';
@@ -49,7 +49,7 @@ export function rank(title, artist, results, album = '') {
     seen.add(r.trackId);
     if (r.kind !== 'song') continue;
     const ra = norm(r.artistName || '').replace(/^the/, '');
-    if (!(ra.includes(a) || a.includes(ra))) continue;
+    if (ra.length < 2 || !(ra.includes(a) || a.includes(ra))) continue; // an artist in another alphabet normalises to nothing
     if (core(r.trackName) !== t) continue;
     if (BAD.test(`${r.trackName} ${r.collectionName}`)) continue;
     let pen = 0;
@@ -86,8 +86,9 @@ async function find(title, artist, album = '', all = true) {
 
 async function check() {
   const { days, problems } = parseDays(path.join(ROOT, 'days'));
-  if (problems.length) { console.log(problems.join('\n')); process.exit(1); }
-  const songs = days.flatMap((d) => d.songs.map((s) => ({ ...s, day: d.n })));
+  const t = parseTours(path.join(ROOT, 'tours'));
+  if (problems.length || t.problems.length) { console.log([...problems, ...t.problems].join('\n')); process.exit(1); }
+  const songs = [...days.flatMap((d) => d.songs.map((s) => ({ ...s, day: d.n }))), ...t.tours.flatMap((x) => x.songs.map((s) => ({ ...s, day: x.id })))];
   const found = new Map();
   for (let i = 0; i < songs.length; i += 150) {
     const ids = songs.slice(i, i + 150).map((s) => s.id).join(',');
@@ -99,7 +100,7 @@ async function check() {
   for (const s of songs) {
     const r = found.get(String(s.id));
     const title = s.titles.split('/')[0];
-    const tag = `#${s.day} ${title} (${s.id})`;
+    const tag = `${typeof s.day === "number" ? "#" + s.day : s.day} ${title} (${s.id})`;
     if (!r) { console.log(`ERROR ${tag}: not found in the ${COUNTRY} store`); bad++; continue; }
     if (!r.previewUrl) { console.log(`ERROR ${tag}: no preview`); bad++; }
     const ra = norm(r.artistName), a = norm(s.artist);

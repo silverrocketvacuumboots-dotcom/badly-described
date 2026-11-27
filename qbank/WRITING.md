@@ -52,6 +52,28 @@ After adding days, run `node qbank/apple.mjs check`: it looks up every id in the
 missing or lost its preview. It also notes where Apple's date differs from the bank's year; Apple's dates are
 often reissue dates, so check before changing anything.
 
+## Tours
+
+Tour mode's songs live in `qbank/tours/*.txt`, one tour per file. Files are listed in name order (`1-van86.txt`,
+`2-lollapaloser93.txt` …), so number new ones.
+
+```
+TOUR: van86 | The Van Tour '86 | the Reading Glasses Festival | 80s indie, college radio and the van's mixtape.
+D: Flat bike tyre on a hill, nothing to wear, a stranger offers a lift
+S: This Charming Man | The Smiths | 1983 | 799980295 | 1
+```
+
+- `TOUR:` is the id (lower-case letters and digits) | the tour's name | the festival you headline at the end
+  ("the Reading Glasses Festival", shown as "Headlining the Reading Glasses Festival") | a one-line blurb.
+- Song lines are like the daily ones with a fifth part, the **cred tier**:
+  `1` a hit everyone knows, `2` a fan favourite, `3` a deep cut, `-1` too mainstream (getting it right *costs* cred,
+  and the page says so; use it for the songs the record shop guy would sneer at).
+- Runs start on tier 1 and drift to tiers 2 and 3 as you climb, so each tour needs at least 12 hits (1 or -1),
+  10 fan favourites and 6 deep cuts. About 50 songs a tour keeps repeat runs fresh.
+- **Only ever add songs at the END of a tour file.** Songs are asked for by their position in the list, so
+  reordering or deleting mixes up runs in progress.
+- The same song can't appear twice across the tours, but a tour song can also be a daily song.
+
 ## Rules for good descriptions
 
 - **Bad but fair.** Literal, deadpan, slightly wrong-headed, but a fan should get there:

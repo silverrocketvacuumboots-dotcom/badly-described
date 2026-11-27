@@ -34,7 +34,9 @@ export function parseTitles(raw) {
 export function artistForms(artist) {
   const full = String(artist || '');
   const parts = full.split(/\s+(?:feat\.?|ft\.?|featuring|with|&|and|x|vs\.?)\s+|,\s*/i);
-  return [...new Set([full, ...parts].map(norm).filter((f) => f.length >= 2))];
+  const forms = [...new Set([full, ...parts].map(norm).filter((f) => f.length >= 2))];
+  // norm() drops a leading "the", so also allow it typed: "by the smiths", "the cure boys dont cry"
+  return [...new Set(forms.flatMap((f) => [f, 'the' + f]))];
 }
 
 // Everything matchSong needs, worked out once per song.
