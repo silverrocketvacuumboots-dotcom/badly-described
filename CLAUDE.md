@@ -13,7 +13,8 @@ Once connected (see README), pushes to `main` deploy automatically through Cloud
 - Answer matching lives in `src/match.js`, shared by the builder and the Worker.
 - Song previews: the page looks each track id up with Apple's lookup API and streams the preview from Apple. Apple's
   terms: stream only (never download, cache or store audio), keep the Apple Music link and "Preview provided courtesy
-  of iTunes" next to the player, and use previews to promote the song: they're the reveal, never the clue.
+  of iTunes" next to the player, and use previews to promote the song: they're the reveal, never the clue. The badge
+  (`public/apple-music-badge.svg`) is Apple's artwork: never edit, tilt or animate it; keep it 30px+ tall.
 - Track ids: `node qbank/apple.mjs find "Title" "Artist" "Original album"`; `node qbank/apple.mjs check` verifies the
   whole bank. Behind an HTTPS proxy, run Node with `NODE_USE_ENV_PROXY=1`.
 - Only add days at the end of the bank; never renumber or remove days that may already have been played.

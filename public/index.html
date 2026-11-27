@@ -134,9 +134,11 @@ form.guess.busy input{opacity:.7}
 .player.playing .eq i{animation-play-state:running}
 .play[hidden]+.eq{display:none}
 @keyframes eq{from{height:4px}to{height:18px}}
-.store{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
-.am{display:inline-flex;align-items:center;background:#000;color:#fff;text-decoration:none;border-radius:6px;padding:7px 12px;font-weight:600;font-size:.82rem}
-.am:hover{background:#2a2a2a}
+/* Apple's official badge, used exactly as supplied: at least 30px tall, clear space around it, and never tilted,
+   so this row undoes the paper's tilt. */
+.store{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;transform:rotate(.8deg);transform-origin:left center}
+.am{display:inline-block;line-height:0;padding:4px}
+.am img{display:block;height:40px;width:auto}
 .credit{font-size:.72rem;color:#7a7280}
 .said{margin:12px 0 0;font-size:.85rem;color:#5d5562}
 .promo{margin:0 0 10px;font-size:.95rem;color:var(--amber);font-weight:700}
@@ -644,7 +646,7 @@ function renderReveal(qi){
     <div class="song"><div class="cover" id="cover" hidden><img id="cover-img" alt="" width="84" height="84"></div>
       <div class="info"><div class="t">${esc(s.t)}</div><div class="a">${esc(s.a)} · ${s.y}</div></div></div>
     <div class="player" id="player"><button class="play" id="pp" type="button">Pause</button><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="pmsg" aria-live="polite">Loading the preview…</span></div>
-    <div class="store"><a class="am" id="am" href="${esc(appleUrl(s.id))}" target="_blank" rel="noopener">Listen on Apple Music</a><span class="credit">Preview provided courtesy of iTunes</span></div>
+    <div class="store"><a class="am" id="am" href="${esc(appleUrl(s.id))}" target="_blank" rel="noopener"><img src="apple-music-badge.svg" alt="Listen on Apple Music" width="137" height="40"></a><span class="credit">Preview provided courtesy of iTunes</span></div>
     ${p.n >= 10 ? `<p class="said">${pct(p.got, p.n)} of today's players got this one.</p>` : ''}</div>`;
   $('pp').onclick = () => {
     const a = audioEl(), info = APPLE[s.id];

@@ -33,7 +33,7 @@ Nothing is deployed yet. These steps connect the GitHub repo to Cloudflare, so e
 ### Before going public
 
 - **Launch date.** Day 1 is played on `BD_LAUNCH` in `qbank/build.mjs`, currently `2026-11-28`. Change it to your launch day; every day number follows from it. Changing it after launch renumbers every day, so set it once.
-- **Apple's badge.** Apple's terms want previews shown next to its official badge linking to the song. The game uses a plain black "Listen on Apple Music" button for now. Get the official badge artwork from Apple's marketing tools and swap it in (the `.am` link in `index.html`). Joining Apple's affiliate programme (Apple Services Performance Partners) also earns a commission on those links.
+- **Apple's badge.** The reveal uses Apple's official "Listen on Apple Music" badge (`public/apple-music-badge.svg`, downloaded unchanged from Apple's marketing tools). Apple's rules: don't edit, tilt or animate it, keep it at least 30 px tall with clear space around it. Joining Apple's affiliate programme (Apple Services Performance Partners) would also earn a commission on those links.
 - **Domain.** Add a custom domain to the Worker under **Settings → Domains & Routes**, then change the `og:image` address in `public/index.html` to match. Cloudflare only caches the daily stats on a custom domain, which keeps database reads down.
 - **Salt (optional).** Set a secret called `IP_SALT` on the Worker (**Settings → Variables and Secrets**). It changes how connections are hashed for the "3 players per connection" rule.
 
@@ -42,7 +42,7 @@ Nothing is deployed yet. These steps connect the GitHub repo to Cloudflare, so e
 When a song ends, the player's browser asks Apple for the track's preview and streams it straight from Apple. Nothing is downloaded or stored, and this Worker never contacts Apple. Apple's conditions for previews, which the game follows:
 
 - streamed only, never downloaded, saved or cached;
-- shown next to an Apple badge that links to the song, with the line "Preview provided courtesy of iTunes";
+- shown next to Apple's official badge linking to the song, with the line "Preview provided courtesy of iTunes";
 - used to promote the song, not as entertainment on their own. That's why the preview only plays after the answer, as the reveal, never as the clue.
 
 If Apple ever objects, the fallback is an official embedded player (Spotify, YouTube or Apple Music) in the reveal.
