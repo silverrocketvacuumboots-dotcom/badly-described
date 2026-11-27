@@ -28,7 +28,7 @@ Nothing is deployed yet. These steps connect the GitHub repo to Cloudflare, so e
    - Project name: `badly-described` (it must match `"name"` in `wrangler.jsonc`)
    - Build command: `node qbank/build.mjs` (so a broken question bank never goes live)
    - Deploy command: leave the default, `npx wrangler deploy`
-4. **Play it.** It goes live at `https://badly-described.<your-account>.workers.dev`. Until the launch date it plays day 1.
+4. **Play it.** It goes live at https://badly-described.theshedd.workers.dev. Until the launch date it plays day 1. If the Worker's **Settings → Domains & Routes** shows workers.dev as Disabled, click Enable (the config also switches it on with every deploy).
 
 ### Before going public
 
