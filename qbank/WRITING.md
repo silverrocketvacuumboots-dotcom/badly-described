@@ -79,7 +79,7 @@ S: This Charming Man | The Smiths | 1983 | 799980295 | 1
 
 ### Events, front pages, stations and Dez
 
-These live in `public/tour.html`, not in `qbank/`: `EVENTS` (legendary nights and flops, with a Pitchblende score and
+These live in `public/lore.js`, not in `qbank/`: `EVENTS` (legendary nights and flops, with a Pitchblende score and
 quote), `NEWS` (front pages in New Musical Excess or Melody Faker, each with an `era` decade, and `down: true` for the
 ones that follow a strike), `STATIONS` (rung 3) and `DEZ`. The same rules as descriptions, plus:
 

@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Bowlby+One+SC&family=Permanent+Marker&family=VT323&display=swap">
+<link rel="stylesheet" href="telly.css">
 <style>
 /* Tour Mode. One column on a late-night stage. A wood-grain telly sits in the corner and spins to the front of the
    page for level-ups, splits and the festival; the taped setlist is the play surface. */
@@ -199,78 +200,19 @@ footer{font-size:.78rem;color:var(--muted);text-align:center}
 @media(max-width:420px){.archive{grid-template-columns:1fr}}
 h2 small{font-family:var(--f-osd);font-size:1rem;color:var(--cyan);font-weight:400}
 
-/* the telly, a 3D box */
+/* where the telly sits (its look is telly.css) */
 .dock{perspective:1000px;display:grid;justify-items:center}
 .dock.big .slot{padding-top:clamp(60px,18vw,104px);display:grid;justify-items:center;width:100%}
 .dock.mini{flex:0 0 132px;width:132px;height:128px;perspective:700px;display:block}
 .dock.mini .slot{position:relative;width:132px;height:128px}
-.tv{--w:min(88vw,420px);--h:calc(var(--w) * .72);--d:calc(var(--w) * .6);position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d}
 .dock .tv{transform:rotateY(-14deg) rotateX(4deg)}
 .dock.mini .tv{--w:300px;position:absolute;left:-4px;top:46px;transform:scale(.44) rotateY(-14deg) rotateX(4deg);transform-origin:0 0}
-.tv.ghost{visibility:hidden}
 .stage .tv{transform:none}
-.face{position:absolute;left:0;top:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.front{width:var(--w);height:var(--h);transform:translateZ(calc(var(--d) / 2))}
-.back{width:var(--w);height:var(--h);transform:rotateY(180deg) translateZ(calc(var(--d) / 2));background:repeating-linear-gradient(180deg,#1d191b 0 6px,#2a2427 6px 8px);border-radius:14px;display:grid;place-items:center}
-.back .sticker{background:#d8d2c0;color:#222;font-family:var(--f-osd);font-size:clamp(10px,2.8vw,14px);padding:.6em .8em;line-height:1.15;text-align:center;border:1px solid #888;max-width:72%}
-.left,.right{width:var(--d);height:var(--h);left:calc((var(--w) - var(--d)) / 2)}
-.left{transform:rotateY(-90deg) translateZ(calc(var(--w) / 2))}
-.right{transform:rotateY(90deg) translateZ(calc(var(--w) / 2))}
-.top,.bottom{width:var(--w);height:var(--d);top:calc((var(--h) - var(--d)) / 2)}
-.top{transform:rotateX(90deg) translateZ(calc(var(--h) / 2))}
-.bottom{transform:rotateX(-90deg) translateZ(calc(var(--h) / 2));background:#140e0c}
-.wood,.cab{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(0,0,0,.28)),repeating-linear-gradient(93deg,#5a3018 0 3px,#6d3c1e 3px 7px,#7c4624 7px 9px,#61341a 9px 14px,#8a5229 14px 15px)}
-.wood{border-radius:10px}
-.cab{position:absolute;inset:0;border-radius:18px;padding:5% 4.5% 5% 5%;display:grid;grid-template-columns:1fr 19%;gap:4%;box-shadow:inset 0 0 0 2px rgba(0,0,0,.4),inset 0 3px 0 rgba(255,255,255,.16)}
-.ant{position:absolute;left:50%;top:0;width:0;height:0;transform:translateZ(0)}
-.ant::before{content:"";position:absolute;left:-16px;top:-12px;width:32px;height:13px;border-radius:16px 16px 0 0;background:#1d1d1d}
-.ant i{position:absolute;left:-1.5px;bottom:9px;width:3px;height:calc(var(--w) * .22);background:linear-gradient(#e6e6e6,#8a8a8a);transform-origin:50% 100%;border-radius:2px}
-.ant i:first-child{transform:rotate(-28deg)}.ant i:last-child{transform:rotate(24deg)}
-.panel{display:flex;flex-direction:column;align-items:center;gap:6%;padding-top:5%;background:linear-gradient(180deg,#2c2427,#191315);border-radius:8px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)}
-.maker{font-family:var(--f-display);font-size:calc(var(--w) * .021);color:#d9c9a3;letter-spacing:.05em;text-align:center;line-height:1.05}
-.knob{width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#dcdcdc,#6b6b6b 55%,#2b2b2b);box-shadow:0 2px 3px rgba(0,0,0,.6);position:relative}
-.knob::after{content:"";position:absolute;left:47%;top:8%;width:7%;height:38%;background:#1d1d1d;border-radius:2px;transform-origin:50% 110%;transform:rotate(var(--r,20deg))}
-.grille{width:70%;flex:1;margin-bottom:14%;background:repeating-linear-gradient(180deg,#0e0a0b 0 3px,#3a3033 3px 5px);border-radius:4px}
-.led{width:10%;aspect-ratio:1;border-radius:50%;background:#3a0b0b;box-shadow:0 0 0 1px #000}
-.led.on{background:#ff3b3b;box-shadow:0 0 8px #ff3b3b}
-.screen{position:relative;overflow:hidden;background:#05030a;border-radius:16px / 20px;container-type:inline-size;box-shadow:inset 0 0 24px rgba(0,0,0,.95),0 0 0 5px #17110f,0 0 0 8px #3d2c24}
-.standby{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(90deg,#bdbdbd 0 14.3%,#bdbd00 0 28.6%,#00bdbd 0 42.9%,#00bd00 0 57.2%,#bd00bd 0 71.5%,#bd0000 0 85.8%,#0000bd 0)}
-.standby .box{background:rgba(0,0,0,.82);color:#e8ffe8;font-family:var(--f-osd);font-size:clamp(9px,5.2cqw,24px);line-height:1.05;padding:.45em .7em;text-align:center;border:2px solid #e8ffe8;max-width:88%;overflow-wrap:anywhere}
-.standby .box b{display:block;font-weight:400;color:var(--yellow)}
-.picture{position:absolute;inset:0;transform-origin:50% 50%}
-.picture canvas{display:block;width:100%;height:100%}
-.bug{position:absolute;top:5%;right:5%;font-family:var(--f-display);font-size:clamp(8px,3.1cqw,14px);color:rgba(255,255,255,.8);border:2px solid rgba(255,255,255,.6);padding:.15em .45em;border-radius:6px;letter-spacing:.04em}
-.osd{position:absolute;top:5%;left:5%;font-family:var(--f-osd);font-size:clamp(12px,5cqw,22px);color:#7dff8a;text-shadow:0 0 6px rgba(125,255,138,.8);animation:blink 1s steps(2) infinite}
-@keyframes blink{50%{opacity:.35}}
-.ident{position:absolute;left:4%;right:4%;top:15%;text-align:center;font-family:var(--f-display);font-size:clamp(16px,8.6cqw,40px);line-height:.95;text-transform:uppercase;text-wrap:balance;
-  background:linear-gradient(180deg,#fff 0%,#e9edff 38%,#6a6f9e 50%,#fff 53%,#b7c2ff 76%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 2px 0 #3a0d52) drop-shadow(0 2px 0 #2a083c) drop-shadow(0 4px 6px rgba(0,0,0,.7))}
-.ident small{display:block;font-family:var(--f-osd);font-size:.42em;letter-spacing:.14em;-webkit-text-fill-color:var(--yellow);margin-bottom:.15em}
-.lower{position:absolute;left:4%;right:4%;bottom:12%;display:flex;flex-direction:column;align-items:flex-start;gap:.25em}
-.tag{font-family:var(--f-osd);font-size:clamp(11px,4.2cqw,19px);background:var(--pink);color:#fff;padding:.05em .5em;letter-spacing:.06em}
-.tag.chet{background:var(--blue)}
-.cap{margin:0;background:rgba(5,2,12,.8);color:#fff;font-weight:800;font-size:clamp(11px,4.1cqw,19px);line-height:1.22;padding:.35em .55em;min-height:2.75em;width:100%}
-.ticker{position:absolute;left:0;right:0;bottom:0;height:9%;background:var(--yellow);color:#120a00;font-family:var(--f-osd);font-size:clamp(11px,4.6cqw,20px);white-space:nowrap;overflow:hidden;display:flex;align-items:center}
-.ticker span{display:inline-block;padding-left:100%;animation:tick 18s linear infinite}
-@keyframes tick{to{transform:translateX(-100%)}}
-.win{position:absolute;left:7%;right:7%;top:11%;background:#c3c3c3;color:#000;border:2px solid;border-color:#fff #555 #555 #fff;box-shadow:3px 3px 0 rgba(0,0,0,.55);font-family:var(--f-osd);font-size:clamp(11px,4.3cqw,20px);line-height:1.05}
-.win .tb{display:flex;justify-content:space-between;background:linear-gradient(90deg,#000080,#1084d0);color:#fff;padding:.12em .4em}
-.win .wb{padding:.45em .6em .55em}
-.win p{margin:.25em 0 0}
-.steps{position:relative;display:grid;grid-template-columns:repeat(13,1fr);align-items:end;gap:2px;height:5.4em;border-bottom:2px solid #555;margin-top:1.3em}
-.steps i{display:block;background:#8a8a8a;border:1px solid #555}
-.steps i.on{background:#000080}
-.steps i.now{background:var(--pink)}
-.you{position:absolute;transform:translate(-50%,-2px);white-space:nowrap;font-size:.9em;transition:left 1.1s cubic-bezier(.3,1.5,.5,1),bottom 1.1s cubic-bezier(.3,1.5,.5,1)}
-.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(0,0,0,.3) 0 1px,transparent 1px 3px);animation:flick .12s steps(2) infinite}
-@keyframes flick{50%{opacity:.82}}
-.glass{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse 60% 40% at 30% 18%,rgba(255,255,255,.14),transparent 60%),radial-gradient(ellipse at center,transparent 58%,rgba(0,0,0,.6) 100%)}
-.beam{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;transform:scale(0,.006)}
 .stage{position:fixed;inset:0;z-index:40;display:grid;place-items:center;perspective:1100px;background:rgba(9,4,16,.86);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 .fly{transform-style:preserve-3d}
 .skip{position:fixed;z-index:41;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:99px;padding:8px 16px;font-weight:700}
 @media (max-width:420px){.career b{font-size:1.1rem}.dock.mini{flex-basis:112px;width:112px}.dock.mini .slot{width:112px}.dock.mini .tv{transform:scale(.38) rotateY(-14deg) rotateX(4deg);top:44px}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}.you{transition:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.tv .you{transition:none}}
 </style>
 </head>
 <body>
@@ -391,6 +333,8 @@ h2 small{font-family:var(--f-osd);font-size:1rem;color:var(--cyan);font-weight:4
 <button class="skip" id="skip" type="button" hidden>Skip ⏭</button>
 
 <script src="tours.js"></script>
+<script src="lore.js"></script>
+<script src="telly.js"></script>
 <script>
 {
 const TOURS = Array.isArray(window.BD_TOURS) ? window.BD_TOURS : [];
@@ -422,19 +366,8 @@ const RUNGS = [
   {name:'Headlining'},
 ];
 const TOP = RUNGS.length - 1;
-// Rung 3 is a live session on a small, famous station, picked when a run starts (`since`: first year under that name)
+// Rung 3 is a live session on a small, famous station (STATIONS, in lore.js), picked when a run starts
 const RADIO = 3;
-const STATIONS = [
-  {n:'RTR FM', city:'Perth', say:'R T R F M', line:'Broadcasting live to the most isolated c-c-city on Earth!'},
-  {n:'FBi Radio', city:'Sydney', say:'F B I Radio', since:2003, line:'The presenter’s record collection is b-b-better than your record!'},
-  {n:'4ZZZ', city:'Brisbane', say:'Four Triple Zed', line:'Right between the t-t-tide times and a lost cat!'},
-  {n:'3RRR', city:'Melbourne', say:'Triple R', line:'The subscriber phones are r-r-ringing off the hook!'},
-  {n:'KEXP', old:'KCMU', city:'Seattle', say:'K E X P', sayOld:'K C M U', since:2001, line:'A man in a b-b-beanie is nodding very seriously at your bassist!'},
-  {n:'KROQ', city:'Los Angeles', say:'K-Rock', line:'Live between the t-t-traffic on the 405 and an ad for teeth whitening!'},
-  {n:'WFMU', city:'New Jersey', say:'W F M U', line:'Freeform radio! Up next: f-f-forty minutes of theremin!'},
-  {n:'KCRW', city:'Santa Monica', say:'K C R W', line:'The host whispers your name like it’s a s-s-secret!'},
-  {n:'NTS', city:'London', say:'N T S', since:2011, line:'Between a two-hour ambient show and a man who only plays d-d-doorbells!'},
-];
 function pickStation(T){
   const last = Math.max(...newsEras(T).map(d => parseInt(d, 10) + 9).filter(Number.isFinite), 0) || new Date().getFullYear();
   const s = pick(STATIONS.filter(x => !x.since || x.since <= last || x.old));
@@ -462,216 +395,19 @@ const SPLITS = [
   'The manager sold the van. With the gear in it. And the bassist asleep in the back.',
 ];
 const STRIKE_LINES = ['Strike one. The sound guy sighs.', 'Strike two. The drummer is looking at flights home.'];
-const BANDS = ['The Velvet Overground', 'Joy Division of Labour', "Echo & the Bunnymen's Accountant", 'My Bloody Valentine Card', 'Sonic Youth Club',
-  'The Jesus and Mary Chainmail', 'Spacemen 2', 'Galaxie 499', 'Same Impala', 'Pavement Tax', 'Dinosaur Senior', 'The Stone Rosettes',
-  'Happy Mondays to Fridays', 'Primal Scream Therapy', 'Cocteau Triplets', 'New Orderly', "Hüsker Don't", 'Throwing Mouses',
-  'Talking Heads Will Roll', 'Cabaret Voltage', 'Lush Life Insurance', 'Slowdive Bar', 'Mogwai Not', 'Suede Shoes Required',
-  'Pulp Non-Fiction', 'Teenage Fanclub Sandwich', 'The Smiths & Daughters', 'Elastica Waistband', 'Ride Share', 'Spiritualized Water'];
+// The lore (band names, stations, events, Dez, the weeklies and their front pages) is in lore.js
 const CRED = {3: 30, 2: 15, 1: 5, '-1': -20};
 const CRED_LINE = {3: 'Cred +30. Deep cut. The record shop guy nods.', 2: 'Cred +15. A fan favourite.', 1: 'Cred +5. Everybody knows that one.', '-1': 'Cred −20. You knew that one a little too well.'};
 const RANKS = [[-1e9, 'Has a Spotify Wrapped as their phone wallpaper'], [0, 'Owns one Coldplay album, ironically'], [150, 'Has opinions about mono mixes'],
   [400, 'Knows what a Peel session is'], [900, 'Owns the original pressing, not the reissue'], [1800, 'Was there, at the 40-person gig'], [3500, 'Writes the 9.4 reviews']];
 
-/* ---------- the road: things that happen between gigs (all to your band; nods for those in the know) ---------- */
-const EVENTS = [
-  {id:'leafblowers', kind:'good', title:'77 Leafblowers', score:'9.4', label:'Best New Noise', cred:25,
-    lore:'Your support act is a noise collective from Osaka: seventy-seven players in a spiral, each revving a two-stroke leafblower tuned to its own pitch. Halfway through, twelve of them sit down feeling dizzy. The conductor calls it the third movement.',
-    quote:'A municipal landscaping crisis elevated to high Modernism.'},
-  {id:'coughing', kind:'good', title:'4′33″ of Aggressive Coughing', score:'9.1', label:'Best New Music', cred:20,
-    lore:'You open with four and a half minutes of silence. A sold-out hall full of smokers tries desperately not to clear its throat.', quote:'The coughs are the composition. The composition is the coughs.'},
-  {id:'airports', kind:'good', title:'Music for Delayed Flights', score:'8.8', label:'Recommended', cred:15, fans:50,
-    lore:'Your new record is generative ambient piano, interrupted every four minutes by a recorded voice moving the gate from B2 to F49.', quote:'Boarding at gate F49, and somehow transcendent.'},
-  {id:'million', kind:'good', title:'Burning a Million', score:'9.4', label:'Best New Reissue', cred:30, fans:-100,
-    lore:'Uneasy about success, you take a million in fifties to a cold boathouse on a Scottish island and feed it into the fireplace. It gives off surprisingly little heat.', quote:'Punk talked about burning it all down. This actually did.'},
-  {id:'dialup', kind:'good', title:'24 Hours of Dial-Up', score:'9.4', label:'Best New Reissue', cred:25,
-    lore:'You pull down a Hackney gallery’s shutters and loop a modem handshake at 120 decibels for a whole day. It never connects. Fourteen people stay to the end.', quote:'Information sickness, predicted twenty years early.'},
-  {id:'darkness', kind:'good', title:'The Darkness-Only Laptop Set', score:'9.4', label:'Best New Music', cred:20,
-    lore:'You insist on total darkness: gaffer tape over every LED, every glowing watch handed in at the door. Six hundred people nod along to snare rushes in 19/16 that they can’t see.', quote:'Easily the warmest set of the decade, which tells you something.'},
-  {id:'sixrecords', kind:'good', title:'The Six-Record Code', score:'9.4', label:'Best New Music', cred:15, fans:200,
-    lore:'Instead of sending out promos, you slip six white-label records into second-hand shops on three continents. Each one hides six digits. Together they unlock a video of a desert highway.', quote:'Album marketing as a paranoid folk ritual.'},
-  {id:'fog', kind:'good', title:'The Fog Machine Evacuation', score:'9.4', label:'Best New Music', cred:20, fans:-50,
-    lore:'Dressed in monk robes, you hold a single sub-bass note until the sprinklers go off and flood the merch table. You keep playing.', quote:'The closest doom has ever come to a weather event.'},
-  {id:'rabbithole', kind:'good', title:'The Discogs Rabbit Hole', score:'9.0', label:'Best New Reissue', cred:30,
-    lore:'Your inner sleeve lists 291 krautrock bands that don’t exist. Three generations of record collectors go looking for them.', quote:'A reading list as a practical joke on the future.'},
-  {id:'encore', kind:'good', title:'The 1.3-Second Encore', score:'8.6', label:'Recommended', fans:150,
-    lore:'You play a song that is one chord and a grunt. The crowd demands it four more times.', quote:'Brevity as violence. Lovely.'},
-  {id:'fortytwo', kind:'good', title:'The 42-Person Gig', score:'9.7', label:'Best New Reissue', cred:40,
-    lore:'Forty-two people come to your pub gig. Forty years later, forty thousand people claim they were there, and that it made them start a band.', quote:'The most important gig nobody went to.'},
-  {id:'dialasong', kind:'good', title:'Dial-A-Song', score:'8.4', label:'Recommended', fans:150, cred:10,
-    lore:'You record a new song on an answering machine every day. Strangers ring it for the price of a local call.', quote:'Lo-fi as a public service.'},
-  {id:'fivealbums', kind:'good', title:'Five Albums in a Year', score:'8.7', label:'Recommended', fans:200,
-    lore:'You release five albums in twelve months: one in a tuning nobody else uses, and one free for fans to press their own bootlegs.', quote:'Prolific to the point of rudeness.'},
-  {id:'coathanger', kind:'good', title:'The Coat-Hanger Headset', score:'8.9', label:'Recommended', fans:100,
-    lore:'You can’t sing and dance at the same time, so your sound engineer bends a coat hanger into a headset microphone.', quote:'Engineering as choreography.'},
-  {id:'sameimpala', kind:'good', title:'Same Impala', score:'8.1', label:'Recommended', fans:200, cred:-10,
-    lore:'Your band wins Best Group at the awards. Accepting the trophy: you, alone, with a laptop and a lot of reverb.', quote:'A band in the sense that one man is a crowd.'},
-  {id:'miming', kind:'flop', title:'Caught Miming', score:'1.8', label:'', cred:-20,
-    lore:'On live telly, the backing track starts the wrong song. You do a little jig and walk off.', quote:'A career-defining moment, sadly.'},
-  {id:'freealbum', kind:'flop', title:'The Free Album Nobody Asked For', score:'2.4', label:'', fans:500, cred:-40,
-    lore:'Your album appears on every phone in the world overnight, whether people want it or not. Most people do not.', quote:'Generosity as an act of aggression.'},
-  {id:'takedown', kind:'flop', title:'The Forty-Minute Takedown', score:'3.0', label:'', fans:-50, cred:-15,
-    lore:'A man with a guitar on YouTube spends forty minutes explaining exactly why your single stinks. Twelve million people watch.', quote:'He has a point about the bridge.'},
-  {id:'sandwich', kind:'flop', title:'The Cheese Sandwich Festival', score:'0.9', label:'', fans:-100,
-    lore:'You’re booked for a luxury island festival. The villas are disaster-relief tents and dinner is a cheese sandwich in a polystyrene box.', quote:'Immersive, in the worst way.'},
-  {id:'bargainbin', kind:'flop', title:'The Bargain Bin', score:'2.2', label:'', cred:-10,
-    lore:'Your album turns up in the bargain bin with the corner clipped off.', quote:'Fairly priced, at last.'},
-  {id:'mud', kind:'flop', title:'The Mud Pelting', score:'7.9', label:'Recommended', fans:-50, cred:15,
-    lore:'Fifteen thousand people waiting for the headliner pelt your set with clods of turf. You walk off laughing, which is the coolest thing you’ve ever done.', quote:'A defeat that somehow looks like a win.'},
-];
-// Dez, behind the counter at Second Pressings Records
-const DEZ = {
-  hit: {3: ['Huh. You actually know that one.', 'Fine. Respect, I suppose.', "I've got that on the original pressing. Not that I'm comparing."],
-        2: ["The B-side's better.", 'Their early stuff was better, obviously.', 'Acceptable.'],
-        1: ['Everyone knows that one. My nan knows that one.', 'Bold of you to look pleased about that.', 'A radio-friendly unit shifter. Congratulations.'],
-        '-1': ['Get out of my shop.', "I'm going to pretend I didn't see that.", "You knew every word, didn't you."]},
-  miss: {3: ["Don't worry. Nobody knows that one. Except me."], 2: ['Fair enough. Not everyone was there.', 'Shame. Classic.'],
-         1: ['How did you not get THAT one?', "That's on every jukebox in the country."], '-1': ['Honestly? Good. Keep it that way.']},
-  bnb: ["Best new band in Britain? They said that about my nephew's band. He's nine.", "I've got 400 back issues that say that. A different band every week.",
-        "You're not even the best band in this shop, and we haven't got a band.", 'That phrase meant something in 1986. Briefly.', 'They said that about a kettle once.'],
-};
 const fx = e => [e.fans ? `Fans ${signed(e.fans)}` : '', e.cred ? `Cred ${signed(e.cred)}` : ''].filter(Boolean).join(' · ');
 
-/* ---------- the music weeklies (parodies): they crown the best new band in Britain every week, and it's usually you ---------- */
-const PAPERS = {
-  nmx: {name: 'New Musical Excess', price: {'1970s': '12p · Every Thursday', '1980s': '45p · Every Wednesday', '1990s': '85p · Every Wednesday',
-    '2000s': '£1.90 · Every Wednesday', '2010s': 'Free at the station · Fridays', '2020s': 'Online only · 47 pop-ups'}},
-  mf: {name: 'Melody Faker', price: {'1970s': '12p · The paper that celebrates itself', '1980s': '45p · The paper that celebrates itself', '1990s': '80p · The paper that celebrates itself'}},
-};
-const BNB = ['The best new band in Britain', 'The best new band in Britain (again)', 'Still the best new band in Britain', 'The best new band in Britain this week',
-  'The best new band in Britain since last Tuesday', 'The best new band in Britain (figures exclude Wales)', 'The best new band in Britain, honestly, this time',
-  'The best new band on this page', 'The best new band in this postcode', 'The best new band in Britain (tenth time lucky)',
-  'The best new band in Britain since the last best new band in Britain', 'The best new band in Britain (we say this every week)', 'Best. New. Band. In. Britain.',
-  'The best new band in Britain (the words have lost all meaning)', 'The best new band in Britain (we had it made into a rubber stamp)',
-  'The best new band in Britain (see also: every other band)', 'The best new band in Britain (terms and conditions apply)',
-  'The best new band in Britain, as voted by the office cat', 'The best new band in Britain (reissue)', 'The best new band in Britain (20th anniversary deluxe edition)'];
 const ordinal = n => n + ((n % 100 > 10 && n % 100 < 14) ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
 const times = n => n === 1 ? 'once' : n === 2 ? 'twice' : `${fmt(n)} times`;
 const bnbLine = n => n <= BNB.length ? BNB[n - 1] : pick([`The best new band in Britain (No. ${fmt(n)})`, "The best new band in Britain (we've run out of bands)",
   'The best new band in Britain (the intern typed this)', `The best new band in Britain, for the ${ordinal(n)} time`, "The best new band in Britain (it's the only headline we've got)"]);
-const TICKER = ['DRUMMER ARRIVES ON TIME, SCIENTISTS BAFFLED', 'BAND ANNOUNCES SIXTH "FINAL" FAREWELL TOUR', 'SHOULDER PADS DECLARED BACK, AGAIN', 'KEYTAR SALES UP 900%',
-  'ROADIE FINDS LONG-LOST PLECTRUM', 'LOCAL MAN STILL REWINDING CASSETTE WITH A PENCIL', 'GUITARIST "JUST TUNING", 40 MINUTES IN', 'REUNION RULED OUT, TOUR DATES ANNOUNCED'];
 
-// Music news: front pages from the weeklies, with your band in the story. `era` matches a tour's news decades (the
-// TOUR line's fifth part); `down` ones come after a strike. Nods to famous moments: no real people named, no real tragedies.
-const NEWS = [
-  {id:'armround', era:'1970s', paper:'mf', title:'The Arm Round the Shoulder', fans:300, cred:20,
-    lore:'On teatime telly, your singer drapes an arm round the guitarist and points down the camera. The next morning, half the teenagers in Britain decide to form a band.'},
-  {id:'formaband', era:'1970s', paper:'nmx', title:'Now Form a Band', fans:100, cred:25,
-    lore:'A photocopied fanzine prints three chord diagrams and the words ‘now form a band’. You learn all three. Well, two.'},
-  {id:'teatime', era:'1970s', paper:'nmx', title:'The Filth and the Fuzz Pedal', fans:400, cred:20,
-    lore:'Goaded by a teatime chat-show host, your bassist swears on live telly. A viewer kicks in his own TV set in protest. By breakfast you’re on every front page.'},
-  {id:'dummies', era:'1970s', paper:'mf', title:'The Band Are Mannequins', fans:150, cred:25,
-    lore:'You send shop-window dummies of yourselves to the photo shoot, then to the first three nights of the tour. Nobody notices.'},
-  {id:'c90', era:'1980s', paper:'nmx', title:'The C90 Tape', fans:150, cred:25,
-    lore:'The weekly gives away a cassette of new bands on its cover. You’re track 14, side B, between two bands in anoraks. A whole genre ends up named after the tape.'},
-  {id:'wrongspeed', era:'1980s', paper:'mf', title:'Played at the Wrong Speed', fans:50, cred:30,
-    lore:'A late-night DJ plays your single at 33 instead of 45, apologises, plays it properly, then says he preferred it slow. He books you for a session.'},
-  {id:'gladioli', era:'1980s', paper:'nmx', title:'Flower Power', fans:250, cred:10,
-    lore:'Your singer mimes the new single on teatime telly while swinging a bunch of gladioli. By Saturday the florists of Manchester have sold out.'},
-  {id:'diecut', era:'1980s', paper:'mf', title:'The Sleeve That Ate the Profits', fans:200, cred:20,
-    lore:'Your designer’s die-cut sleeve costs more to make than the record sells for. You lose money on every copy of the best-selling single of your career.'},
-  {id:'yachtclub', era:'1980s', paper:'nmx', down:true, title:'The Club That Loses Money', fans:-50, cred:20,
-    lore:'Your label opens a nightclub in an old yacht showroom. The sound echoes so badly the DJ gives up. It loses money every night, and changes music for ever.'},
-  {id:'maracas', era:'1980s', paper:'mf', title:'The Man with the Maracas', fans:250,
-    lore:'You hire a mate whose only job is to dance on stage with maracas. Within a year he’s the most famous member of the band.'},
-  {id:'flares', era:'1980s', paper:'nmx', title:'Two Bands, One Teatime', fans:300, cred:10,
-    lore:'You and the band from across town are both on teatime telly on the same night. By Friday every teenager in the country is wearing flares.'},
-  {id:'britpop', era:'1990s', paper:'nmx', title:'The Battle of Britpop', fans:400, cred:-10,
-    lore:'You and your rivals release singles on the same Monday. It leads the six o’clock news. You win the chart battle by 58,000 copies, then lose the album war by several million.'},
-  {id:'island', era:'1990s', paper:'mf', title:'The Island', fans:350, cred:25,
-    lore:'You headline a windswept island in an estuary, next to a chemical works. The wind blows the sound into the next town and the burgers run out by six. 27,000 people call it the best day of their lives.'},
-  {id:'bumwiggle', era:'1990s', paper:'nmx', title:'Our Hero', fans:350, cred:35,
-    lore:'At the awards, a megastar performs a messiah routine on a hydraulic platform. Your singer wanders on stage and wiggles his bum at the cameras. By Monday he’s a national hero.'},
-  {id:'number10', era:'1990s', paper:'nmx', down:true, title:'Cool Britannia', fans:200, cred:-40,
-    lore:'You accept an invitation to a champagne party at Number 10 with the new prime minister. A photographer catches you laughing at his joke. Your cred never recovers.'},
-  {id:'lamestain', era:'1990s', paper:'mf', title:'Swingin’ on the Flippity-Flop', cred:30,
-    lore:'A newspaper rings your label for a glossary of grunge slang. The receptionist makes up every word on the spot, and ‘lamestain’ and ‘harsh realm’ are printed as fact.'},
-  {id:'couture', era:'1990s', paper:'nmx', down:true, title:'Grunge Couture', fans:150, cred:-15,
-    lore:'A New York fashion house sends models down the catwalk in your band’s flannel shirts, at £300 each. You bought yours in a charity shop for 50p.'},
-  {id:'crooner', era:'1990s', paper:'mf', title:'The Teatime Crooner', fans:100, cred:35,
-    lore:'Told to sing live over a backing track on teatime telly, your singer croons the hit an octave low, like a lounge act, while the bassist twirls his guitar overhead.'},
-  {id:'row', era:'1990s', paper:'nmx', title:'The Row That Charted', fans:150, cred:10,
-    lore:'A journalist tapes your band arguing in an interview. Someone releases the row as a single. It reaches number 52.'},
-  {id:'neoromo', era:'1990s', paper:'mf', down:true, title:'Neo-Romo: The New Scene', fans:50, cred:-20,
-    lore:'The weekly invents a new scene and puts you on the cover in eyeliner and a frilly shirt. The scene lasts three weeks. You’re the last band still wearing the shirt.'},
-  {id:'caps', era:'1990s', paper:'nmx', down:true, title:'America’s Favourite Band', fans:100, cred:-20,
-    lore:'This year’s best-selling album in America is by four nice men in baseball caps. Your label sends you four baseball caps.'},
-  {id:'cartoon', era:'1990s', paper:'nmx', title:'Cartoon Teens Approve', fans:350, cred:-5,
-    lore:'Two cartoon teenagers on music telly snigger through your video, then decide it’s cool. Your sales triple overnight.'},
-  {id:'shoegaze', era:'1990s', paper:'mf', title:'The Scene That Celebrates Itself', fans:100, cred:25,
-    lore:'A journalist invents a scene for you and four other bands who drink in the same pub. You all stare at your effects pedals. The paper calls it a movement.'},
-  {id:'onein20', era:'1990s', paper:'nmx', title:'One in 25 of Us Want Tickets', fans:500,
-    lore:'Two and a half million people apply for tickets to your two nights in a field. That’s about one in every 25 people in the country.'},
-  {id:'rockisback', era:'2000s', paper:'nmx', title:'Rock Is Back (Again)', fans:300, the:true,
-    lore:'The weekly declares guitar music saved. Every band with ‘The’ at the front of its name gets a record deal, so you add one to yours.'},
-  {id:'top8', era:'2000s', paper:'nmx', title:'Top 8', fans:400, cred:10,
-    lore:'Fans burn your demos onto CDs and post them on a social site with glittery backgrounds. You’re in 40,000 strangers’ Top 8 before you’ve released a single.'},
-  {id:'ninepointseven', era:'2000s', paper:'nmx', title:'The 9.7', fans:350, cred:25,
-    lore:'Pitchblende gives your debut album a 9.7. You’ve played eleven gigs. The next forty sell out before the review has finished loading.'},
-  {id:'silhouettes', era:'2000s', paper:'nmx', down:true, title:'The Silhouette Song', fans:500, cred:-25,
-    lore:'Your single soundtracks an advert full of dancing silhouettes in white earphones. Everyone knows the song. Nobody knows who you are.'},
-  {id:'newrave', era:'2000s', paper:'nmx', title:'New Rave Is Here', fans:200, cred:10,
-    lore:'Your bassist jokes in an interview that you’re ‘new rave’. Two weeks later it’s a genre, with glow sticks and fluorescent tabards.'},
-  {id:'flatgig', era:'2000s', paper:'nmx', title:'The Gig in the Flat', fans:100, cred:25,
-    lore:'You announce a gig on your fan forum two hours before it starts, in your own flat. Sixty people squeeze into the living room. The neighbours join in on tambourine.'},
-  {id:'landfill', era:'2000s', paper:'nmx', down:true, title:'Landfill', cred:-25,
-    lore:'A columnist coins the phrase ‘landfill indie’ and illustrates it with your press photo.'},
-  {id:'paywhat', era:'2000s', paper:'nmx', title:'Pay What You Like', fans:300, cred:10,
-    lore:'You put your album online for whatever people want to pay. Most pay nothing. Everyone writes a think piece about it.'},
-  {id:'wrongname', era:'2000s', paper:'nmx', down:true, title:'It’s Not Them', fans:300, cred:-15,
-    lore:'Your demo leaks onto a file-sharing network, labelled as a lost song by a far more famous band. Four million people download it under the wrong name.'},
-  {id:'flash', era:'2000s', paper:'nmx', title:'The Party Photos', fans:150, cred:15,
-    lore:'A party photographer posts 400 flash photos of you in a sweaty loft, wearing sunglasses at 3am. Your outfit becomes the uniform of the summer.'},
-  {id:'prank', era:'2000s', paper:'nmx', title:'The Internet Prank', fans:400, cred:-5,
-    lore:'Your old video becomes an internet prank: people are tricked into watching it hundreds of millions of times. You never see a penny, but you never give it up.'},
-  {id:'mercurial', era:'2000s', paper:'nmx', down:true, title:'The Curse of the Mercurial Prize', fans:-100, cred:20,
-    lore:'You win the year’s big album prize, beating three famous bands and a jazz trio. Your next record sells 400 copies.'},
-  {id:'wristbands', era:'2010s', paper:'nmx', down:true, title:'The Light-Up Wristbands', fans:400, cred:-30,
-    lore:'Every fan at your stadium show gets a wristband that flashes in time with the chorus. It’s beautiful. The record shop guy has asked you to leave.'},
-  {id:'whoarethey', era:'2010s', paper:'nmx', title:'Who Are They?!', fans:300, cred:30,
-    lore:'You win Album of the Year at the big American awards. Millions of people go online to ask who you are. Someone starts a blog of the angriest posts.'},
-  {id:'silent', era:'2010s', paper:'nmx', title:'The Silent Album', fans:150, cred:30,
-    lore:'You release ten tracks of silence and ask fans to stream them while they sleep. The royalties pay for the whole tour.'},
-  {id:'surprise', era:'2010s', paper:'nmx', title:'Out Now. Surprise.', fans:400,
-    lore:'You release your album at midnight with no warning, no singles and no press. The internet breaks for a week.'},
-  {id:'counter', era:'2010s', paper:'nmx', title:'The Video That Broke the Counter', fans:600, cred:-20,
-    lore:'Your video is watched so many times that the site’s view counter runs out of numbers and has to be rebuilt.'},
-  {id:'heyho', era:'2010s', paper:'nmx', down:true, title:'Hey! Ho!', fans:300, cred:-30,
-    lore:'The banjo-and-waistcoat craze arrives. Your label asks for more stomping, more shouting ‘hey!’, and a lot more waistcoat.'},
-  {id:'shopday', era:'2010s', paper:'nmx', title:'Record Shop Day', fans:100, cred:10,
-    lore:'Your reissue on glow-in-the-dark vinyl sells out at 8am to people who’ve queued since 4. By 9 it’s on auction sites at four times the price.'},
-  {id:'warmest', era:'2010s', paper:'nmx', down:true, title:'Number 101', fans:-50, cred:10,
-    lore:'Your single comes in at number 101 in the Warmest 100 countdown. You find out from a spreadsheet a fan made to predict it.'},
-  {id:'fifteen', era:'2020s', paper:'nmx', down:true, title:'Fifteen Seconds of Fame', fans:500, cred:-20,
-    lore:'Fifteen seconds of your bridge goes viral on a video app, sped up. Everyone knows the fifteen seconds. Nobody knows the song.'},
-  {id:'thirtyseven', era:'2020s', paper:'nmx', title:'Number One, 37 Years Late', fans:600, cred:15,
-    lore:'A streaming drama uses a song from your first ever demo. Teenagers who weren’t born when you wrote it send it to number one.'},
-  {id:'monkey', era:'2020s', paper:'nmx', down:true, title:'The Monkey Picture', fans:50, cred:-30,
-    lore:'You sell your album as a cartoon monkey picture on the blockchain. It’s worth a fortune for a week. Then it’s worth about £3.'},
-  {id:'kitchen', era:'2020s', paper:'nmx', title:'The Kitchen Gig', fans:200, cred:15,
-    lore:'You livestream an acoustic set from your kitchen to 40,000 people. The cat walks across the laptop and ends it in the middle of the best song.'},
-  {id:'indemand', era:'2020s', paper:'nmx', down:true, title:'In-Demand Pricing', fans:300, cred:-30,
-    lore:'Your reunion tickets go on sale at one price and finish at more than double, because of ‘demand’. Fans queue online for nine hours to be annoyed.'},
-  {id:'limegreen', era:'2020s', paper:'nmx', title:'The Lime-Green Summer', fans:400, cred:20,
-    lore:'Your album cover is lime green with one blurry lower-case word on it. A whole summer gets named after it.'},
-  {id:'robot', era:'2020s', paper:'nmx', down:true, title:'The Robot Version', fans:-50, cred:-20,
-    lore:'Someone uses AI to make a song that sounds exactly like you. It’s better than your new single, and it’s in the charts.'},
-  {id:'ourversion', era:'2020s', paper:'nmx', title:'(Our Version)', fans:400, cred:5,
-    lore:'You re-record your first album note for note so that you finally own it, and call it ‘(Our Version)’. It outsells the original.'},
-  {id:'bracelets', era:'2020s', paper:'nmx', title:'The Bracelets', fans:300, cred:-10,
-    lore:'Your fans swap handmade friendship bracelets at every gig. The bracelets get their own documentary.'},
-  {id:'pink', era:'2020s', paper:'nmx', title:'The Pink Era', fans:200, cred:20,
-    lore:'You dye your hair, go full Y2K and make a romantic record. The purists faint. It’s your best album yet.'},
-].map(e => Object.assign({kind: 'news'}, e));
-const ALL_EVENTS = EVENTS.concat(NEWS);
-const EV = id => ALL_EVENTS.find(e => e.id === id);
-const paperOf = e => e.paper === 'mf' && e.era < '2000s' ? 'mf' : 'nmx';
-// the decades a tour's news comes from: the TOUR line's fifth part, or the decades a fifth of its songs come from
-function newsEras(T){
-  if (Array.isArray(T.news) && T.news.length) return T.news;
-  const n = {}; for (const s of T.s) n[s.h[0]] = (n[s.h[0]] || 0) + 1;
-  return Object.keys(n).filter(d => n[d] >= T.s.length * .2);
-}
 
 
 /* ---------- saved state ---------- */
@@ -852,76 +588,11 @@ function playerState(s){
 }
 
 /* ---------- the telly: blocky 3D hosts, flat-shaded like mid-80s computer graphics ---------- */
-const HOSTS = {vince: {name: 'VECTOR VINCE', role: 'NEXT LEVEL'}, chet: {name: 'CHET MONOTONE', role: 'MUSIC NEWS'}};
-const PAL = {
-  next:{sky1:'#24063f',sky2:'#ff3fa4',floor:'#0d0020',grid:'#3ff0ff',sun1:'#ffe14d',sun2:'#ff3fa4',a:'#ffe14d',b:'#3ff0ff'},
-  news:{sky1:'#00122b',sky2:'#1f5bff',floor:'#00081a',grid:'#8fd3ff',sun1:'#ffffff',sun2:'#1f5bff',a:'#ff3b3b',b:'#8fd3ff'},
-  radio:{sky1:'#03200f',sky2:'#19b866',floor:'#011208',grid:'#b6ffcf',sun1:'#eaffb0',sun2:'#19b866',a:'#eaffb0',b:'#b6ffcf'},
-  countdown:{sky1:'#14002b',sky2:'#00d8a0',floor:'#07001a',grid:'#ff3fa4',sun1:'#ffe14d',sun2:'#00d8a0',a:'#ff3fa4',b:'#ffe14d'},
-  gold:{sky1:'#0b0b0b',sky2:'#a77b06',floor:'#050505',grid:'#ffd700',sun1:'#fff6c4',sun2:'#a77b06',a:'#ffd700',b:'#fff6c4'},
-  split:{sky1:'#0a0a0a',sky2:'#5a1020',floor:'#050002',grid:'#ff5c8a',sun1:'#ff9aa8',sun2:'#5a1020',a:'#ff5c8a',b:'#ff9aa8'},
-};
-const FACES = [[0,1,2,3],[5,4,7,6],[4,0,3,7],[1,5,6,2],[4,5,1,0],[3,2,6,7]], NORMALS = [[0,0,-1],[0,0,1],[-1,0,0],[1,0,0],[0,-1,0],[0,1,0]];
-const LIGHT = (() => { const v = [-.45, -.65, -.62], m = Math.hypot(...v); return v.map(x => x / m); })();
-function rot([x, y, z], yaw, pitch){ const cy = Math.cos(yaw), sy = Math.sin(yaw); [x, z] = [x * cy + z * sy, -x * sy + z * cy]; const cp = Math.cos(pitch), sp = Math.sin(pitch); [y, z] = [y * cp - z * sp, y * sp + z * cp]; return [x, y, z]; }
-function shade(hex, k){ const n = parseInt(hex.slice(1), 16), f = c => Math.max(0, Math.min(255, Math.round(c * k))); return `rgb(${f(n >> 16 & 255)},${f(n >> 8 & 255)},${f(n & 255)})`; }
-function vince(open){ const s1 = '#f4c7a4', s2 = '#e9b892'; return [
-  {c:[0,-18,0], s:[50,58,46], col:s1}, {c:[0,36,-2], s:[46,20,40], tb:.78, col:s2}, {c:[0,-80,4], s:[54,16,50], col:'#ffe14d'}, {c:[0,-92,-36], s:[42,16,18], tt:1.1, col:'#ffd21f'},
-  {c:[0,-22,-48], s:[50,9,4], col:'#0c0c14', glint:true}, {c:[0,2,-50], s:[7,12,7], col:s2}, {c:[0,34,-44], s:[17,2 + open * 8,3], col:'#3b0c1e'},
-  {c:[-53,-12,2], s:[5,13,9], col:s2}, {c:[53,-12,2], s:[5,13,9], col:s2}, {c:[0,72,6], s:[20,18,18], col:s2, body:true}, {c:[0,94,-10], s:[34,8,22], col:'#ffffff', body:true},
-  {c:[0,132,8], s:[112,34,48], tt:.66, col:'#2b3bff', body:true}, {c:[0,118,-40], s:[7,24,3], col:'#ff3fa4', body:true}]; }
-function chet(open){ const s1 = '#d99f78', s2 = '#c98d66'; return [
-  {c:[0,-16,0], s:[48,56,44], col:s1}, {c:[0,36,-2], s:[44,20,40], tb:.82, col:s2}, {c:[0,-78,2], s:[50,12,46], col:'#7a7470'},
-  {c:[-22,-20,-47], s:[17,10,3], col:'#3a2a12', glint:true}, {c:[22,-20,-47], s:[17,10,3], col:'#3a2a12', glint:true}, {c:[0,-26,-48], s:[6,2,2], col:'#c9a24a'},
-  {c:[0,4,-48], s:[7,13,7], col:s2}, {c:[0,36,-43], s:[15,2 + open * 4,3], col:'#4a1a16'}, {c:[-51,-10,2], s:[5,13,9], col:s2}, {c:[51,-10,2], s:[5,13,9], col:s2},
-  {c:[0,72,6], s:[20,18,18], col:s2, body:true}, {c:[0,96,-12], s:[26,12,20], col:'#9aa3ad', body:true}, {c:[0,132,8], s:[114,34,48], tt:.66, col:'#26232b', body:true},
-  {c:[66,104,-52], s:[6,24,6], col:'#9a9a9a', body:true}, {c:[66,72,-52], s:[11,11,11], col:'#1b1b1b', body:true}, {c:[66,92,-52], s:[15,9,15], col:'#e0115f', body:true}]; }
-function drawModel(ctx, parts, pose, ox, oy, scale){
-  const F = 700 * scale, D = 700, polys = [];
-  for (const b of parts) {
-    const [cx, cy, cz] = b.c, [hx, hy, hz] = b.s, tt = b.tt || 1, tb = b.tb || 1, P = (sx, sy, sz) => [cx + sx * hx * (sy < 0 ? tt : tb), cy + sy * hy, cz + sz * hz];
-    const v = [P(-1,-1,-1), P(1,-1,-1), P(1,1,-1), P(-1,1,-1), P(-1,-1,1), P(1,-1,1), P(1,1,1), P(-1,1,1)];
-    const yaw = b.body ? pose.yaw * .25 : pose.yaw, pitch = b.body ? 0 : pose.pitch, rv = v.map(p => rot(p, yaw, pitch));
-    FACES.forEach((ix, fi) => {
-      const pts = ix.map(i => rv[i]), scr = pts.map(([x, y, z]) => [ox + x * F / (z + D), oy + y * F / (z + D)]);
-      let area = 0; for (let i = 0; i < 4; i++) { const p = scr[i], q = scr[(i + 1) % 4]; area += p[0] * q[1] - q[0] * p[1]; }
-      if (area <= 0) return;
-      const n = rot(NORMALS[fi], yaw, pitch), lit = .42 + .78 * Math.max(0, n[0] * LIGHT[0] + n[1] * LIGHT[1] + n[2] * LIGHT[2]);
-      polys.push({scr, z: pts.reduce((s, p) => s + p[2], 0) / 4, fill: shade(b.col, lit), glint: b.glint && fi === 0});
-    });
-  }
-  polys.sort((a, b) => b.z - a.z);
-  const path = pts => { ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); }, lerp = (p, q, t) => [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t];
-  for (const p of polys) { path(p.scr); ctx.fillStyle = p.fill; ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = 1; ctx.stroke();
-    if (p.glint) { const [a, b, c, d] = p.scr; path([lerp(a, b, .14), lerp(a, b, .26), lerp(d, c, .18), lerp(d, c, .06)]); ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fill(); } }
-}
-function wireCube(ctx, x, y, s, a, col){ const P = []; for (const i of [-1, 1]) for (const j of [-1, 1]) for (const k of [-1, 1]) { const p = rot([i * s, j * s, k * s], a, a * .7); P.push([x + p[0], y + p[1]]); }
-  ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); for (const [m, n] of [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]]) { ctx.moveTo(...P[m]); ctx.lineTo(...P[n]); } ctx.stroke(); }
-function backdrop(ctx, W, H, P, t){
-  const hz = H * .62, g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, P.sky1); g.addColorStop(.62, P.sky2); g.addColorStop(.62, P.floor); g.addColorStop(1, '#000');
-  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  const r = H * .26, sy = hz - H * .05; ctx.save(); ctx.beginPath(); ctx.arc(W / 2, sy, r, Math.PI, 0); ctx.closePath(); ctx.clip();
-  const sg = ctx.createLinearGradient(0, sy - r, 0, sy); sg.addColorStop(0, P.sun1); sg.addColorStop(1, P.sun2); ctx.fillStyle = sg; ctx.fillRect(W / 2 - r, sy - r, r * 2, r);
-  ctx.fillStyle = P.sky2; for (let i = 0; i < 6; i++) ctx.fillRect(W / 2 - r, sy - i * r / 8 - ((t / 60) % (r / 8)), r * 2, 1.5 + i * .8); ctx.restore();
-  ctx.strokeStyle = P.grid; ctx.lineWidth = 1.5; ctx.globalAlpha = .85;
-  for (let i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(W / 2 + i * 8, hz); ctx.lineTo(W / 2 + i * W / 6, H); ctx.stroke(); }
-  const off = (t / 650) % 1; for (let i = 0; i < 14; i++) { const z = (i + off) / 14, y = hz + (H - hz) * z * z; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-  ctx.globalAlpha = 1; wireCube(ctx, W * .15, H * .26, H * .095, t / 900, P.a); wireCube(ctx, W * .85, H * .3, H * .07, -t / 700, P.b);
-}
-const cv = $('cv'), cctx = cv.getContext('2d');
-let scene = null, raf = 0;
-function draw(){
-  if (!scene) return;
-  const t = performance.now() - scene.t0, W = cv.width, H = cv.height, isV = scene.host === 'vince';
-  backdrop(cctx, W, H, PAL[scene.pal] || PAL.next, t);
-  const open = scene.talk ? .25 + .75 * Math.abs(Math.sin(t / 55 + Math.sin(t / 130))) : .08;
-  const pose = isV ? {yaw: Math.sin(t / 700) * .35 + scene.snap, pitch: Math.sin(t / 430) * .06} : {yaw: Math.sin(t / 1600) * .12 - .1, pitch: Math.sin(t / 2100) * .03};
-  drawModel(cctx, isV ? vince(open) : chet(open * .6), pose, W / 2, H * .44, .9);
-  if (scene.glitch > 0 && !reduce) { for (let i = 0; i < 4; i++) { const y = Math.random() * H | 0, h = 4 + Math.random() * 16 | 0, dx = (Math.random() * 40 - 20) | 0; cctx.drawImage(cv, 0, y, W, h, dx, y, W, h); } scene.glitch--; }
-  raf = requestAnimationFrame(draw);
-}
-const startScene = (host, pal) => { scene = {host, pal, t0: performance.now(), talk: 0, glitch: 0, snap: 0}; cancelAnimationFrame(raf); draw(); };
-const stopScene = () => { scene = null; cancelAnimationFrame(raf); };
+const {HOSTS} = TELLY;   // the hosts and their set: telly.js
+const cv = $('cv');
+let scene = null;
+const startScene = (host, pal) => { if (scene) scene.stop(); scene = TELLY.run(cv, {host, pal, reduce}); };
+const stopScene = () => { if (scene) scene.stop(); scene = null; };
 
 /* the telly lives in a slot (the title screen, or the corner of the run screen) and flies to the front for broadcasts */
 let tvSlot = null;

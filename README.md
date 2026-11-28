@@ -5,8 +5,11 @@ A daily music game. Every day there are seven famous songs, each described as ba
 It runs on Cloudflare's free tier, like Boreen: the game is a static page, and a small Worker checks guesses and records results in a D1 (SQLite) database.
 
 ```
-public/index.html    the game
+public/index.html    the game: the telly and the news-stand greet you, then today's set
 public/days.js       each day's theme, descriptions and hints, no answers (built from qbank/, don't edit by hand)
+public/telly.css     the Dial-O-Matic 85 telly (shared with Tour mode)
+public/telly.js      its hosts, Vector Vince and Chet Monotone, drawn live on a canvas (shared)
+public/lore.js       the lore: pun bands, radio stations, events, Dez, the music weeklies and their front pages (shared)
 src/bank.js          the answers, kept on the server (also built from qbank/)
 src/match.js         how typed guesses are matched to titles (typos, "the", artist names, other spellings)
 src/worker.js        the API: guess, miss, done, stats, answers, sync
@@ -60,8 +63,9 @@ node qbank/apple.mjs check                                        # check every 
 
 ## Tour mode (beta)
 
-Tour mode lives at `/tour` (https://badly-described.theshedd.workers.dev/tour), linked from the daily page's home
-screen ("Tour mode (beta)").
+Tour mode lives at `/tour` (https://badly-described.theshedd.workers.dev/tour). The daily page links to it from its
+header and its news-stand: on the start and result screens, the telly spins in and Vector Vince greets you, with the
+music weeklies' headlines on the ticker and two of their covers underneath.
 
 Pick a tour, then climb 12 rungs from busking to headlining that tour's festival, one badly described song at a
 time. Three misses and the band splits, announced on Music News; then you get back in the van and try again.
@@ -79,8 +83,9 @@ Along the way:
   strapline that gets more desperate each time.
 
 ```
-public/tour.html      the page: tours, runs, the spinning telly, the theme song, and the lore: EVENTS (Pitchblende),
-                      NEWS (front pages), STATIONS (radio sessions), DEZ (the record shop)
+public/tour.html      the page: tours, runs, broadcasts, the theme song
+public/lore.js        the lore it shares with the daily page: EVENTS (Pitchblende), NEWS (front pages), STATIONS
+                      (radio sessions), DEZ (the record shop), BANDS, the papers and their straplines (BNB)
 public/tours.js       each tour's descriptions, hints and cred tiers, no answers (built from qbank/tours/)
 src/tourbank.js       the tour answers, kept on the server (also built)
 qbank/tours/*.txt     one tour per file, listed in file-name order
@@ -93,7 +98,7 @@ The hosts, shows, channel, papers and events are all made-up parodies. Keep it t
 will get, not real logos, footage or likenesses, nothing about real tragedies, and no invented incidents pinned on
 real, named people. Everything that happens, happens to the player's band. Real radio stations appear only as places
 the band plays a session. Event ids are saved in players' archives, so never rename or reuse one; add new events at
-the end of `EVENTS` or `NEWS`.
+the end of `EVENTS` or `NEWS` in `public/lore.js`.
 
 ## Try it on your own computer
 

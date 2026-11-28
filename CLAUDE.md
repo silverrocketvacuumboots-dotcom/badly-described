@@ -3,6 +3,8 @@
 A daily music game: seven famous songs described badly, 25 seconds each; each right answer moves the player one step
 up a career ladder (busking to headlining Glastonbury), and each song's Apple Music preview plays when it ends.
 Cloudflare Worker (`src/worker.js`) + D1 database + a single-page front end (`public/index.html`), built on Boreen's engine.
+On the start and result screens the telly greets you (Vector Vince, with the music weeklies' headlines) above a
+news-stand of covers that lead to Tour mode; it hides while a song is being played.
 Once connected (see README), pushes to `main` deploy automatically through Cloudflare's GitHub integration.
 
 - Writing or adding days: follow `qbank/WRITING.md`.
@@ -26,10 +28,12 @@ Once connected (see README), pushes to `main` deploy automatically through Cloud
   from) and build into `public/tours.js` (no answers) and `src/tourbank.js`.
   `/api/tour/guess` and `/api/tour/reveal` store nothing; runs, fans and cred live in the player's browser
   (`bd:tour:*` in localStorage). Only add tour songs at the end of a file: they're addressed by position.
-- Tour lore lives in `public/tour.html`: `EVENTS` (Pitchblende-reviewed nights and flops), `NEWS` (front pages from the
-  parody weeklies New Musical Excess and Melody Faker, by decade), `STATIONS` (rung 3's radio session), `DEZ` (the
-  record shop snob), and the "best new band in Britain" straplines (`BNB`). Event ids are saved in players' archives
-  (`bd:tour:archive`): add at the end, never rename or reuse one.
+- Shared by both pages: `public/telly.css` (the Dial-O-Matic 85, every rule scoped to `.tv`), `public/telly.js`
+  (`TELLY`: the hosts drawn on a canvas; `TELLY.run(canvas, {host, pal})`) and `public/lore.js`: `BANDS`, `EVENTS`
+  (Pitchblende-reviewed nights and flops), `NEWS` (front pages from the parody weeklies New Musical Excess and Melody
+  Faker, by decade), `STATIONS` (rung 3's radio session), `DEZ` (the record shop snob), `PAPERS`, `TICKER` and the
+  "best new band in Britain" straplines (`BNB`). Event ids are saved in players' archives (`bd:tour:archive`): add at
+  the end, never rename or reuse one.
 - Tone for Tour mode: snobbish and self-aware, all hosts, shows and events are original parodies. No real logos,
   footage or likenesses; no real tragedies, violence or illness; no invented incidents pinned on real, named people;
   parody publications only (Pitchblende, New Musical Excess, Melody Faker). Everything that happens, happens to the

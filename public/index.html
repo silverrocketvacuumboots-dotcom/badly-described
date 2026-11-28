@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Bowlby+One+SC&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Bowlby+One+SC&family=Permanent+Marker&family=VT323&display=swap">
+<link rel="stylesheet" href="telly.css">
 <style>
 /* One narrow column on a dark stage. A taped paper setlist is the play surface; the venue ladder is the score. */
 :root{
@@ -197,6 +198,27 @@ textarea.share{width:100%;font-size:.95rem;background:var(--stage-2);color:var(-
 .tiers li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
 footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:8px}
 @media (max-width:420px){.rules li{padding:10px}.rules b{font-size:1.25rem}.arch button{grid-template-columns:56px 1fr auto}}
+/* the telly and the news-stand greet you (start and result screens) */
+.tourlink{border:1.5px solid #ff3fa4;background:rgba(255,63,164,.14);color:var(--fg);border-radius:99px;padding:4px 12px;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-decoration:none;white-space:nowrap}
+.tourlink:hover{background:rgba(255,63,164,.28)}
+.greet{display:flex;flex-direction:column;gap:14px;margin-bottom:30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.greet h1{font-family:var(--f-display);font-size:clamp(1.7rem,8vw,2.5rem);line-height:.95;margin:4px 0 0;text-wrap:balance}
+.greet h1 em{font-style:normal;color:var(--amber)}
+.tvdock{perspective:1000px;display:grid;justify-items:center;padding-top:calc(min(74vw,340px) * .27);cursor:pointer;border-radius:12px;-webkit-tap-highlight-color:transparent}
+.tvdock:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+.tvdock .tv{--w:min(74vw,340px);transform:rotateY(-14deg) rotateX(4deg)}
+.tvdock .tv.arrive{animation:tv-arrive 1.6s cubic-bezier(.2,.85,.25,1.06) both}
+@keyframes tv-arrive{0%{transform:translateZ(-700px) scale(.3) rotateY(-734deg) rotateX(12deg);opacity:0}30%{opacity:1}100%{transform:rotateY(-14deg) rotateX(4deg)}}
+.stand{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mag{display:flex;flex-direction:column;gap:6px;background:#efe9dc;color:#111;text-decoration:none;padding:9px 11px 11px;border-top:6px solid #111;box-shadow:0 10px 22px rgba(0,0,0,.4);transform:rotate(-1.2deg);transition:transform .15s}
+.mag.mf{transform:rotate(1.1deg)}
+.mag:hover{transform:rotate(0) translateY(-3px)}
+.mag .mast{font-family:var(--f-display);font-size:.88rem;line-height:1;text-transform:uppercase;border-bottom:2px solid #111;padding-bottom:5px}
+.mag.mf .mast{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;text-transform:none;font-size:1.1rem;letter-spacing:-.02em}
+.mag b{font-family:var(--f-display);font-weight:400;font-size:clamp(.84rem,3.8vw,1.02rem);line-height:1.05;text-transform:uppercase;text-wrap:balance}
+.mag small{margin-top:auto;font-size:.74rem;font-weight:800;line-height:1.25}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -206,21 +228,42 @@ footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:8px}
     <button class="brand" id="brand" type="button" aria-label="Badly Described: back to the start">Badly <span>Described</span></button>
     <span class="topr">
       <span class="meta" id="meta"></span>
+      <a class="tourlink" id="tourlink" href="tour">Tour mode</a>
       <button class="snd" id="snd" type="button" aria-pressed="true">Sound on</button>
     </span>
   </header>
 
   <main>
-    <section id="v-home" class="hero" style="display:flex;flex-direction:column;gap:18px">
-      <div>
-        <h1>Songs, <em>described badly.</em></h1>
-        <p>Seven famous songs a day, each described as badly as we could manage. Name the song. Every one you get takes you a step closer to headlining Glastonbury.</p>
+    <section class="greet" id="greet">
+      <h1 class="sr">Badly Described: songs, described badly</h1>
+      <div class="tvdock" id="tvdock" role="button" tabindex="0" aria-label="Play the telly's greeting again, with sound">
+        <div class="tv" id="tv" aria-hidden="true">
+          <div class="ant"><i></i><i></i></div>
+          <div class="face front">
+            <div class="cab">
+              <div class="screen">
+                <div class="standby" id="g-standby"><div class="box">CH 07 · BADLY DESCRIBED<b>WARMING UP…</b></div></div>
+                <div class="picture" id="g-picture" hidden>
+                  <canvas id="g-cv" width="480" height="360"></canvas>
+                  <div class="osd" id="g-osd">PLAY ▶</div>
+                  <div class="bug">MUSIC TELLY</div>
+                  <div class="ident" id="g-ident" hidden></div>
+                  <div class="lower" id="g-lower" hidden><span class="tag">VECTOR VINCE · NEXT LEVEL</span><p class="cap" id="g-cap"></p></div>
+                  <div class="ticker" id="g-ticker"><span></span></div>
+                </div>
+                <div class="scan"></div><div class="glass"></div><div class="beam" id="g-beam"></div>
+              </div>
+              <div class="panel"><span class="maker">DIAL-O-<br>MATIC 85</span><i class="knob" style="--r:-30deg"></i><i class="knob" style="--r:40deg"></i><div class="grille"></div><i class="led" id="g-led"></i></div>
+            </div>
+          </div>
+          <div class="face back"><div class="sticker">DIAL-O-MATIC 85<br>NO USER-SERVICEABLE PARTS INSIDE.<br>DO NOT STACK CASSETTES ON TOP.</div></div>
+          <div class="face left wood"></div><div class="face right wood"></div><div class="face top wood"></div><div class="face bottom"></div>
+        </div>
       </div>
-      <ul class="rules">
-        <li><b>7</b>songs a day</li>
-        <li><b>25</b>seconds each</li>
-        <li><b>0</b>cost for wrong guesses</li>
-      </ul>
+      <div class="stand" id="stand"></div>
+    </section>
+
+    <section id="v-home" class="hero" style="display:flex;flex-direction:column;gap:18px">
       <div class="paper theme">
         <div class="label" id="h-day">Today's theme</div>
         <div class="desc" id="h-theme"></div>
@@ -228,11 +271,16 @@ footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:8px}
       <button class="btn wide" id="start">Play today's set</button>
       <p class="streak" id="h-streak" hidden></p>
       <p class="status" id="status">Checking who's playing…</p>
+      <p>Seven famous songs a day, each described as badly as we could manage. Name the song. Every one you get takes you a step closer to headlining Glastonbury.</p>
+      <ul class="rules">
+        <li><b>7</b>songs a day</li>
+        <li><b>25</b>seconds each</li>
+        <li><b>0</b>cost for wrong guesses</li>
+      </ul>
       <div class="chiplinks">
         <button class="chiplink" id="h-how" type="button">How to play</button>
         <button class="chiplink" id="h-past" type="button">Past setlists</button>
         <button class="chiplink" id="h-sync" type="button">Sync devices</button>
-        <a class="chiplink" href="tour">Tour mode (beta)</a>
       </div>
     </section>
 
@@ -313,6 +361,8 @@ footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:8px}
 </div>
 
 <script src="days.js"></script>
+<script src="lore.js"></script>
+<script src="telly.js"></script>
 <script>
 {
 const J = Array.isArray(window.BD_DAYS) ? window.BD_DAYS : [];
@@ -525,6 +575,8 @@ renderSound();
 function show(v){
   const was = view; view = v;
   for (const s of ['home', 'play', 'done']) $('v-' + s).hidden = s !== v;
+  $('greet').hidden = $('tourlink').hidden = v === 'play';
+  if (v === 'play') stopGreet(); else if (TVX.booted && was !== v) greet(v, true);
   $('meta').textContent = numOf(st ? st.i : tIdx);
   if (was !== v) scrollTo({top: 0, behavior: 'auto'});
 }
@@ -821,6 +873,88 @@ $('d-copy').addEventListener('click', async () => {
   catch (e) { const ta = $('d-share'); ta.value = t; ta.hidden = false; ta.select(); }
 });
 
+/* ---------- the telly and the news-stand greet you (Vince and his set: telly.js; bands and front pages: lore.js) ---------- */
+const TVX = {scene: null, run: 0, idle: 0, actx: null, booted: false};
+const anyOf = a => a[Math.floor(Math.random() * a.length)];
+// sound only once the visitor has tapped something: browsers block audio and speech before that
+const tvHeard = () => SND.on && (!navigator.userActivation || navigator.userActivation.hasBeenActive);
+function tvBlip(freq, dur, type = 'square', vol = .035, when = 0){
+  if (!tvHeard()) return;
+  try { const a = TVX.actx = TVX.actx || new (window.AudioContext || window.webkitAudioContext)(); if (a.state === 'suspended') a.resume();
+    const o = a.createOscillator(), g = a.createGain(), t = a.currentTime + when; o.type = type; o.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + dur); o.connect(g).connect(a.destination); o.start(t); o.stop(t + dur + .02); } catch (e) {}
+}
+function tvSpeak(text){
+  if (!tvHeard() || !('speechSynthesis' in window)) return;
+  try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text.replace(/\b([a-z])(?:-\1)+-(?=\1)/gi, '')); u.lang = 'en-GB'; u.pitch = 1.8; u.rate = 1.12; speechSynthesis.speak(u); } catch (e) {}
+}
+function greetLines(kind){
+  const th = dOf(tIdx).th;
+  if (kind === 'done') { const sc = scoreOf(st); return [`W-w-welcome back! Today you got ${sc} out of ${N}: ${LADDER[sc].v}!`, `New set at midnight. C-c-can't wait? The van's outside: Tour mode!`]; }
+  const got = st ? st.picks.filter(Boolean).length : 0;
+  if (got) return [`W-w-welcome back! You're ${got} ${got === 1 ? 'song' : 'songs'} into today's set.`, `Today's theme: ${th}! ${N - got} to go!`];
+  return ['W-w-welcome to Badly Described! Seven famous songs, described b-b-badly.', `Today's theme: ${th}! 25 seconds a song. Go, go, go!`];
+}
+// what's on the ticker and the news-stand: the music weeklies, crowning a new best new band in Britain every time
+function tvHeadlines(){
+  const mf = NEWS.filter(e => paperOf(e) === 'mf'), nmx = NEWS.filter(e => paperOf(e) === 'nmx');
+  return [`New Musical Excess: ${anyOf(BANDS)} named the best new band in Britain`, `Today's theme: ${dOf(tIdx).th}`, `Melody Faker: ${anyOf(mf).title}`, anyOf(TICKER),
+    `New Musical Excess: ${anyOf(nmx).title}`, `${anyOf(BANDS)} named the best new band in Britain, again`].map(x => x.toUpperCase()).join(' ✦ ') + ' ✦';
+}
+function renderStand(){
+  const story = anyOf(NEWS.filter(e => paperOf(e) === 'mf'));
+  $('stand').innerHTML = `<a class="mag" href="tour"><span class="mast">New Musical Excess</span><b>${esc(anyOf(BANDS))}: the best new band in Britain</b><small>Inside: Tour mode →</small></a>` +
+    `<a class="mag mf" href="tour"><span class="mast">Melody Faker</span><b>${esc(story.title)}</b><small>${NEWS.length - 1} more front pages, on tour →</small></a>`;
+}
+function stopGreet(){
+  TVX.run++; clearTimeout(TVX.idle);
+  if (TVX.scene) { TVX.scene.stop(); TVX.scene = null; }
+  try { speechSynthesis.cancel(); } catch (e) {}
+}
+async function tvType(text, ok){
+  const cap = $('g-cap'); cap.textContent = ''; if (TVX.scene) TVX.scene.talk = 1;
+  for (let i = 0; i < text.length; i++) {
+    if (!ok()) return false;
+    cap.textContent = text.slice(0, i + 1); const ch = text[i], sc = TVX.scene;
+    if (ch === '-' && /[A-Za-z]/.test(text[i - 1] || '') && sc) { sc.glitch = 6; sc.snap = (Math.random() - .5) * .7; tvBlip(220 + Math.random() * 600, .04, 'square', .02); }
+    else if (sc && sc.snap && Math.random() < .08) sc.snap = 0;
+    await new Promise(r => setTimeout(r, reduce ? 6 : ch === ' ' ? 22 : 34));
+  }
+  if (TVX.scene) { TVX.scene.talk = 0; TVX.scene.snap = 0; }
+  return true;
+}
+// kind: 'home' or 'done'. The first time, the telly spins in from the back of the room and warms up.
+async function greet(kind, again){
+  stopGreet();
+  const run = TVX.run, ok = () => run === TVX.run && view !== 'play', q = id => $('g-' + id), tv = $('tv');
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? Math.min(ms, 200) : ms));
+  q('ticker').firstElementChild.textContent = tvHeadlines();
+  q('osd').textContent = SND.on && !tvHeard() ? (matchMedia('(pointer:coarse)').matches ? 'TAP' : 'CLICK') + ' FOR SOUND' : 'PLAY ▶';
+  q('lower').hidden = true; q('ident').hidden = true; q('cap').textContent = '';
+  if (!again) {
+    q('picture').hidden = true; q('standby').hidden = false;
+    tv.classList.remove('arrive'); void tv.offsetWidth; tv.classList.add('arrive');
+    await wait(1500); if (!ok()) return;
+  }
+  q('standby').hidden = true; q('picture').hidden = false; q('led').classList.add('on'); tvBlip(7800, .06, 'sine', .01);
+  try { q('beam').animate([{opacity: 1, transform: 'scale(0,.006)'}, {opacity: 1, transform: 'scale(1,.006)', offset: .4}, {opacity: .95, transform: 'scale(1,1)', offset: .7}, {opacity: 0, transform: 'scale(1,1)'}], {duration: reduce ? 150 : 650, fill: 'forwards'}); } catch (e) {}
+  TVX.scene = TELLY.run(q('cv'), {host: 'vince', pal: kind === 'done' ? 'countdown' : 'next', reduce});
+  q('ident').innerHTML = `<small>CH 07 · ${esc(numOf(tIdx))}</small>${kind === 'done' ? 'That’s the set' : 'Songs, described badly'}`; q('ident').hidden = false;
+  [523, 659, 784, 1047].forEach((f, i) => tvBlip(f, .14, 'square', .03, i * .09));
+  await wait(1500); if (!ok()) return;
+  q('ident').hidden = true; q('lower').hidden = false;
+  for (const line of greetLines(kind)) {
+    tvSpeak(line);
+    if (!(await tvType(line, ok))) return;
+    await wait(1100); if (!ok()) return;
+  }
+  // Vince bobs about for a while, then the picture holds still; the ticker keeps going
+  TVX.idle = setTimeout(() => { if (run === TVX.run && TVX.scene) { TVX.scene.stop(); TVX.scene = null; } }, 12000);
+}
+const replayGreet = () => { if (view === 'play') return; unlockAudio(); greet(view, true); };
+$('tvdock').addEventListener('click', replayGreet);
+$('tvdock').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); replayGreet(); } });
+
 /* ---------- start ---------- */
 if (!J.length) {
   $('status').textContent = "Today's songs didn't load. Check that days.js is next to this page."; $('start').disabled = true;
@@ -831,6 +965,7 @@ if (!J.length) {
   if (st.qStarted >= 0 && !st.picks[st.qStarted] && !isDone(st)) begin();
   else if (isDone(st)) { renderDone(); show('done'); }
   else show('home');
+  TVX.booted = true; renderStand(); if (view !== 'play') greet(view, false);
   const m = location.hash.match(/sync=([a-z]+-[a-z]+-[a-z]+-\d{4})/);
   if (m && m[1] !== syncCode) { renderSync(); showBelow('v-sync'); $('sy-in').value = m[1]; $('sy-msg').textContent = 'Restoring your progress from the link…'; restoreSync(m[1], $('sy-msg')); }
   else pullSync();
