@@ -21,10 +21,16 @@ Once connected (see README), pushes to `main` deploy automatically through Cloud
 - Each day only the first 3 players per connection count towards stats (`seen` table, salted per-day IP hash; set an
   `IP_SALT` secret in Cloudflare to change the salt). Sync codes (`/api/sync`) carry a player's progress between devices.
 - The rate-limit `namespace_id` in `wrangler.jsonc` (1002) must differ from Boreen's (1001) on the same account.
-- Tour mode (beta): `public/tour.html` (served at `/tour`, not linked from the daily page yet). Tours live in
-  `qbank/tours/*.txt` (format in `qbank/WRITING.md`) and build into `public/tours.js` (no answers) and `src/tourbank.js`.
+- Tour mode (beta): `public/tour.html` (served at `/tour`, linked from the daily page's home screen). Tours live in
+  `qbank/tours/*.txt` (format in `qbank/WRITING.md`; the TOUR line's optional fifth part is the decades its news comes
+  from) and build into `public/tours.js` (no answers) and `src/tourbank.js`.
   `/api/tour/guess` and `/api/tour/reveal` store nothing; runs, fans and cred live in the player's browser
   (`bd:tour:*` in localStorage). Only add tour songs at the end of a file: they're addressed by position.
+- Tour lore lives in `public/tour.html`: `EVENTS` (Pitchblende-reviewed nights and flops), `NEWS` (front pages from the
+  parody weeklies New Musical Excess and Melody Faker, by decade), `STATIONS` (rung 3's radio session), `DEZ` (the
+  record shop snob), and the "best new band in Britain" straplines (`BNB`). Event ids are saved in players' archives
+  (`bd:tour:archive`): add at the end, never rename or reuse one.
 - Tone for Tour mode: snobbish and self-aware, all hosts, shows and events are original parodies. No real logos,
   footage or likenesses; no real tragedies, violence or illness; no invented incidents pinned on real, named people;
-  parody publications only (Pitchblende, not Pitchfork).
+  parody publications only (Pitchblende, New Musical Excess, Melody Faker). Everything that happens, happens to the
+  player's band; real radio stations appear only as places the band plays a session.

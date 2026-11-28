@@ -1,0 +1,91 @@
+// Indie Sleaze '04: the 2000s guitar revival, disco-punk and blog bands, plus the 2020s revival of the revival.
+// Tiers: 1 hit, 2 fan favourite, 3 deep cut, -1 too mainstream (costs cred). Only ever add songs at the END.
+TOUR: indiesleaze04 | Indie Sleaze '04 | the Skinny Jeans Weekender | Skinny jeans, disco-punk and blog bands. Plus a revival of the revival. | 2000s 2010s 2020s
+
+D: Jealous man pictures a kiss and a cigarette; it never leaves the UK charts
+S: Mr. Brightside/Mister Brightside | The Killers | 2003 | 1526194192 | 1
+D: Glaswegians start one song, then slam on the brakes and play a better one
+S: Take Me Out | Franz Ferdinand | 2004 | 315844084 | 1
+D: Five New Yorkers in leather jackets save rock music, allegedly
+S: Last Nite/Last Night | The Strokes | 2001 | 266377010 | 1
+D: Karen O sheds real tears in the video; they don't love you like she does
+S: Maps | Yeah Yeah Yeahs | 2003 | 1440917412 | 1
+D: Sheffield teens watch a girl dance like a robot from 1984
+S: I Bet You Look Good on the Dancefloor/I Bet You Look Good | Arctic Monkeys | 2005 | 111153391 | 1
+D: He reverses into a police car, but insists everything will be fine
+S: Float On | Modest Mouse | 2004 | 201257515 | 1
+D: Two students plan the rock-star life: models for wives, a move to Paris
+S: Time to Pretend | MGMT | 2007 | 273519673 | 1
+D: Apparently your boyfriend looks like his girlfriend from last February
+S: Somebody Told Me | The Killers | 2004 | 1526194195 | 1
+D: Two frontmen trade insults in song while falling out for real
+S: Can't Stand Me Now | The Libertines | 2004 | 260751802 | 1
+D: Angular London guitars and the most jittery hi-hats of the decade
+S: Banquet | Bloc Party | 2005 | 50232355 | 1
+D: Ivy League preppies in boat shoes; two minutes of hiccuping guitar and 'hey!'
+S: A-Punk | Vampire Weekend | 2008 | 270425151 | 1
+D: A chorus of four loud bangs and a cash register; a feel-good hit, somehow
+S: Paper Planes | M.I.A. | 2007 | 296393515 | 1
+
+D: Leeds lads shout a woman's name four times; a chant at every stag do
+S: Ruby | Kaiser Chiefs | 2007 | 1443919262 | -1
+D: Woah-oh, sings a man who used to be in a scruffy garage-rock band
+S: Use Somebody | Kings of Leon | 2008 | 290303018 | -1
+D: Brighton floppy fringes and an acoustic strum for the sixth-form common room
+S: Naive | The Kooks | 2006 | 714597985 | -1
+D: Shirtless frontman watches the news and feels sad about a whole continent
+S: America | Razorlight | 2006 | 1443209929 | -1
+D: A man suggests lying down and forgetting the world; TV surgeons weep
+S: Chasing Cars | Snow Patrol | 2006 | 1440758864 | -1
+D: A piano arpeggio. The record shop guy has asked you to leave
+S: Clocks | Coldplay | 2002 | 1122776156 | -1
+
+D: Montreal collective with a choir insists that sleeping is giving in
+S: Rebellion (Lies)/Rebellion | Arcade Fire | 2004 | 1249418627 | 2
+D: New rave: glow sticks, a meaningless title and a Mercury Prize
+S: Golden Skans | Klaxons | 2007 | 1442989941 | 2
+D: Nerds in glasses celebrate the joy of repetition. Again. And again
+S: Over and Over | Hot Chip | 2006 | 1250995003 | 2
+D: French electro duo, a glowing cross on stage and a children's choir
+S: D.A.N.C.E./Dance | Justice | 2007 | 259751997 | 2
+D: New Yorkers in very sharp suits, gloomy about a numbered hurdle
+S: Obstacle 1/Obstacle One | Interpol | 2002 | 1589272590 | 2
+D: Seven minutes of one piano riff about getting older at parties
+S: All My Friends | LCD Soundsystem | 2007 | 742434954 | 2
+D: Swedes in matching suits warned you, and they're thrilled about it
+S: Hate to Say I Told You So | The Hives | 2000 | 279692022 | 2
+D: Two-minute garage stomp; the video is made entirely of Lego
+S: Fell in Love with a Girl | The White Stripes | 2001 | 1533513365 | 2
+D: The most distressing sight in England: a man in a baseball cap
+S: Time for Heroes | The Libertines | 2002 | 1648958215 | 2
+D: Natalie Portman promises it'll change your life, in Garden State
+S: New Slang | The Shins | 2001 | 3271795 | 2
+D: Beth Ditto belts a marriage-equality protest over a disco-punk bassline
+S: Standing in the Way of Control | Gossip | 2006 | 313238965 | 2
+D: Lizard-brained garage rock; the room catches fire while she does her hair
+S: Reptilia | The Strokes | 2003 | 302987569 | 2
+D: Dublin post-punks go pink and Y2K; the one with the big gasping breaths
+S: Starburster | Fontaines D.C. | 2024 | 1737990264 | 2
+D: Isle of Wight deadpan: is your muffin buttered?
+S: Chaise Longue/Chaise Lounge | Wet Leg | 2021 | 1594742873 | 2
+D: She's shocking, like an eel; psychedelic disco in a jungle video
+S: Electric Feel | MGMT | 2007 | 264720106 | 2
+D: Former wild child, now mostly in her nightdress, gets nostalgic
+S: Fluorescent Adolescent | Arctic Monkeys | 2007 | 251499489 | 2
+
+D: Ageing hipster brags that he was there first, at every gig ever
+S: Losing My Edge | LCD Soundsystem | 2002 | 696523504 | 3
+D: Brooklyn art-rockers get hairy at the full moon, romantically
+S: Wolf Like Me | TV on the Radio | 2006 | 1437098988 | 3
+D: Three minutes of mumbling, then the synths drop like a building
+S: Dance Yrself Clean/Dance Yourself Clean | LCD Soundsystem | 2010 | 693387645 | 3
+D: Karen O, a spiky riff, and two disloyal tickers
+S: Cheated Hearts | Yeah Yeah Yeahs | 2006 | 1440800291 | 3
+D: Cowbell, a yelping man, and the big bang of dance-punk
+S: House of Jealous Lovers | The Rapture | 2002 | 1726021703 | 3
+D: Dubliners sneer about leaving for somewhere supposedly nicer
+S: Boys in the Better Land | Fontaines D.C. | 2019 | 1451381949 | 3
+D: Deadpan spoken word: do everything and feel nothing
+S: Scratchcard Lanyard | Dry Cleaning | 2020 | 1549505089 | 3
+D: Bristol punks offer hairstyle-based advice about hard men
+S: Never Fight a Man with a Perm | IDLES | 2018 | 1393364166 | 3

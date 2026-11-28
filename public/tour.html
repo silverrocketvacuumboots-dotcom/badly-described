@@ -161,6 +161,44 @@ form.guess.busy input{opacity:.7}
 textarea.share{width:100%;font-size:.95rem;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:12px;resize:none}
 footer{font-size:.78rem;color:var(--muted);text-align:center}
 
+/* Dez at the record shop; the road (zine-flyer event cards); the Bootleg Archive */
+.snob{margin:10px 0 0;font-size:.86rem;color:#4b4450}
+.snob b{font-weight:800}
+.event{background:#f4f2ec;color:#111;padding:22px 20px 20px;transform:rotate(1deg);box-shadow:0 18px 40px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:10px;
+  background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.035) 0 1px,transparent 1px 3px)}
+.event .kicker{font-family:var(--f-osd);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase}
+.event h3{margin:0;font-family:var(--f-display);font-size:1.55rem;line-height:1;text-transform:uppercase;text-wrap:balance}
+.event .lore{margin:0;font-size:.98rem;line-height:1.45}
+.event blockquote{margin:0;border-left:4px solid #111;padding:2px 0 2px 10px;font-style:italic;font-size:.92rem}
+.event .score{display:flex;align-items:center;gap:10px;font-family:var(--f-osd);font-size:1.05rem}
+.event .score b{background:#111;color:#f4f2ec;font-family:var(--f-display);font-size:1.3rem;padding:2px 8px}
+.event .fx{margin:0;font-weight:800;font-size:.95rem}
+.event .fx.bad{color:#b3123f}
+.event .btn{background:#111;color:#f4f2ec}
+/* the music weeklies: front pages and clippings on newsprint */
+.event.news{background:#efe9dc;background-image:none;transform:rotate(-.6deg)}
+.event .mast{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;border-top:7px solid #111;border-bottom:2px solid #111;padding:7px 0 5px}
+.event .mast b{font-family:var(--f-display);font-size:1.35rem;line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+.event .mast.mf b{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;text-transform:none;font-size:1.65rem;letter-spacing:-.03em}
+.event .mast span{font-family:var(--f-osd);font-size:1rem;line-height:1.05;text-align:right}
+.event.news h3{font-size:clamp(1.6rem,7vw,2.1rem)}
+.event .strap{margin:0;background:#111;color:var(--yellow);font-weight:800;font-size:.8rem;line-height:1.3;letter-spacing:.02em;text-transform:uppercase;padding:7px 10px}
+.clip{background:#efe9dc;color:#111;padding:10px 12px 11px;margin:0 0 12px;transform:rotate(-.7deg);box-shadow:0 8px 20px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:3px;border-top:5px solid #111}
+.clip small{font-family:var(--f-osd);font-size:.98rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.1}
+.clip b{font-family:var(--f-display);font-size:1.05rem;line-height:1.08;text-transform:uppercase;text-wrap:balance}
+.clip span{font-size:.82rem;color:#4b4450}
+.stand{margin:0;transform:rotate(.5deg)}
+.arh{margin:10px 0 8px;font-size:1rem;font-family:var(--f-display);font-weight:400}
+.arh small{display:block;font-family:var(--f-body);font-size:.8rem;color:var(--muted);margin-top:2px}
+.archive{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.card{background:var(--bg-2);border:1px dashed var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.card b{display:block;font-size:.92rem;line-height:1.2}
+.card span{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}
+.card.on{background:#f4f2ec;color:#111;border:1px solid #f4f2ec}
+.card.on span{color:#444}
+@media(max-width:420px){.archive{grid-template-columns:1fr}}
+h2 small{font-family:var(--f-osd);font-size:1rem;color:var(--cyan);font-weight:400}
+
 /* the telly, a 3D box */
 .dock{perspective:1000px;display:grid;justify-items:center}
 .dock.big .slot{padding-top:clamp(60px,18vw,104px);display:grid;justify-items:center;width:100%}
@@ -259,6 +297,7 @@ footer{font-size:.78rem;color:var(--muted);text-align:center}
         <div><span class="label">Headlined</span><b id="c-wins">0</b></div>
       </div>
       <p class="rank" id="c-rank"></p>
+      <div class="clip stand" id="c-stand"></div>
       <div class="bandbox">
         <label class="label" for="band">Your band</label>
         <div><input id="band" maxlength="32" autocomplete="off" spellcheck="false"><button class="ghost" id="reroll" type="button" style="flex:0 0 auto">New name</button></div>
@@ -271,8 +310,13 @@ footer{font-size:.78rem;color:var(--muted);text-align:center}
         <li>25 seconds a song. The decade shows at 12 seconds, the first letter at 6.</li>
         <li>Three misses and the band splits. Passing counts as a miss.</li>
         <li><b>Fans</b>: 100 a song, plus 50 with no hints and 25 for under 8 seconds. <b>Cred</b>: deep cuts earn it; knowing the really obvious ones costs it.</li>
-        <li>The higher you climb, the deeper the cuts.</li>
+        <li>The higher you climb, the deeper the cuts. Dez from Second Pressings Records will let you know what he thinks.</li>
+        <li>Things happen on the road, and in the music papers. Each one goes in your Bootleg Archive.</li>
+        <li>The weeklies will call you the best new band in Britain. They say that a lot.</li>
       </ul>
+      <h2>The Bootleg Archive <small id="ar-count"></small></h2>
+      <p class="small">Legendary nights and famous flops, reviewed by Pitchblende (the only music site that matters, to itself), plus your front pages in New Musical Excess and Melody Faker. Collect them on the road.</p>
+      <div id="archive"></div>
     </section>
 
     <section id="v-run" hidden style="display:flex;flex-direction:column;gap:16px">
@@ -291,6 +335,7 @@ footer{font-size:.78rem;color:var(--muted);text-align:center}
         <div class="hints"><span class="chip" id="h1"></span><span class="chip" id="h2"></span></div>
         <div id="reveal"></div>
       </div>
+      <div class="event" id="event" hidden></div>
       <div class="timer" id="q-timer"><i id="q-bar"></i></div>
       <p class="secs" id="q-secs" aria-hidden="true">25</p>
       <form class="guess" id="q-form" autocomplete="off">
@@ -377,7 +422,31 @@ const RUNGS = [
   {name:'Headlining'},
 ];
 const TOP = RUNGS.length - 1;
-const rungName = (r, T) => r === TOP ? `Headlining ${T.fest}` : RUNGS[r].name;
+// Rung 3 is a live session on a small, famous station, picked when a run starts (`since`: first year under that name)
+const RADIO = 3;
+const STATIONS = [
+  {n:'RTR FM', city:'Perth', say:'R T R F M', line:'Broadcasting live to the most isolated c-c-city on Earth!'},
+  {n:'FBi Radio', city:'Sydney', say:'F B I Radio', since:2003, line:'The presenter’s record collection is b-b-better than your record!'},
+  {n:'4ZZZ', city:'Brisbane', say:'Four Triple Zed', line:'Right between the t-t-tide times and a lost cat!'},
+  {n:'3RRR', city:'Melbourne', say:'Triple R', line:'The subscriber phones are r-r-ringing off the hook!'},
+  {n:'KEXP', old:'KCMU', city:'Seattle', say:'K E X P', sayOld:'K C M U', since:2001, line:'A man in a b-b-beanie is nodding very seriously at your bassist!'},
+  {n:'KROQ', city:'Los Angeles', say:'K-Rock', line:'Live between the t-t-traffic on the 405 and an ad for teeth whitening!'},
+  {n:'WFMU', city:'New Jersey', say:'W F M U', line:'Freeform radio! Up next: f-f-forty minutes of theremin!'},
+  {n:'KCRW', city:'Santa Monica', say:'K C R W', line:'The host whispers your name like it’s a s-s-secret!'},
+  {n:'NTS', city:'London', say:'N T S', since:2011, line:'Between a two-hour ambient show and a man who only plays d-d-doorbells!'},
+];
+function pickStation(T){
+  const last = Math.max(...newsEras(T).map(d => parseInt(d, 10) + 9).filter(Number.isFinite), 0) || new Date().getFullYear();
+  const s = pick(STATIONS.filter(x => !x.since || x.since <= last || x.old));
+  return `${s.since > last ? s.old : s.n}, ${s.city}`;
+}
+function stationOf(label){
+  for (const s of STATIONS) { if (label === `${s.n}, ${s.city}`) return {name: s.n, city: s.city, say: s.say, line: s.line};
+    if (s.old && label === `${s.old}, ${s.city}`) return {name: s.old, city: s.city, say: s.sayOld, line: s.line}; }
+  return null;
+}
+const unstutter = t => t.replace(/\b([a-z])(?:-\1)+-(?=\1)/gi, '');
+const rungName = (r, T, rn = run) => r === TOP ? `Headlining ${T.fest}` : r === RADIO && rn && rn.tour === T.id && rn.station ? `Live session on ${rn.station}` : RUNGS[r].name;
 const SPLITS = [
   'The two brothers in the band fought backstage in Paris. A guitar did not survive.',
   'The bassist announced the split in the press notes for his solo album.',
@@ -402,6 +471,208 @@ const CRED = {3: 30, 2: 15, 1: 5, '-1': -20};
 const CRED_LINE = {3: 'Cred +30. Deep cut. The record shop guy nods.', 2: 'Cred +15. A fan favourite.', 1: 'Cred +5. Everybody knows that one.', '-1': 'Cred −20. You knew that one a little too well.'};
 const RANKS = [[-1e9, 'Has a Spotify Wrapped as their phone wallpaper'], [0, 'Owns one Coldplay album, ironically'], [150, 'Has opinions about mono mixes'],
   [400, 'Knows what a Peel session is'], [900, 'Owns the original pressing, not the reissue'], [1800, 'Was there, at the 40-person gig'], [3500, 'Writes the 9.4 reviews']];
+
+/* ---------- the road: things that happen between gigs (all to your band; nods for those in the know) ---------- */
+const EVENTS = [
+  {id:'leafblowers', kind:'good', title:'77 Leafblowers', score:'9.4', label:'Best New Noise', cred:25,
+    lore:'Your support act is a noise collective from Osaka: seventy-seven players in a spiral, each revving a two-stroke leafblower tuned to its own pitch. Halfway through, twelve of them sit down feeling dizzy. The conductor calls it the third movement.',
+    quote:'A municipal landscaping crisis elevated to high Modernism.'},
+  {id:'coughing', kind:'good', title:'4′33″ of Aggressive Coughing', score:'9.1', label:'Best New Music', cred:20,
+    lore:'You open with four and a half minutes of silence. A sold-out hall full of smokers tries desperately not to clear its throat.', quote:'The coughs are the composition. The composition is the coughs.'},
+  {id:'airports', kind:'good', title:'Music for Delayed Flights', score:'8.8', label:'Recommended', cred:15, fans:50,
+    lore:'Your new record is generative ambient piano, interrupted every four minutes by a recorded voice moving the gate from B2 to F49.', quote:'Boarding at gate F49, and somehow transcendent.'},
+  {id:'million', kind:'good', title:'Burning a Million', score:'9.4', label:'Best New Reissue', cred:30, fans:-100,
+    lore:'Uneasy about success, you take a million in fifties to a cold boathouse on a Scottish island and feed it into the fireplace. It gives off surprisingly little heat.', quote:'Punk talked about burning it all down. This actually did.'},
+  {id:'dialup', kind:'good', title:'24 Hours of Dial-Up', score:'9.4', label:'Best New Reissue', cred:25,
+    lore:'You pull down a Hackney gallery’s shutters and loop a modem handshake at 120 decibels for a whole day. It never connects. Fourteen people stay to the end.', quote:'Information sickness, predicted twenty years early.'},
+  {id:'darkness', kind:'good', title:'The Darkness-Only Laptop Set', score:'9.4', label:'Best New Music', cred:20,
+    lore:'You insist on total darkness: gaffer tape over every LED, every glowing watch handed in at the door. Six hundred people nod along to snare rushes in 19/16 that they can’t see.', quote:'Easily the warmest set of the decade, which tells you something.'},
+  {id:'sixrecords', kind:'good', title:'The Six-Record Code', score:'9.4', label:'Best New Music', cred:15, fans:200,
+    lore:'Instead of sending out promos, you slip six white-label records into second-hand shops on three continents. Each one hides six digits. Together they unlock a video of a desert highway.', quote:'Album marketing as a paranoid folk ritual.'},
+  {id:'fog', kind:'good', title:'The Fog Machine Evacuation', score:'9.4', label:'Best New Music', cred:20, fans:-50,
+    lore:'Dressed in monk robes, you hold a single sub-bass note until the sprinklers go off and flood the merch table. You keep playing.', quote:'The closest doom has ever come to a weather event.'},
+  {id:'rabbithole', kind:'good', title:'The Discogs Rabbit Hole', score:'9.0', label:'Best New Reissue', cred:30,
+    lore:'Your inner sleeve lists 291 krautrock bands that don’t exist. Three generations of record collectors go looking for them.', quote:'A reading list as a practical joke on the future.'},
+  {id:'encore', kind:'good', title:'The 1.3-Second Encore', score:'8.6', label:'Recommended', fans:150,
+    lore:'You play a song that is one chord and a grunt. The crowd demands it four more times.', quote:'Brevity as violence. Lovely.'},
+  {id:'fortytwo', kind:'good', title:'The 42-Person Gig', score:'9.7', label:'Best New Reissue', cred:40,
+    lore:'Forty-two people come to your pub gig. Forty years later, forty thousand people claim they were there, and that it made them start a band.', quote:'The most important gig nobody went to.'},
+  {id:'dialasong', kind:'good', title:'Dial-A-Song', score:'8.4', label:'Recommended', fans:150, cred:10,
+    lore:'You record a new song on an answering machine every day. Strangers ring it for the price of a local call.', quote:'Lo-fi as a public service.'},
+  {id:'fivealbums', kind:'good', title:'Five Albums in a Year', score:'8.7', label:'Recommended', fans:200,
+    lore:'You release five albums in twelve months: one in a tuning nobody else uses, and one free for fans to press their own bootlegs.', quote:'Prolific to the point of rudeness.'},
+  {id:'coathanger', kind:'good', title:'The Coat-Hanger Headset', score:'8.9', label:'Recommended', fans:100,
+    lore:'You can’t sing and dance at the same time, so your sound engineer bends a coat hanger into a headset microphone.', quote:'Engineering as choreography.'},
+  {id:'sameimpala', kind:'good', title:'Same Impala', score:'8.1', label:'Recommended', fans:200, cred:-10,
+    lore:'Your band wins Best Group at the awards. Accepting the trophy: you, alone, with a laptop and a lot of reverb.', quote:'A band in the sense that one man is a crowd.'},
+  {id:'miming', kind:'flop', title:'Caught Miming', score:'1.8', label:'', cred:-20,
+    lore:'On live telly, the backing track starts the wrong song. You do a little jig and walk off.', quote:'A career-defining moment, sadly.'},
+  {id:'freealbum', kind:'flop', title:'The Free Album Nobody Asked For', score:'2.4', label:'', fans:500, cred:-40,
+    lore:'Your album appears on every phone in the world overnight, whether people want it or not. Most people do not.', quote:'Generosity as an act of aggression.'},
+  {id:'takedown', kind:'flop', title:'The Forty-Minute Takedown', score:'3.0', label:'', fans:-50, cred:-15,
+    lore:'A man with a guitar on YouTube spends forty minutes explaining exactly why your single stinks. Twelve million people watch.', quote:'He has a point about the bridge.'},
+  {id:'sandwich', kind:'flop', title:'The Cheese Sandwich Festival', score:'0.9', label:'', fans:-100,
+    lore:'You’re booked for a luxury island festival. The villas are disaster-relief tents and dinner is a cheese sandwich in a polystyrene box.', quote:'Immersive, in the worst way.'},
+  {id:'bargainbin', kind:'flop', title:'The Bargain Bin', score:'2.2', label:'', cred:-10,
+    lore:'Your album turns up in the bargain bin with the corner clipped off.', quote:'Fairly priced, at last.'},
+  {id:'mud', kind:'flop', title:'The Mud Pelting', score:'7.9', label:'Recommended', fans:-50, cred:15,
+    lore:'Fifteen thousand people waiting for the headliner pelt your set with clods of turf. You walk off laughing, which is the coolest thing you’ve ever done.', quote:'A defeat that somehow looks like a win.'},
+];
+// Dez, behind the counter at Second Pressings Records
+const DEZ = {
+  hit: {3: ['Huh. You actually know that one.', 'Fine. Respect, I suppose.', "I've got that on the original pressing. Not that I'm comparing."],
+        2: ["The B-side's better.", 'Their early stuff was better, obviously.', 'Acceptable.'],
+        1: ['Everyone knows that one. My nan knows that one.', 'Bold of you to look pleased about that.', 'A radio-friendly unit shifter. Congratulations.'],
+        '-1': ['Get out of my shop.', "I'm going to pretend I didn't see that.", "You knew every word, didn't you."]},
+  miss: {3: ["Don't worry. Nobody knows that one. Except me."], 2: ['Fair enough. Not everyone was there.', 'Shame. Classic.'],
+         1: ['How did you not get THAT one?', "That's on every jukebox in the country."], '-1': ['Honestly? Good. Keep it that way.']},
+  bnb: ["Best new band in Britain? They said that about my nephew's band. He's nine.", "I've got 400 back issues that say that. A different band every week.",
+        "You're not even the best band in this shop, and we haven't got a band.", 'That phrase meant something in 1986. Briefly.', 'They said that about a kettle once.'],
+};
+const fx = e => [e.fans ? `Fans ${signed(e.fans)}` : '', e.cred ? `Cred ${signed(e.cred)}` : ''].filter(Boolean).join(' · ');
+
+/* ---------- the music weeklies (parodies): they crown the best new band in Britain every week, and it's usually you ---------- */
+const PAPERS = {
+  nmx: {name: 'New Musical Excess', price: {'1970s': '12p · Every Thursday', '1980s': '45p · Every Wednesday', '1990s': '85p · Every Wednesday',
+    '2000s': '£1.90 · Every Wednesday', '2010s': 'Free at the station · Fridays', '2020s': 'Online only · 47 pop-ups'}},
+  mf: {name: 'Melody Faker', price: {'1970s': '12p · The paper that celebrates itself', '1980s': '45p · The paper that celebrates itself', '1990s': '80p · The paper that celebrates itself'}},
+};
+const BNB = ['The best new band in Britain', 'The best new band in Britain (again)', 'Still the best new band in Britain', 'The best new band in Britain this week',
+  'The best new band in Britain since last Tuesday', 'The best new band in Britain (figures exclude Wales)', 'The best new band in Britain, honestly, this time',
+  'The best new band on this page', 'The best new band in this postcode', 'The best new band in Britain (tenth time lucky)',
+  'The best new band in Britain since the last best new band in Britain', 'The best new band in Britain (we say this every week)', 'Best. New. Band. In. Britain.',
+  'The best new band in Britain (the words have lost all meaning)', 'The best new band in Britain (we had it made into a rubber stamp)',
+  'The best new band in Britain (see also: every other band)', 'The best new band in Britain (terms and conditions apply)',
+  'The best new band in Britain, as voted by the office cat', 'The best new band in Britain (reissue)', 'The best new band in Britain (20th anniversary deluxe edition)'];
+const ordinal = n => n + ((n % 100 > 10 && n % 100 < 14) ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
+const times = n => n === 1 ? 'once' : n === 2 ? 'twice' : `${fmt(n)} times`;
+const bnbLine = n => n <= BNB.length ? BNB[n - 1] : pick([`The best new band in Britain (No. ${fmt(n)})`, "The best new band in Britain (we've run out of bands)",
+  'The best new band in Britain (the intern typed this)', `The best new band in Britain, for the ${ordinal(n)} time`, "The best new band in Britain (it's the only headline we've got)"]);
+const TICKER = ['DRUMMER ARRIVES ON TIME, SCIENTISTS BAFFLED', 'BAND ANNOUNCES SIXTH "FINAL" FAREWELL TOUR', 'SHOULDER PADS DECLARED BACK, AGAIN', 'KEYTAR SALES UP 900%',
+  'ROADIE FINDS LONG-LOST PLECTRUM', 'LOCAL MAN STILL REWINDING CASSETTE WITH A PENCIL', 'GUITARIST "JUST TUNING", 40 MINUTES IN', 'REUNION RULED OUT, TOUR DATES ANNOUNCED'];
+
+// Music news: front pages from the weeklies, with your band in the story. `era` matches a tour's news decades (the
+// TOUR line's fifth part); `down` ones come after a strike. Nods to famous moments: no real people named, no real tragedies.
+const NEWS = [
+  {id:'armround', era:'1970s', paper:'mf', title:'The Arm Round the Shoulder', fans:300, cred:20,
+    lore:'On teatime telly, your singer drapes an arm round the guitarist and points down the camera. The next morning, half the teenagers in Britain decide to form a band.'},
+  {id:'formaband', era:'1970s', paper:'nmx', title:'Now Form a Band', fans:100, cred:25,
+    lore:'A photocopied fanzine prints three chord diagrams and the words ‘now form a band’. You learn all three. Well, two.'},
+  {id:'teatime', era:'1970s', paper:'nmx', title:'The Filth and the Fuzz Pedal', fans:400, cred:20,
+    lore:'Goaded by a teatime chat-show host, your bassist swears on live telly. A viewer kicks in his own TV set in protest. By breakfast you’re on every front page.'},
+  {id:'dummies', era:'1970s', paper:'mf', title:'The Band Are Mannequins', fans:150, cred:25,
+    lore:'You send shop-window dummies of yourselves to the photo shoot, then to the first three nights of the tour. Nobody notices.'},
+  {id:'c90', era:'1980s', paper:'nmx', title:'The C90 Tape', fans:150, cred:25,
+    lore:'The weekly gives away a cassette of new bands on its cover. You’re track 14, side B, between two bands in anoraks. A whole genre ends up named after the tape.'},
+  {id:'wrongspeed', era:'1980s', paper:'mf', title:'Played at the Wrong Speed', fans:50, cred:30,
+    lore:'A late-night DJ plays your single at 33 instead of 45, apologises, plays it properly, then says he preferred it slow. He books you for a session.'},
+  {id:'gladioli', era:'1980s', paper:'nmx', title:'Flower Power', fans:250, cred:10,
+    lore:'Your singer mimes the new single on teatime telly while swinging a bunch of gladioli. By Saturday the florists of Manchester have sold out.'},
+  {id:'diecut', era:'1980s', paper:'mf', title:'The Sleeve That Ate the Profits', fans:200, cred:20,
+    lore:'Your designer’s die-cut sleeve costs more to make than the record sells for. You lose money on every copy of the best-selling single of your career.'},
+  {id:'yachtclub', era:'1980s', paper:'nmx', down:true, title:'The Club That Loses Money', fans:-50, cred:20,
+    lore:'Your label opens a nightclub in an old yacht showroom. The sound echoes so badly the DJ gives up. It loses money every night, and changes music for ever.'},
+  {id:'maracas', era:'1980s', paper:'mf', title:'The Man with the Maracas', fans:250,
+    lore:'You hire a mate whose only job is to dance on stage with maracas. Within a year he’s the most famous member of the band.'},
+  {id:'flares', era:'1980s', paper:'nmx', title:'Two Bands, One Teatime', fans:300, cred:10,
+    lore:'You and the band from across town are both on teatime telly on the same night. By Friday every teenager in the country is wearing flares.'},
+  {id:'britpop', era:'1990s', paper:'nmx', title:'The Battle of Britpop', fans:400, cred:-10,
+    lore:'You and your rivals release singles on the same Monday. It leads the six o’clock news. You win the chart battle by 58,000 copies, then lose the album war by several million.'},
+  {id:'island', era:'1990s', paper:'mf', title:'The Island', fans:350, cred:25,
+    lore:'You headline a windswept island in an estuary, next to a chemical works. The wind blows the sound into the next town and the burgers run out by six. 27,000 people call it the best day of their lives.'},
+  {id:'bumwiggle', era:'1990s', paper:'nmx', title:'Our Hero', fans:350, cred:35,
+    lore:'At the awards, a megastar performs a messiah routine on a hydraulic platform. Your singer wanders on stage and wiggles his bum at the cameras. By Monday he’s a national hero.'},
+  {id:'number10', era:'1990s', paper:'nmx', down:true, title:'Cool Britannia', fans:200, cred:-40,
+    lore:'You accept an invitation to a champagne party at Number 10 with the new prime minister. A photographer catches you laughing at his joke. Your cred never recovers.'},
+  {id:'lamestain', era:'1990s', paper:'mf', title:'Swingin’ on the Flippity-Flop', cred:30,
+    lore:'A newspaper rings your label for a glossary of grunge slang. The receptionist makes up every word on the spot, and ‘lamestain’ and ‘harsh realm’ are printed as fact.'},
+  {id:'couture', era:'1990s', paper:'nmx', down:true, title:'Grunge Couture', fans:150, cred:-15,
+    lore:'A New York fashion house sends models down the catwalk in your band’s flannel shirts, at £300 each. You bought yours in a charity shop for 50p.'},
+  {id:'crooner', era:'1990s', paper:'mf', title:'The Teatime Crooner', fans:100, cred:35,
+    lore:'Told to sing live over a backing track on teatime telly, your singer croons the hit an octave low, like a lounge act, while the bassist twirls his guitar overhead.'},
+  {id:'row', era:'1990s', paper:'nmx', title:'The Row That Charted', fans:150, cred:10,
+    lore:'A journalist tapes your band arguing in an interview. Someone releases the row as a single. It reaches number 52.'},
+  {id:'neoromo', era:'1990s', paper:'mf', down:true, title:'Neo-Romo: The New Scene', fans:50, cred:-20,
+    lore:'The weekly invents a new scene and puts you on the cover in eyeliner and a frilly shirt. The scene lasts three weeks. You’re the last band still wearing the shirt.'},
+  {id:'caps', era:'1990s', paper:'nmx', down:true, title:'America’s Favourite Band', fans:100, cred:-20,
+    lore:'This year’s best-selling album in America is by four nice men in baseball caps. Your label sends you four baseball caps.'},
+  {id:'cartoon', era:'1990s', paper:'nmx', title:'Cartoon Teens Approve', fans:350, cred:-5,
+    lore:'Two cartoon teenagers on music telly snigger through your video, then decide it’s cool. Your sales triple overnight.'},
+  {id:'shoegaze', era:'1990s', paper:'mf', title:'The Scene That Celebrates Itself', fans:100, cred:25,
+    lore:'A journalist invents a scene for you and four other bands who drink in the same pub. You all stare at your effects pedals. The paper calls it a movement.'},
+  {id:'onein20', era:'1990s', paper:'nmx', title:'One in 25 of Us Want Tickets', fans:500,
+    lore:'Two and a half million people apply for tickets to your two nights in a field. That’s about one in every 25 people in the country.'},
+  {id:'rockisback', era:'2000s', paper:'nmx', title:'Rock Is Back (Again)', fans:300, the:true,
+    lore:'The weekly declares guitar music saved. Every band with ‘The’ at the front of its name gets a record deal, so you add one to yours.'},
+  {id:'top8', era:'2000s', paper:'nmx', title:'Top 8', fans:400, cred:10,
+    lore:'Fans burn your demos onto CDs and post them on a social site with glittery backgrounds. You’re in 40,000 strangers’ Top 8 before you’ve released a single.'},
+  {id:'ninepointseven', era:'2000s', paper:'nmx', title:'The 9.7', fans:350, cred:25,
+    lore:'Pitchblende gives your debut album a 9.7. You’ve played eleven gigs. The next forty sell out before the review has finished loading.'},
+  {id:'silhouettes', era:'2000s', paper:'nmx', down:true, title:'The Silhouette Song', fans:500, cred:-25,
+    lore:'Your single soundtracks an advert full of dancing silhouettes in white earphones. Everyone knows the song. Nobody knows who you are.'},
+  {id:'newrave', era:'2000s', paper:'nmx', title:'New Rave Is Here', fans:200, cred:10,
+    lore:'Your bassist jokes in an interview that you’re ‘new rave’. Two weeks later it’s a genre, with glow sticks and fluorescent tabards.'},
+  {id:'flatgig', era:'2000s', paper:'nmx', title:'The Gig in the Flat', fans:100, cred:25,
+    lore:'You announce a gig on your fan forum two hours before it starts, in your own flat. Sixty people squeeze into the living room. The neighbours join in on tambourine.'},
+  {id:'landfill', era:'2000s', paper:'nmx', down:true, title:'Landfill', cred:-25,
+    lore:'A columnist coins the phrase ‘landfill indie’ and illustrates it with your press photo.'},
+  {id:'paywhat', era:'2000s', paper:'nmx', title:'Pay What You Like', fans:300, cred:10,
+    lore:'You put your album online for whatever people want to pay. Most pay nothing. Everyone writes a think piece about it.'},
+  {id:'wrongname', era:'2000s', paper:'nmx', down:true, title:'It’s Not Them', fans:300, cred:-15,
+    lore:'Your demo leaks onto a file-sharing network, labelled as a lost song by a far more famous band. Four million people download it under the wrong name.'},
+  {id:'flash', era:'2000s', paper:'nmx', title:'The Party Photos', fans:150, cred:15,
+    lore:'A party photographer posts 400 flash photos of you in a sweaty loft, wearing sunglasses at 3am. Your outfit becomes the uniform of the summer.'},
+  {id:'prank', era:'2000s', paper:'nmx', title:'The Internet Prank', fans:400, cred:-5,
+    lore:'Your old video becomes an internet prank: people are tricked into watching it hundreds of millions of times. You never see a penny, but you never give it up.'},
+  {id:'mercurial', era:'2000s', paper:'nmx', down:true, title:'The Curse of the Mercurial Prize', fans:-100, cred:20,
+    lore:'You win the year’s big album prize, beating three famous bands and a jazz trio. Your next record sells 400 copies.'},
+  {id:'wristbands', era:'2010s', paper:'nmx', down:true, title:'The Light-Up Wristbands', fans:400, cred:-30,
+    lore:'Every fan at your stadium show gets a wristband that flashes in time with the chorus. It’s beautiful. The record shop guy has asked you to leave.'},
+  {id:'whoarethey', era:'2010s', paper:'nmx', title:'Who Are They?!', fans:300, cred:30,
+    lore:'You win Album of the Year at the big American awards. Millions of people go online to ask who you are. Someone starts a blog of the angriest posts.'},
+  {id:'silent', era:'2010s', paper:'nmx', title:'The Silent Album', fans:150, cred:30,
+    lore:'You release ten tracks of silence and ask fans to stream them while they sleep. The royalties pay for the whole tour.'},
+  {id:'surprise', era:'2010s', paper:'nmx', title:'Out Now. Surprise.', fans:400,
+    lore:'You release your album at midnight with no warning, no singles and no press. The internet breaks for a week.'},
+  {id:'counter', era:'2010s', paper:'nmx', title:'The Video That Broke the Counter', fans:600, cred:-20,
+    lore:'Your video is watched so many times that the site’s view counter runs out of numbers and has to be rebuilt.'},
+  {id:'heyho', era:'2010s', paper:'nmx', down:true, title:'Hey! Ho!', fans:300, cred:-30,
+    lore:'The banjo-and-waistcoat craze arrives. Your label asks for more stomping, more shouting ‘hey!’, and a lot more waistcoat.'},
+  {id:'shopday', era:'2010s', paper:'nmx', title:'Record Shop Day', fans:100, cred:10,
+    lore:'Your reissue on glow-in-the-dark vinyl sells out at 8am to people who’ve queued since 4. By 9 it’s on auction sites at four times the price.'},
+  {id:'warmest', era:'2010s', paper:'nmx', down:true, title:'Number 101', fans:-50, cred:10,
+    lore:'Your single comes in at number 101 in the Warmest 100 countdown. You find out from a spreadsheet a fan made to predict it.'},
+  {id:'fifteen', era:'2020s', paper:'nmx', down:true, title:'Fifteen Seconds of Fame', fans:500, cred:-20,
+    lore:'Fifteen seconds of your bridge goes viral on a video app, sped up. Everyone knows the fifteen seconds. Nobody knows the song.'},
+  {id:'thirtyseven', era:'2020s', paper:'nmx', title:'Number One, 37 Years Late', fans:600, cred:15,
+    lore:'A streaming drama uses a song from your first ever demo. Teenagers who weren’t born when you wrote it send it to number one.'},
+  {id:'monkey', era:'2020s', paper:'nmx', down:true, title:'The Monkey Picture', fans:50, cred:-30,
+    lore:'You sell your album as a cartoon monkey picture on the blockchain. It’s worth a fortune for a week. Then it’s worth about £3.'},
+  {id:'kitchen', era:'2020s', paper:'nmx', title:'The Kitchen Gig', fans:200, cred:15,
+    lore:'You livestream an acoustic set from your kitchen to 40,000 people. The cat walks across the laptop and ends it in the middle of the best song.'},
+  {id:'indemand', era:'2020s', paper:'nmx', down:true, title:'In-Demand Pricing', fans:300, cred:-30,
+    lore:'Your reunion tickets go on sale at one price and finish at more than double, because of ‘demand’. Fans queue online for nine hours to be annoyed.'},
+  {id:'limegreen', era:'2020s', paper:'nmx', title:'The Lime-Green Summer', fans:400, cred:20,
+    lore:'Your album cover is lime green with one blurry lower-case word on it. A whole summer gets named after it.'},
+  {id:'robot', era:'2020s', paper:'nmx', down:true, title:'The Robot Version', fans:-50, cred:-20,
+    lore:'Someone uses AI to make a song that sounds exactly like you. It’s better than your new single, and it’s in the charts.'},
+  {id:'ourversion', era:'2020s', paper:'nmx', title:'(Our Version)', fans:400, cred:5,
+    lore:'You re-record your first album note for note so that you finally own it, and call it ‘(Our Version)’. It outsells the original.'},
+  {id:'bracelets', era:'2020s', paper:'nmx', title:'The Bracelets', fans:300, cred:-10,
+    lore:'Your fans swap handmade friendship bracelets at every gig. The bracelets get their own documentary.'},
+  {id:'pink', era:'2020s', paper:'nmx', title:'The Pink Era', fans:200, cred:20,
+    lore:'You dye your hair, go full Y2K and make a romantic record. The purists faint. It’s your best album yet.'},
+].map(e => Object.assign({kind: 'news'}, e));
+const ALL_EVENTS = EVENTS.concat(NEWS);
+const EV = id => ALL_EVENTS.find(e => e.id === id);
+const paperOf = e => e.paper === 'mf' && e.era < '2000s' ? 'mf' : 'nmx';
+// the decades a tour's news comes from: the TOUR line's fifth part, or the decades a fifth of its songs come from
+function newsEras(T){
+  if (Array.isArray(T.news) && T.news.length) return T.news;
+  const n = {}; for (const s of T.s) n[s.h[0]] = (n[s.h[0]] || 0) + 1;
+  return Object.keys(n).filter(d => n[d] >= T.s.length * .2);
+}
+
 
 /* ---------- saved state ---------- */
 const career = Object.assign({fans: 0, cred: 0, runs: 0, wins: 0, best: {}}, LS.get('career') || {});
@@ -729,6 +1000,7 @@ async function broadcast(spec){
   try {
     await openStage(); await powerOn(); startScene(spec.host, spec.pal);
     $('tag').textContent = `${H.name} · ${H.role}`; $('tag').className = 'tag ' + spec.host; $('ticker').hidden = !spec.ticker;
+    if (spec.ticker) $('ticker').firstElementChild.textContent = tickerText();
     ident(spec.show); if (spec.sting === 'sad') sadTrombone(); else jingle(); await w(1400); $('ident').hidden = true;
     $('lower').hidden = false;
     for (const [shown, spoken] of spec.lines) { speak(spoken, spec.host); await typeCaption(shown, spec.host); await w(900); }
@@ -750,10 +1022,13 @@ function rankOf(c){ let r = RANKS[0][1]; for (const [min, label] of RANKS) if (c
 function renderTitle(){
   $('c-fans').textContent = fmt(career.fans); $('c-cred').textContent = (career.cred < 0 ? '−' : '') + fmt(Math.abs(career.cred)); $('c-wins').textContent = fmt(career.wins);
   $('c-rank').innerHTML = `Cred rank: <b>${esc(rankOf(career.cred))}</b>`;
+  $('c-stand').innerHTML = `<small>On the news-stand · ${esc(PAPERS[Math.random() < .5 ? 'nmx' : 'mf'].name)}</small><b>${esc(pick(BANDS))}: the best new band in Britain</b>` +
+    (career.bnb ? `<span>You’ve been the best new band in Britain ${esc(times(career.bnb))}.</span>` : '');
   $('band').value = band;
   $('tours').innerHTML = TOURS.map(T => { const best = career.best[T.id];
-    return `<div class="tour"><h3>${esc(T.name)}</h3><p>${esc(T.blurb)}</p><p class="best">${best === TOP ? `🎸 Headlined ${esc(T.fest)}` : best ? `Best so far: ${esc(rungName(best, T))}` : `The goal: headlining ${esc(T.fest)}`}</p><button class="btn" type="button" data-tour="${esc(T.id)}">Start the tour</button></div>`; }).join('')
+    return `<div class="tour"><h3>${esc(T.name)}</h3><p>${esc(T.blurb)}</p><p class="best">${best === TOP ? `🎸 Headlined ${esc(T.fest)}` : best ? `Best so far: ${esc(rungName(best, T, null))}` : `The goal: headlining ${esc(T.fest)}`}</p><button class="btn" type="button" data-tour="${esc(T.id)}">Start the tour</button></div>`; }).join('')
     || '<p class="small">No tours are loaded. Check that tours.js is next to this page.</p>';
+  renderArchive();
   standby('TOUR MODE', 'PICK A TOUR', `${fmt(career.fans)} FANS`);
   dockTV($('slot-title'));
 }
@@ -765,7 +1040,7 @@ $('reroll').addEventListener('click', () => { let n = band; while (n === band) n
 function startRun(tourId){
   unlockAudio(); stopTheme();
   band = $('band').value.trim().slice(0, 32) || band; LS.set('band', band);
-  run = {tour: tourId, band, rung: 0, strikes: 0, fans: 0, cred: 0, picks: [], cur: null, over: null, reason: '', reunion: 0};
+  run = {tour: tourId, band, rung: 0, strikes: 0, fans: 0, cred: 0, picks: [], cur: null, over: null, reason: '', reunion: 0, station: pickStation(tourOf(tourId)), bnb: 0, events: []};
   career.runs++; saveCareer(); saveRun();
   show('run'); dockTV($('slot-run')); nextSong();
 }
@@ -857,20 +1132,31 @@ function settle(){
   if (run.rung >= TOP) { run.over = 'win'; next = 'win'; career.wins++; career.fans += 1000; career.cred += 50; run.fans += 1000; run.cred += 50; }
   else if (run.strikes >= STRIKES) { run.over = 'split'; next = 'split'; run.reason = pick(SPLITS); run.reunion = new Date().getFullYear() + 8 + Math.floor(Math.random() * 14); }
   if (run.over) career.best[run.tour] = Math.max(career.best[run.tour] || 0, run.rung);
+  // the weeklies crown you the best new band in Britain after rungs 1, 4, 7 and 10 (and on every front page)
+  if (p.ok && next === 'song' && [1, 4, 7, 10].includes(run.rung)) { p.bnb = crown(); if (Math.random() < .5) p.dez = pick(DEZ.bnb); }
   saveRun(); saveCareer();
   $('q-in').disabled = true; for (const id of ['q-form', 'q-timer', 'q-secs', 'q-pass']) $(id).hidden = true;
   renderRunHead(); renderReveal(p);
-  const milestone = p.ok && RUNGS[run.rung] && RUNGS[run.rung].tv;
+  const milestone = p.ok && RUNGS[run.rung] && RUNGS[run.rung].tv, rn = rungName(run.rung, T);
   let promo = '';
-  if (p.ok && next === 'song') promo = `<p class="promo">${esc(milestone ? `Promoted to ${RUNGS[run.rung].name}. You're on the telly.` : `Promoted to ${RUNGS[run.rung].name}. ${RUNGS[run.rung].promo || ''}`)}</p>`;
+  if (p.ok && next === 'song') promo = `<p class="promo">${esc(milestone ? `Promoted to ${rn}. ${run.rung === RADIO ? 'Tune in.' : "You're on the telly."}` : `Promoted to ${rn}. ${RUNGS[run.rung].promo || ''}`)}</p>`;
   if (!p.ok && next === 'song') promo = `<p class="promo bad">${esc(STRIKE_LINES[run.strikes - 1] || '')}</p>`;
   if (next === 'win') promo = `<p class="promo">That's twelve. Headlining ${esc(T.fest)}.</p>`;
   if (next === 'split') promo = `<p class="promo bad">Strike three. There's news.</p>`;
-  const label = next === 'song' ? (milestone ? 'Watch the telly' : 'Next song') : 'Watch the telly';
+  if (p.bnb) promo += clipHTML(p.bnb);
+  // things happen on the road: a legendary night or a front page after rungs 2, 5, 8 and 11; a flop after the first strike
+  run.events = run.events || [];
+  let ev = null;
+  if (next === 'song' && !milestone && run.events.length < 3) {
+    if (p.ok && [2, 5, 8, 11].includes(run.rung) && Math.random() < .6) ev = pickEvent('up');
+    else if (!p.ok && run.strikes === 1 && Math.random() < .5) ev = pickEvent('down');
+  }
+  const label = next === 'song' ? (milestone ? 'Watch the telly' : ev ? 'Back in the van…' : 'Next song') : 'Watch the telly';
   $('after').innerHTML = `${promo}<button class="btn wide" id="next" type="button">${label}</button>`;
   $('next').onclick = async () => {
     $('next').disabled = true; stopPreview();
     if (next === 'win') await broadcastWin(); else if (next === 'split') await broadcastSplit(); else if (milestone) await broadcastMilestone();
+    if (ev) await showEvent(ev);
     if (run.over) showResult(); else nextSong();
   };
   $('next').focus({preventScroll: true});
@@ -883,7 +1169,8 @@ function renderReveal(p){
     <div class="song"><div class="cover" id="cover" hidden><img id="cover-img" alt="" width="80" height="80"></div><div class="info"><div class="t">${esc(s.t)}</div><div class="a">${esc(s.a)} · ${s.y}</div></div></div>
     <div class="player" id="player"><button class="play" id="pp" type="button">Pause</button><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="pmsg" aria-live="polite">Loading the preview…</span></div>
     <div class="store"><a class="am" id="am" href="${esc(appleUrl(s.id))}" target="_blank" rel="noopener"><img src="apple-music-badge.svg" alt="Listen on Apple Music" width="137" height="40"></a><span class="credit">Preview provided courtesy of iTunes</span></div>
-    ${p.ok ? `<p class="credline${tier < 0 ? ' minus' : ''}">${esc(CRED_LINE[tier] || '')} Fans +${p.fans}.</p>` : ''}</div>`;
+    ${p.ok ? `<p class="credline${tier < 0 ? ' minus' : ''}">${esc(CRED_LINE[tier] || '')} Fans +${p.fans}.</p>` : ''}
+    <p class="snob"><b>Dez, Second Pressings:</b> “${esc(p.dez || (p.dez = pick((p.ok ? DEZ.hit : DEZ.miss)[tier] || ['Hm.'])))}”</p></div>`;
   $('pp').onclick = () => { const a = audioEl(), info = APPLE[s.id]; if (!info || !info.pv) return; if (a.paused || a.getAttribute('src') !== info.pv) playPreview(info.pv, true); else { cancelAnimationFrame(PV.fade); a.pause(); } };
   loadSong(s.id);
 }
@@ -896,9 +1183,13 @@ async function loadSong(id){
   playPreview(info.pv, false);
 }
 function broadcastMilestone(){
-  const R = RUNGS[run.rung], T = tourOf(run.tour), N = RUNGS[run.rung + 1];
-  const l2 = R.tv.host === 'chet' ? [`${run.band}'s new gig: ${R.name}. More at eleven.`, `${run.band}'s new gig. ${R.name}. More at eleven.`] : [`N-n-n-next level: ${R.name}!`, `Next level! ${R.name}!`];
-  return broadcast({host: R.tv.host, show: R.tv.show, pal: R.tv.pal, ticker: R.tv.host === 'chet', lines: [[R.tv.line, R.tv.say], l2], ident2: ['Now playing', R.name],
+  const R = RUNGS[run.rung], T = tourOf(run.tour), N = RUNGS[run.rung + 1], name = rungName(run.rung, T);
+  const st = run.rung === RADIO ? stationOf(run.station) : null;
+  const l1 = st ? [`Live on ${st.name}, ${st.city}! ${st.line}`, `Live on ${st.say}, ${st.city}! ${unstutter(st.line)}`] : [R.tv.line, R.tv.say];
+  const l2 = R.tv.host === 'chet' ? [`${run.band}'s new gig: ${name}. More at eleven.`, `${run.band}'s new gig. ${name}. More at eleven.`] : [`N-n-n-next level: ${name}!`, `Next level! ${name}!`];
+  const lines = [l1, l2], n = career.bnb || 0;
+  if (R.tv.pal === 'countdown' && n > 1) lines.splice(1, 0, [`The New Musical Excess says you're the b-b-best new band in Britain! For the ${ordinal(n)} time!`, `The New Musical Excess says you're the best new band in Britain! For the ${ordinal(n)} time!`]);
+  return broadcast({host: R.tv.host, show: st ? `Live on ${st.name}` : R.tv.show, pal: R.tv.pal, ticker: R.tv.host === 'chet', lines, ident2: ['Now playing', name],
     career: [run.rung - 1, run.rung, `FANS THIS TOUR: ${fmt(run.fans)}`, N ? `NEXT: ${rungName(run.rung + 1, T).toUpperCase()}` : '']});
 }
 function broadcastWin(){
@@ -910,8 +1201,86 @@ function broadcastWin(){
 function broadcastSplit(){
   const T = tourOf(run.tour);
   return broadcast({host: 'chet', show: 'Music News: Breaking', pal: 'split', ticker: true, sting: 'sad',
-    lines: [[`This just in: ${run.band} have split.`, `This just in. ${run.band} have split.`], [run.reason, run.reason], [`A reunion tour is pencilled in for ${run.reunion}.`, `A reunion tour is pencilled in for ${run.reunion}.`]],
+    lines: [[`This just in: ${run.band} have split.`, `This just in. ${run.band} have split.`], [run.reason, run.reason]].concat(run.bnb ? [[
+      `The weekly that called them the best new band in Britain ${times(run.bnb)} has already crowned a new one: ${pick(BANDS.filter(b => b !== run.band))}.`]].map(([t]) => [t, t]) : [],
+      [[`A reunion tour is pencilled in for ${run.reunion}.`, `A reunion tour is pencilled in for ${run.reunion}.`]]),
     career: [run.rung, run.rung, `GOT AS FAR AS: ${rungName(run.rung, T).toUpperCase()}`, `FANS THIS TOUR: ${fmt(run.fans)}`]});
+}
+
+/* ---------- events, front pages and the Bootleg Archive ---------- */
+const archive = () => { const a = LS.get('archive'); return Array.isArray(a) ? a : []; };
+// 'up' after a good gig: a legendary night or a front page; 'down' after the first strike: a famous flop or a bad front page.
+// Unseen ones first; front pages only from the tour's own decades.
+function pickEvent(mood){
+  const eras = newsEras(tourOf(run.tour)), have = new Set(archive()), used = new Set(run.events);
+  const road = EVENTS.filter(e => e.kind === (mood === 'up' ? 'good' : 'flop') && !used.has(e.id));
+  const news = NEWS.filter(e => eras.includes(e.era) && !!e.down === (mood === 'down') && !used.has(e.id));
+  const lists = Math.random() < .55 ? [news, road] : [road, news];
+  for (const l of lists) { const fresh = l.filter(e => !have.has(e.id)); if (fresh.length) return pick(fresh); }
+  for (const l of lists) if (l.length) return pick(l);
+  return null;
+}
+function paperFor(n){ return newsEras(tourOf(run.tour)).some(d => d < '2000s') && n % 2 === 0 ? 'mf' : 'nmx'; }
+function crown(){
+  career.bnb = (career.bnb || 0) + 1; run.bnb = (run.bnb || 0) + 1; saveCareer(); saveRun();
+  return {paper: paperFor(career.bnb), line: bnbLine(career.bnb), band: run.band};
+}
+const clipHTML = c => `<div class="clip"><small>${esc(PAPERS[c.paper].name)} · this week</small><b>${esc(c.band)}: ${esc(c.line)}</b></div>`;
+function tickerText(){
+  const T = run ? tourOf(run.tour) : null, eras = T ? newsEras(T) : [];
+  const heads = NEWS.filter(e => eras.includes(e.era)).sort(() => Math.random() - .5).slice(0, 2).map(e => e.title.toUpperCase());
+  const items = [...TICKER].sort(() => Math.random() - .5).slice(0, 3).concat(heads, [`${pick(BANDS).toUpperCase()} NAMED BEST NEW BAND IN BRITAIN`, `${pick(BANDS).toUpperCase()} NAMED BEST NEW BAND IN BRITAIN, AGAIN`]);
+  return items.sort(() => Math.random() - .5).join(' ✦ ') + ' ✦';
+}
+function roadHTML(e, isNew){
+  return `<span class="kicker">${e.kind === 'good' ? 'Meanwhile, on the road' : 'Meanwhile, a setback'}${isNew ? ' · New in your archive' : ''}</span>
+      <h3>${esc(e.title)}</h3><p class="lore">${esc(e.lore)}</p>
+      <div class="score"><b>${esc(e.score)}</b><span>Pitchblende${e.label ? ' · ' + esc(e.label) : ''}</span></div>
+      <blockquote>“${esc(e.quote)}”</blockquote>`;
+}
+function newsHTML(e, isNew, c, extra){
+  const k = paperOf(e), P = PAPERS[k];
+  return `<div class="mast ${k}"><b>${esc(P.name)}</b><span>${esc(P.price[e.era] || '')}</span></div>
+      <span class="kicker">Music news · the ${esc(e.era)}${isNew ? ' · New in your archive' : ''}</span>
+      <h3>${esc(e.title)}</h3><p class="lore">${esc(e.lore + (extra || ''))}</p>
+      <p class="strap">Also inside: ${esc(c.band)}: ${esc(c.line)}</p>`;
+}
+function showEvent(e){
+  return new Promise(done => {
+    run.events.push(e.id);
+    let extra = '';
+    if (e.the) { const had = /^the\s/i.test(run.band); run.band = ('The ' + run.band).slice(0, 40);
+      extra = had ? ` You already had one, so you add another. You’re now ${run.band}.` : ` You’re now ${run.band}.`; }
+    const c = e.kind === 'news' ? crown() : null;
+    run.fans += e.fans || 0; run.cred += e.cred || 0; career.fans += e.fans || 0; career.cred += e.cred || 0;
+    const a = archive(), isNew = !a.includes(e.id); if (isNew) { a.push(e.id); LS.set('archive', a); }
+    saveRun(); saveCareer(); renderRunHead();
+    for (const id of ['reveal', 'after']) $(id).innerHTML = '';
+    document.querySelector('#v-run .paper').hidden = true;
+    const el = $('event'), bad = (e.fans || 0) + (e.cred || 0) * 5 < 0;
+    el.className = 'event' + (e.kind === 'news' ? ' news' : '');
+    el.innerHTML = (e.kind === 'news' ? newsHTML(e, isNew, c, extra) : roadHTML(e, isNew)) +
+      `<p class="fx${bad ? ' bad' : ''}">${esc(fx(e))}</p><button class="btn wide" id="ev-ok" type="button">Back in the van</button>`;
+    el.hidden = false; scrollTo({top: 0, behavior: 'auto'});
+    if (e.kind === 'news') { noise(.25, .02); blip(988, .05, 'square', .03); blip(1319, .08, 'square', .03, .08); }
+    else if (e.kind === 'good') blip(784, .1, 'square', .03); else sadTrombone();
+    $('ev-ok').focus({preventScroll: true});
+    $('ev-ok').onclick = () => { el.hidden = true; el.innerHTML = ''; document.querySelector('#v-run .paper').hidden = false; done(); };
+  });
+}
+const GROUPS = [['good', 'Legendary nights', 'Reviewed by Pitchblende'], ['news', 'Front pages', 'New Musical Excess and Melody Faker'], ['flop', 'Famous flops', 'Also reviewed by Pitchblende, sadly']];
+function cardHTML(e){
+  return e.kind === 'news' ? `<div class="card on"><b>${esc(e.title)}</b><span>${esc(PAPERS[paperOf(e)].name)} · the ${esc(e.era)}</span></div>`
+    : `<div class="card on"><b>${esc(e.title)}</b><span>${esc(e.score)} · “${esc(e.quote)}”</span></div>`;
+}
+function renderArchive(){
+  const have = new Set(archive());
+  $('ar-count').textContent = `${ALL_EVENTS.filter(e => have.has(e.id)).length}/${ALL_EVENTS.length}`;
+  $('archive').innerHTML = GROUPS.map(([kind, name, sub]) => {
+    const list = ALL_EVENTS.filter(e => e.kind === kind), got = list.filter(e => have.has(e.id)), left = list.length - got.length;
+    return `<h3 class="arh">${esc(name)} · ${got.length}/${list.length}<small>${esc(sub)}</small></h3><div class="archive">${got.map(cardHTML).join('')}` +
+      (left ? `<div class="card"><b>${got.length ? `${left} more to find` : '???'}</b><span>${kind === 'news' ? 'Keep an eye on the papers.' : 'Keep touring.'}</span></div>` : '') + '</div>';
+  }).join('');
 }
 
 /* ---------- results ---------- */
@@ -921,7 +1290,7 @@ function showResult(){
   $('x-tour').textContent = `${T.name} · ${run.band}`;
   $('x-head').textContent = win ? 'Headliners.' : 'Band split.';
   $('x-reason').textContent = win ? `You headlined ${T.fest}.` : `${run.reason} Reunion tour: ${run.reunion}.`;
-  $('x-stats').innerHTML = [['Got as far as', rungName(run.rung, T)], ['Songs', `${got} of ${run.picks.length}`], ['Fans', signed(run.fans)], ['Cred', signed(run.cred)]]
+  $('x-stats').innerHTML = [['Got as far as', rungName(run.rung, T)], ['Songs', `${got} of ${run.picks.length}`], ['Fans', signed(run.fans)], ['Cred', signed(run.cred)]].concat(run.bnb ? [['Best new band in Britain', times(run.bnb)]] : [], (run.events || []).length ? [['On the road', run.events.map(id => (EV(id) || {}).title).filter(Boolean).join(', ')]] : [])
     .map(([k, v]) => `<div><span class="label">${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
   $('x-recap').innerHTML = run.picks.map(p => { const s = p.s, d = T.s[p.i].d, mk = p.ok ? (p.h ? '<span class="mk hint">✓</span>' : '<span class="mk ok">✓</span>') : '<span class="mk no">✗</span>';
     return `<li>${mk}<div><q>${esc(d)}</q><span>${s ? `<a href="${esc(appleUrl(s.id))}" target="_blank" rel="noopener">${esc(s.t)}</a> · ${esc(s.a)} · ${s.y}` : '…'}</span></div></li>`; }).join('');
@@ -932,7 +1301,7 @@ function showResult(){
 }
 function shareText(){
   const T = tourOf(run.tour), win = run.over === 'win';
-  return `Badly Described · Tour Mode\n${win ? `🎸 ${run.band} headlined ${T.fest}` : `💔 ${run.band} split at ${rungName(run.rung, T)} (${run.rung}/${TOP})`}\n${squares()}\nFans ${signed(run.fans)} · Cred ${signed(run.cred)}` +
+  return `Badly Described · Tour Mode\n${win ? `🎸 ${run.band} headlined ${T.fest}` : `💔 ${run.band} split at ${rungName(run.rung, T)} (${run.rung}/${TOP})`}\n${squares()}\nFans ${signed(run.fans)} · Cred ${signed(run.cred)}` + (run.bnb ? `\n📰 The best new band in Britain ${times(run.bnb)}` : '') +
     (win ? '' : `\n"${run.reason}"`) + (/^https?:$/.test(location.protocol) ? `\n${location.origin}/tour` : '');
 }
 $('x-share').addEventListener('click', async () => {

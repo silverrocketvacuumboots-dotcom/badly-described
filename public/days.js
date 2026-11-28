@@ -1,4 +1,4 @@
-/* Badly Described question bank (built 2026-11-27 by qbank/build.mjs; don't edit by hand).
+/* Badly Described question bank (built 2026-11-28 by qbank/build.mjs; don't edit by hand).
    BD_LAUNCH is the day that plays day #1 (players' local midnight). Day N is played on day N, in this order;
    when the list runs out it loops back to the start. Add new days to the END only, and keep the list longer
    than the number of days you've been running, so past days never change.

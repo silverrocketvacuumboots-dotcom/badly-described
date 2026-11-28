@@ -95,6 +95,7 @@ for (const t of tours) {
   if (!/^[a-z0-9]{2,24}$/.test(t.id)) problems.push(`${t.where}: tour id "${t.id}" should be 2-24 lower-case letters and digits`);
   if (tourIds.has(t.id)) problems.push(`${t.where}: tour id "${t.id}" used twice`); tourIds.add(t.id);
   if (!t.name || t.name.length > 40) problems.push(`${t.where}: tour name should be 1-40 characters`);
+  for (const d of t.news) if (!/^(19|20)\d0s$/.test(d)) problems.push(`${t.where}: news decade "${d}" should look like 1980s`);
   if (!t.fest || t.fest.length > 60) problems.push(`${t.where}: festival should be 1-60 characters`);
   if (t.blurb.length > 120) problems.push(`${t.where}: blurb is longer than 120 characters`);
   for (const s of t.songs) {
@@ -138,7 +139,7 @@ const toursHead = `/* Badly Described Tour mode (built ${new Date().toISOString(
    d: description, h: [decade, first letter], c: cred tier (1 hit, 2 fan favourite, 3 deep cut, -1 too mainstream).  */
 window.BD_TOURS = [
 `;
-fs.writeFileSync(TOURS_OUT, toursHead + tours.map((t) => `{id:${JSON.stringify(t.id)},name:${JSON.stringify(t.name)},fest:${JSON.stringify(t.fest)},blurb:${JSON.stringify(t.blurb)},s:[\n` +
+fs.writeFileSync(TOURS_OUT, toursHead + tours.map((t) => `{id:${JSON.stringify(t.id)},name:${JSON.stringify(t.name)},fest:${JSON.stringify(t.fest)},blurb:${JSON.stringify(t.blurb)},${t.news.length ? `news:${JSON.stringify(t.news)},` : ''}s:[\n` +
   t.songs.map((s) => `{d:${JSON.stringify(s.d)},h:${JSON.stringify([decade(s.year), firstLetter(parseTitles(s.titles).d)])},c:${s.tier}}`).join(',\n') + ']}').join(',\n') + '\n];\n');
 fs.writeFileSync(TOURBANK, `// Built by qbank/build.mjs. Do not edit: change qbank/tours/*.txt and rebuild.\n` +
   `export const TOURS = ${JSON.stringify(Object.fromEntries(tours.map((t) => [t.id, t.songs.map((s) => ({ t: s.titles, a: s.artist, y: s.year, id: Number(s.id) }))])))};\n`);

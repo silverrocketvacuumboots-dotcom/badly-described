@@ -1,5 +1,5 @@
 // The Van Tour '86. Format: see qbank/WRITING.md. Only ever add songs at the END of this file.
-TOUR: van86 | The Van Tour '86 | the Reading Glasses Festival | 80s indie, college radio and the van's mixtape. Bring a cardigan.
+TOUR: van86 | The Van Tour '86 | the Reading Glasses Festival | 80s indie, college radio and the van's mixtape. Bring a cardigan. | 1980s 1970s
 
 D: Flat bike tyre on a hill, nothing to wear, a stranger offers a lift
 S: This Charming Man | The Smiths | 1983 | 799980295 | 1

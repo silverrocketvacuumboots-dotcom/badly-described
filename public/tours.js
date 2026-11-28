@@ -1,10 +1,10 @@
-/* Badly Described Tour mode (built 2026-11-27 by qbank/build.mjs; don't edit by hand).
+/* Badly Described Tour mode (built 2026-11-28 by qbank/build.mjs; don't edit by hand).
    Descriptions, hints and cred tiers only: the answers live in src/tourbank.js on the server.
    A song is asked for by its tour id and its position in that tour's list, so only ever add songs at the END of a
    tour file; changing the order would mix up runs that are in progress.
    d: description, h: [decade, first letter], c: cred tier (1 hit, 2 fan favourite, 3 deep cut, -1 too mainstream).  */
 window.BD_TOURS = [
-{id:"van86",name:"The Van Tour '86",fest:"the Reading Glasses Festival",blurb:"80s indie, college radio and the van's mixtape. Bring a cardigan.",s:[
+{id:"van86",name:"The Van Tour '86",fest:"the Reading Glasses Festival",blurb:"80s indie, college radio and the van's mixtape. Bring a cardigan.",news:["1980s","1970s"],s:[
 {d:"Flat bike tyre on a hill, nothing to wear, a stranger offers a lift",h:["1980s","T"],c:1},
 {d:"Shy man goes clubbing alone, stands alone, leaves alone, cries",h:["1980s","H"],c:1},
 {d:"Would quite like to be flattened by a double-decker bus, as a couple",h:["1980s","T"],c:1},
@@ -60,7 +60,7 @@ window.BD_TOURS = [
 {d:"Words are very unnecessary, says a king carrying a deckchair",h:["1990s","E"],c:1},
 {d:"Man in a slogan T-shirt asks to be woken before departure",h:["1980s","W"],c:-1},
 {d:"Ginger baritone promises unwavering loyalty; the internet weaponised it",h:["1980s","N"],c:-1}]},
-{id:"lollapaloser93",name:"Lollapaloser '93",fest:"Lollapaloser",blurb:"Flannel, feedback and second-stage cred. Sell out at your peril.",s:[
+{id:"lollapaloser93",name:"Lollapaloser '93",fest:"Lollapaloser",blurb:"Flannel, feedback and second-stage cred. Sell out at your peril.",news:["1990s"],s:[
 {d:"Named after a deodorant; the cheerleaders have anarchy tattoos",h:["1990s","S"],c:1},
 {d:"Murky, watery riff; turn up however you like, he really doesn't mind",h:["1990s","C"],c:1},
 {d:"Spanish chorus, slide guitar, self-loathing as a career plan",h:["1990s","L"],c:1},
@@ -109,7 +109,7 @@ window.BD_TOURS = [
 {d:"Rob Thomas promises to take you for granted; radio played it hourly",h:["1990s","P"],c:-1},
 {d:"Hey-ey-ey: a top hat, a huge voice, a revolution every morning",h:["1990s","W"],c:-1},
 {d:"She sits alone in a boggy marsh; a three-string guitar explains",h:["1990s","L"],c:-1}]},
-{id:"knebworthless96",name:"Knebworthless '96",fest:"Knebworthless",blurb:"Britpop, raves and trip-hop. Pick a side: north or south.",s:[
+{id:"knebworthless96",name:"Knebworthless '96",fest:"Knebworthless",blurb:"Britpop, raves and trip-hop. Pick a side: north or south.",news:["1990s"],s:[
 {d:"Every busker's first number; the one that saves him, maybe",h:["1990s","W"],c:1},
 {d:"Sally can wait; Noel sings, then a stadium finishes it for him",h:["1990s","D"],c:1},
 {d:"Mancunian optimist plans never to die; the video buries the drummer",h:["1990s","L"],c:1},
@@ -158,5 +158,48 @@ window.BD_TOURS = [
 {d:"Dad-rock with a harmonica; the record shop guy has gone for a smoke",h:["1990s","D"],c:-1},
 {d:"Posh psychedelic boys cover a Deep Purple cover; sitar sold separately",h:["1990s","H"],c:-1},
 {d:"Scottish man takes the weather personally; Glastonbury proved him right",h:["1990s","W"],c:-1},
-{d:"Two comedians promise football is returning to its birthplace. It isn't",h:["1990s","T"],c:-1}]}
+{d:"Two comedians promise football is returning to its birthplace. It isn't",h:["1990s","T"],c:-1}]},
+{id:"indiesleaze04",name:"Indie Sleaze '04",fest:"the Skinny Jeans Weekender",blurb:"Skinny jeans, disco-punk and blog bands. Plus a revival of the revival.",news:["2000s","2010s","2020s"],s:[
+{d:"Jealous man pictures a kiss and a cigarette; it never leaves the UK charts",h:["2000s","M"],c:1},
+{d:"Glaswegians start one song, then slam on the brakes and play a better one",h:["2000s","T"],c:1},
+{d:"Five New Yorkers in leather jackets save rock music, allegedly",h:["2000s","L"],c:1},
+{d:"Karen O sheds real tears in the video; they don't love you like she does",h:["2000s","M"],c:1},
+{d:"Sheffield teens watch a girl dance like a robot from 1984",h:["2000s","I"],c:1},
+{d:"He reverses into a police car, but insists everything will be fine",h:["2000s","F"],c:1},
+{d:"Two students plan the rock-star life: models for wives, a move to Paris",h:["2000s","T"],c:1},
+{d:"Apparently your boyfriend looks like his girlfriend from last February",h:["2000s","S"],c:1},
+{d:"Two frontmen trade insults in song while falling out for real",h:["2000s","C"],c:1},
+{d:"Angular London guitars and the most jittery hi-hats of the decade",h:["2000s","B"],c:1},
+{d:"Ivy League preppies in boat shoes; two minutes of hiccuping guitar and 'hey!'",h:["2000s","A"],c:1},
+{d:"A chorus of four loud bangs and a cash register; a feel-good hit, somehow",h:["2000s","P"],c:1},
+{d:"Leeds lads shout a woman's name four times; a chant at every stag do",h:["2000s","R"],c:-1},
+{d:"Woah-oh, sings a man who used to be in a scruffy garage-rock band",h:["2000s","U"],c:-1},
+{d:"Brighton floppy fringes and an acoustic strum for the sixth-form common room",h:["2000s","N"],c:-1},
+{d:"Shirtless frontman watches the news and feels sad about a whole continent",h:["2000s","A"],c:-1},
+{d:"A man suggests lying down and forgetting the world; TV surgeons weep",h:["2000s","C"],c:-1},
+{d:"A piano arpeggio. The record shop guy has asked you to leave",h:["2000s","C"],c:-1},
+{d:"Montreal collective with a choir insists that sleeping is giving in",h:["2000s","R"],c:2},
+{d:"New rave: glow sticks, a meaningless title and a Mercury Prize",h:["2000s","G"],c:2},
+{d:"Nerds in glasses celebrate the joy of repetition. Again. And again",h:["2000s","O"],c:2},
+{d:"French electro duo, a glowing cross on stage and a children's choir",h:["2000s","D"],c:2},
+{d:"New Yorkers in very sharp suits, gloomy about a numbered hurdle",h:["2000s","O"],c:2},
+{d:"Seven minutes of one piano riff about getting older at parties",h:["2000s","A"],c:2},
+{d:"Swedes in matching suits warned you, and they're thrilled about it",h:["2000s","H"],c:2},
+{d:"Two-minute garage stomp; the video is made entirely of Lego",h:["2000s","F"],c:2},
+{d:"The most distressing sight in England: a man in a baseball cap",h:["2000s","T"],c:2},
+{d:"Natalie Portman promises it'll change your life, in Garden State",h:["2000s","N"],c:2},
+{d:"Beth Ditto belts a marriage-equality protest over a disco-punk bassline",h:["2000s","S"],c:2},
+{d:"Lizard-brained garage rock; the room catches fire while she does her hair",h:["2000s","R"],c:2},
+{d:"Dublin post-punks go pink and Y2K; the one with the big gasping breaths",h:["2020s","S"],c:2},
+{d:"Isle of Wight deadpan: is your muffin buttered?",h:["2020s","C"],c:2},
+{d:"She's shocking, like an eel; psychedelic disco in a jungle video",h:["2000s","E"],c:2},
+{d:"Former wild child, now mostly in her nightdress, gets nostalgic",h:["2000s","F"],c:2},
+{d:"Ageing hipster brags that he was there first, at every gig ever",h:["2000s","L"],c:3},
+{d:"Brooklyn art-rockers get hairy at the full moon, romantically",h:["2000s","W"],c:3},
+{d:"Three minutes of mumbling, then the synths drop like a building",h:["2010s","D"],c:3},
+{d:"Karen O, a spiky riff, and two disloyal tickers",h:["2000s","C"],c:3},
+{d:"Cowbell, a yelping man, and the big bang of dance-punk",h:["2000s","H"],c:3},
+{d:"Dubliners sneer about leaving for somewhere supposedly nicer",h:["2010s","B"],c:3},
+{d:"Deadpan spoken word: do everything and feel nothing",h:["2020s","S"],c:3},
+{d:"Bristol punks offer hairstyle-based advice about hard men",h:["2010s","N"],c:3}]}
 ];

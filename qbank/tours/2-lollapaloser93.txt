@@ -1,5 +1,5 @@
 // Lollapaloser '93. Format: see qbank/WRITING.md. Only ever add songs at the END of this file.
-TOUR: lollapaloser93 | Lollapaloser '93 | Lollapaloser | Flannel, feedback and second-stage cred. Sell out at your peril.
+TOUR: lollapaloser93 | Lollapaloser '93 | Lollapaloser | Flannel, feedback and second-stage cred. Sell out at your peril. | 1990s
 
 D: Named after a deodorant; the cheerleaders have anarchy tattoos
 S: Smells Like Teen Spirit | Nirvana | 1991 | 1440783625 | 1

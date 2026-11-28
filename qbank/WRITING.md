@@ -64,7 +64,10 @@ S: This Charming Man | The Smiths | 1983 | 799980295 | 1
 ```
 
 - `TOUR:` is the id (lower-case letters and digits) | the tour's name | the festival you headline at the end
-  ("the Reading Glasses Festival", shown as "Headlining the Reading Glasses Festival") | a one-line blurb.
+  ("the Reading Glasses Festival", shown as "Headlining the Reading Glasses Festival") | a one-line blurb |
+  optionally, the decades its music news comes from (`1980s 1970s`). Front pages from those decades turn up on that
+  tour, and the radio session uses station names from its era. Without it, the page uses the decades that at least a
+  fifth of the tour's songs come from.
 - Song lines are like the daily ones with a fifth part, the **cred tier**:
   `1` a hit everyone knows, `2` a fan favourite, `3` a deep cut, `-1` too mainstream (getting it right *costs* cred,
   and the page says so; use it for the songs the record shop guy would sneer at).
@@ -73,6 +76,18 @@ S: This Charming Man | The Smiths | 1983 | 799980295 | 1
 - **Only ever add songs at the END of a tour file.** Songs are asked for by their position in the list, so
   reordering or deleting mixes up runs in progress.
 - The same song can't appear twice across the tours, but a tour song can also be a daily song.
+
+### Events, front pages, stations and Dez
+
+These live in `public/tour.html`, not in `qbank/`: `EVENTS` (legendary nights and flops, with a Pitchblende score and
+quote), `NEWS` (front pages in New Musical Excess or Melody Faker, each with an `era` decade, and `down: true` for the
+ones that follow a strike), `STATIONS` (rung 3) and `DEZ`. The same rules as descriptions, plus:
+
+- Everything happens to the player's band. Famous moments are nods ("a megastar's messiah routine at the awards"),
+  never real people by name, and nothing about real tragedies, violence or illness.
+- Facts in a nod should still be right (the weekly really did give away the C86 tape).
+- Ids are saved in players' Bootleg Archives: add new ones at the end and never rename or reuse an id.
+- Melody Faker closed in 2000 (it's a nod), so front pages from the 2000s on are always New Musical Excess.
 
 ## Rules for good descriptions
 

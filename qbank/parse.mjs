@@ -58,7 +58,8 @@ export function parseDays(dir) {
 //   D: Flat bike tyre on a hill, nothing to wear, a stranger offers a lift
 //   S: This Charming Man | The Smiths | 1983 | 1234567890 | 1
 //
-// TOUR: is id | name | the festival you headline at the end | a one-line blurb.
+// TOUR: is id | name | the festival you headline at the end | a one-line blurb | (optional) the decades its
+// music news comes from, e.g. "1980s 1970s" (otherwise the decades most of its songs come from).
 // S: is titles | artist | year | Apple track id | cred tier (1 a hit, 2 a fan favourite, 3 a deep cut,
 // -1 too mainstream: getting it right costs cred).
 export function parseTours(dir) {
@@ -75,8 +76,8 @@ export function parseTours(dir) {
       const t = ln.match(/^TOUR:\s*(.*)$/);
       if (t) {
         const p = t[1].split('|').map((x) => x.trim());
-        if (p.length !== 4) { problems.push(`${where}: TOUR line needs 4 parts (id | name | festival | blurb)`); return; }
-        cur = { id: p[0], name: p[1], fest: p[2], blurb: p[3], songs: [], where };
+        if (p.length !== 4 && p.length !== 5) { problems.push(`${where}: TOUR line needs 4 or 5 parts (id | name | festival | blurb | news decades)`); return; }
+        cur = { id: p[0], name: p[1], fest: p[2], blurb: p[3], news: (p[4] || '').split(/[\s,]+/).filter(Boolean), songs: [], where };
         tours.push(cur);
         return;
       }

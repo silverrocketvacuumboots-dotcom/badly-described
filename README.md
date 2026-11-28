@@ -60,15 +60,27 @@ node qbank/apple.mjs check                                        # check every 
 
 ## Tour mode (beta)
 
-Tour mode lives at `/tour` (https://badly-described.theshedd.workers.dev/tour). Nothing links to it yet: add a link
-in `public/index.html` when it's ready to go public.
+Tour mode lives at `/tour` (https://badly-described.theshedd.workers.dev/tour), linked from the daily page's home
+screen ("Tour mode (beta)").
 
 Pick a tour, then climb 12 rungs from busking to headlining that tour's festival, one badly described song at a
 time. Three misses and the band splits, announced on Music News; then you get back in the van and try again.
 Fans and Cred build up across every run. The songs get deeper the higher you climb.
 
+Along the way:
+
+- **Rung 3** is a live session on a small, famous station (RTR FM, FBi Radio, 4ZZZ, 3RRR, KEXP, KROQ, WFMU, KCRW, NTS),
+  using the name it had in the tour's era (KCMU before KEXP).
+- **Dez**, behind the counter at Second Pressings Records, has an opinion on every song.
+- **The road:** after rungs 2, 5, 8 and 11 there's a chance of a legendary night (reviewed by Pitchblende) or a front
+  page in one of the music weeklies, New Musical Excess and Melody Faker: news from the tour's decades with your band
+  in the story. After the first strike there's a chance of a famous flop. Each one goes in the Bootleg Archive.
+- **The best new band in Britain:** the weeklies crown you after rungs 1, 4, 7 and 10 and on every front page, with a
+  strapline that gets more desperate each time.
+
 ```
-public/tour.html      the page: tours, runs, the spinning telly, the theme song
+public/tour.html      the page: tours, runs, the spinning telly, the theme song, and the lore: EVENTS (Pitchblende),
+                      NEWS (front pages), STATIONS (radio sessions), DEZ (the record shop)
 public/tours.js       each tour's descriptions, hints and cred tiers, no answers (built from qbank/tours/)
 src/tourbank.js       the tour answers, kept on the server (also built)
 qbank/tours/*.txt     one tour per file, listed in file-name order
@@ -77,9 +89,11 @@ qbank/tours/*.txt     one tour per file, listed in file-name order
 Tour mode stores nothing on the server: `/api/tour/guess` checks a title and `/api/tour/reveal` shows a missed song.
 Progress lives in the player's browser. To add songs or a whole tour, see `qbank/WRITING.md`.
 
-The hosts, shows, channel and events are all made-up parodies. Keep it that way: nods that people in the know will
-get, not real logos, footage or likenesses, nothing about real tragedies, and no invented incidents pinned on real,
-named people.
+The hosts, shows, channel, papers and events are all made-up parodies. Keep it that way: nods that people in the know
+will get, not real logos, footage or likenesses, nothing about real tragedies, and no invented incidents pinned on
+real, named people. Everything that happens, happens to the player's band. Real radio stations appear only as places
+the band plays a session. Event ids are saved in players' archives, so never rename or reuse one; add new events at
+the end of `EVENTS` or `NEWS`.
 
 ## Try it on your own computer
 
